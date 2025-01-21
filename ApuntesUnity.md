@@ -39,7 +39,20 @@ Tras registrar una colision, buscamos un componente de ese objeto (other):
 ~~~
 other.gameObject.tag == "Player";
 ~~~
+## Animator
+1. Creamos un Animator Controller y se lo asignamos al COMP Animator del objeto
+2. Creamos un script para controlar las animaciones 
+~~~C#
+Animator animator;
+void Start() {
+    animator = GetComponent<Animator>();
+}
 
+void Update() {
+    float speed = Input.GetAxis("Vertical");
+    animator.SetFloat("Speed", speed);
+}
+~~~
 
 ## SerializeField 
 - [SerializeField] Para permitir modificarlo desde la UI de Unity
