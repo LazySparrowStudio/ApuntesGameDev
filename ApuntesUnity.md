@@ -1,3 +1,11 @@
+# Programacion
+
+## Classes and Namespaces
+- Encapsulated code. What the code can see, change or be changed by
+
+## Methods
+- Encapsulated code, member of a class and can be introduced with parametres
+
 # Mecanicas
 
 ## Movimiento:
