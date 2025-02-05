@@ -1,12 +1,16 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SpawnNodes : MonoBehaviour
 {
-    [SerializeField] int numToSpawn = 28;
-    [SerializeField] public float spawnOffset = 0.255f;
+    
+    [SerializeField] int numToSpawn;
+    [SerializeField] public float spawnOffset;
     public float currentSpawnOffset;
     void Start()
     {
+        /*gameObject.name = "Node";
+        return;
         if (gameObject.name == "Node")
         {
             currentSpawnOffset = spawnOffset;
@@ -17,6 +21,7 @@ public class SpawnNodes : MonoBehaviour
                 currentSpawnOffset += spawnOffset;
             }
         }
+        */
     }
 
     void Update()
