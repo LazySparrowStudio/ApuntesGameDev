@@ -10,6 +10,20 @@
 ## Methods
 - Encapsulated code, member of a class and can be introduced with parametres
 
+## Post Processing
+- Volume component - Volumen en el que se va a aplicar el procesado
+
+## Invoke 
+- Call a method withing x seconds
+~~~C#
+Invoke("MethodName", delayInSeconds);
+~~~
+
+## Entrada
+
+
+# VR
+
 # Mecanicas
 
 ## Movimiento:
@@ -49,6 +63,18 @@
         b = target, position to move towards
         c = maxDistanceDelta, distance to move each time
 6. Usar un InputAction para asociar entradas
+7. Pulsar una tecla. el .xKey hace referencia a que tecla
+~~~C#
+Keyboard.current.lKey.isPressed
+Keyboard.current.lKey.wasPressedThisFrame
+~~~
+La 2ª entrada solo comprueba 1 vez
+8. Oscilaciones:
+~~~C#
+    - factorMovimiento = Mathf.PingPong(Time.time * speed, 1f); 
+    - Vector3.Lerp(posicionInicial, posicionFinal, factorMovimiento); 
+~~~
+    - Objeto se mueve de punto A a punto B de forma progresiva 
 
 ## Salto:
 - Comprobar suelo:  collider o Physics.Raycast/Collider.IsTouchingLayers
@@ -73,7 +99,14 @@ other.gameObject.tag == "Player";
 ~~~
 
 ## Audio
-Necesitamos una fuente (Audio Source) y un receptor (Audio Listener)
+- Necesitamos una fuente (Audio Source) y un receptor (Audio Listener)
+- Reproducir audio por codigo. AudioSource es el componente de Unity y AudioClip el propio archivo a reproducir 
+~~~C#
+[SerializedField] audioFile;
+AudioSource audiosource;
+audioSource.PlayOneShot(audioFile);
+~~~
+
 ## Animator
 1. Creamos un Animator Controller y se lo asignamos al COMP Animator del objeto
 2. Creamos un script para controlar las animaciones 
@@ -110,3 +143,18 @@ GetComponent<>().material.color = Color.black;
 ## Order of execution
 - [UnityDOC](https://docs.unity3d.com/Manual/execution-order.html)
 
+## Graphic Settings
+- Project Settings --> Player --> Default Icon & Default Cursor
+
+## Particules
+- Añadir componente Particle System
+## Scenes
+ - File - BuildProfiles -> There we have a list(index) of the diff scenes 
+ - Scene max value --> SceneManager.sceneCountInBuildSettings
+
+## Build & Share
+- File - Build Profiles - "Seleccionar la plataforma en la que exportar" - Build
+# Design Tips
+ - Design "moments" and then expand them into a level. 
+
+ 
