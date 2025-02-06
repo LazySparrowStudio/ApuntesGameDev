@@ -108,10 +108,12 @@ audioSource.PlayOneShot(audioFile);
 ~~~
 
 ## Animator
+- Ventana Animation - Con FileAnimation (.anim) ya creado, seleccionamos los sprites que necesitemos y los vamos colocando en la timeline para hacer la animacion que necesitemos.
 1. Creamos un Animator Controller y se lo asignamos al COMP Animator del objeto
 2. Creamos un script para controlar las animaciones 
 ~~~C#
 Animator animator;
+SpriteRenderer sprite;
 void Start() {
     animator = GetComponent<Animator>();
 }
@@ -120,6 +122,19 @@ void Update() {
     float speed = Input.GetAxis("Vertical");
     animator.SetFloat("Speed", speed);
 }
+
+~~~
+
+- Ventana Animator - Set as layer default state - para animacion base
+- Añadimos transicciones, parametros y condiciones desde el propio entorno
+- En el inspector, marcar Has Exit Time para que las animaciones tengan un fin
+- Dependiendo de la animacion (2D) podemos usar la mitad de las direcciones girando los sprites - sprite.flipX = true|| sprite.flipY = true; 
+
+~~~C#
+SpriteRenderer sprite;
+sprite.flipX = true;
+sprite.flipY = true; 
+
 ~~~
 
 ## SerializeField 
