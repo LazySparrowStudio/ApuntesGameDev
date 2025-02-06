@@ -28,7 +28,7 @@ public class NodeController : MonoBehaviour
     Gizmos.DrawLine(transform.position, transform.position + Vector3.up * rayDistace);
     Gizmos.DrawLine(transform.position, transform.position + Vector3.right * rayDistace);
     Gizmos.DrawLine(transform.position, transform.position + Vector3.left * rayDistace);
-}*/
+}*/  
     private void PelletRayCast()
     {
         int pelletLayer = LayerMask.GetMask("Node");
@@ -91,7 +91,8 @@ public class NodeController : MonoBehaviour
             }
         }
     }
-
+    public bool isWarpRightNode = false;
+    public bool isWarpLeftNode = false;
     public GameObject GetNodeFromDirection (string direction)
     {
         if (direction == "left" && canMoveLeft)
@@ -104,12 +105,12 @@ public class NodeController : MonoBehaviour
             return nodeRight;
         }
 
-        else  if (direction == "Up" && canMoveUp)
+        else  if (direction == "up" && canMoveUp)
         {
             return nodeUp;
         }
 
-        else if (direction == "Down" && canMoveDown)
+        else if (direction == "down" && canMoveDown)
         {
             return nodeDown;
         }else return null;
