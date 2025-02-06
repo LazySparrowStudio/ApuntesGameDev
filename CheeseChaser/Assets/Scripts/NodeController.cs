@@ -11,10 +11,29 @@ public class NodeController : MonoBehaviour
     public GameObject nodeRight;
     public GameObject nodeUp;
     public GameObject nodeDown;
-    void Start()
+
+    public SpriteRenderer pelletSprite;
+    public GameManager gameManager;
+    public bool isWarpRightNode = false;
+    public bool isWarpLeftNode = false;
+    
+    //If the node contains a pellet when the game starts
+    public bool isPelletNode = false;
+
+    //If the node still has a pellet
+    public bool hasPellet = false;
+    void Awake()
     {
         PelletRayCast();
 
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (transform.childCount > 0)
+        {
+            hasPellet = true;
+            isPelletNode = true;
+            pelletSprite = GetComponentInChildren<SpriteRenderer>();
+        }
      //   OnDrawGizmos();
        
     }
@@ -91,8 +110,7 @@ public class NodeController : MonoBehaviour
             }
         }
     }
-    public bool isWarpRightNode = false;
-    public bool isWarpLeftNode = false;
+
     public GameObject GetNodeFromDirection (string direction)
     {
         if (direction == "left" && canMoveLeft)
@@ -114,5 +132,15 @@ public class NodeController : MonoBehaviour
         {
             return nodeDown;
         }else return null;
+    }
+
+    private void OnTriggerEnter2D (Collider2D collision)
+    {
+        if (collision.tag == "Player"  && hasPellet)
+        {
+            hasPellet = false;
+            pelletSprite.enabled = false;
+            gameManager.CollectedPellet(this);
+        }
     }
 }
