@@ -7414,7 +7414,7 @@ GameObject:
   - component: {fileID: 297096991}
   m_Layer: 7
   m_Name: Left
-  m_TagString: Node
+  m_TagString: GhostNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14746,7 +14746,7 @@ GameObject:
   - component: {fileID: 546041828}
   m_Layer: 7
   m_Name: Center
-  m_TagString: Node
+  m_TagString: GhostNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16794,7 +16794,7 @@ GameObject:
   - component: {fileID: 630267878}
   m_Layer: 6
   m_Name: Start
-  m_TagString: Node
+  m_TagString: GhostNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19067,6 +19067,7 @@ GameObject:
   - component: {fileID: 692649889}
   - component: {fileID: 692649890}
   - component: {fileID: 692649888}
+  - component: {fileID: 692649891}
   m_Layer: 0
   m_Name: Red
   m_TagString: Enemy
@@ -19158,13 +19159,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostNodeState: 0
-  ghostType: 0
+  ghostType: 3
   ghostNodeLeft: {fileID: 297096990}
   ghostNodeRight: {fileID: 1313949105}
   ghostNodeCenter: {fileID: 546041827}
   ghostNodeStart: {fileID: 630267877}
   movementController: {fileID: 0}
   startingNode: {fileID: 0}
+  readyToLeaveHome: 0
+--- !u!114 &692649891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692649887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb5a543caedb50449e7f50c88c2fbd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentNode: {fileID: 0}
+  speed: 4
+  direction: 
+  lastMovingDirection: 
+  canWarp: 0
+  isGhost: 1
 --- !u!1 &692995146
 GameObject:
   m_ObjectHideFlags: 0
@@ -32821,6 +32842,7 @@ MonoBehaviour:
   direction: 
   lastMovingDirection: left
   canWarp: 0
+  isGhost: 0
 --- !u!114 &1177134932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38361,7 +38383,7 @@ GameObject:
   - component: {fileID: 1313949107}
   m_Layer: 7
   m_Name: Right
-  m_TagString: Node
+  m_TagString: GhostNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

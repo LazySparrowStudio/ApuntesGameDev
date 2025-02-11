@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         movementController = GetComponent<MovementController>();
+        movementController.lastMovingDirection = "left";
     }
 
     // Update is called once per frame
