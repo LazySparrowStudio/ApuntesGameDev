@@ -22,6 +22,7 @@ public class NodeController : MonoBehaviour
 
     //If the node still has a pellet
     public bool hasPellet = false;
+    public bool isGhostStartingNode = false;
     void Awake()
     {
         PelletRayCast();
@@ -108,6 +109,12 @@ public class NodeController : MonoBehaviour
                 canMoveLeft = true;
                 nodeLeft = hitsLeft[i].collider.gameObject;
             }
+        }
+
+        if (isGhostStartingNode)
+        {
+            canMoveDown = true;
+            nodeDown = gameManager.ghostNodeCenter;
         }
     }
 

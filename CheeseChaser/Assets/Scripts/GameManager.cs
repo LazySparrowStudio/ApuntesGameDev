@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject pacman;
     public GameObject leftWarpNode;
     public GameObject rightWarpNode;
 
@@ -14,7 +15,17 @@ public class GameManager : MonoBehaviour
 
     public int score;
     public Text scoreText;
-    void Awake(){
+
+    public GameObject ghostNodeLeft;
+    public GameObject ghostNodeRight;
+    public GameObject ghostNodeCenter;
+    public GameObject ghostNodeStart;
+    
+    void Awake()
+    {
+        
+        ghostNodeStart.GetComponent<NodeController>().isGhostStartingNode = true;
+        pacman = GameObject.Find("Player");
         
         score = 0;
         currentMunch = 0;
