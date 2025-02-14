@@ -20,10 +20,18 @@ public class GameManager : MonoBehaviour
     public GameObject ghostNodeRight;
     public GameObject ghostNodeCenter;
     public GameObject ghostNodeStart;
-    
+
+    public enum GhostMode 
+    {
+        chase,
+        scatter
+    }    
+
+    public GhostMode currentGhostMode;
     void Awake()
     {
         
+        currentGhostMode = GhostMode.chase;
         ghostNodeStart.GetComponent<NodeController>().isGhostStartingNode = true;
         pacman = GameObject.Find("Player");
         

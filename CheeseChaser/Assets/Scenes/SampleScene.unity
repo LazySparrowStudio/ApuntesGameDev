@@ -4226,6 +4226,7 @@ Transform:
   - {fileID: 1242598898}
   - {fileID: 1860591742}
   - {fileID: 1022561059}
+  - {fileID: 476252302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &181147046
@@ -12802,6 +12803,41 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.078, y: 0.078}
   m_EdgeRadius: 0
+--- !u!1 &476252301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 476252302}
+  m_Layer: 0
+  m_Name: ScatterNodesRed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &476252302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476252301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1766461370}
+  - {fileID: 1884853245}
+  - {fileID: 1962193311}
+  - {fileID: 1894397301}
+  m_Father: {fileID: 178874964}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481640320
 GameObject:
   m_ObjectHideFlags: 0
@@ -19278,6 +19314,13 @@ MonoBehaviour:
   movementController: {fileID: 0}
   readyToLeaveHome: 0
   testRespawn: 0
+  isFrightened: 0
+  scatterNodes:
+  - {fileID: 1766461369}
+  - {fileID: 1884853244}
+  - {fileID: 1962193310}
+  - {fileID: 1894397300}
+  scatterNodeIndex: 0
 --- !u!114 &692649891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31572,11 +31615,9 @@ Transform:
   - {fileID: 1522762948}
   - {fileID: 680206060}
   - {fileID: 345409735}
-  - {fileID: 1894397301}
   - {fileID: 1759468591}
   - {fileID: 464838923}
   - {fileID: 699371408}
-  - {fileID: 1962193311}
   - {fileID: 1306895078}
   - {fileID: 1242499498}
   - {fileID: 838012033}
@@ -31620,11 +31661,9 @@ Transform:
   - {fileID: 2038250468}
   - {fileID: 799815912}
   - {fileID: 679990154}
-  - {fileID: 1766461370}
   - {fileID: 1080411539}
   - {fileID: 1701037793}
   - {fileID: 2053632081}
-  - {fileID: 1884853245}
   - {fileID: 171999608}
   - {fileID: 1299602109}
   - {fileID: 1657239375}
@@ -37804,6 +37843,7 @@ MonoBehaviour:
   ghostNodeRight: {fileID: 1313949105}
   ghostNodeCenter: {fileID: 546041827}
   ghostNodeStart: {fileID: 67345511}
+  currentGhostMode: 0
 --- !u!4 &1302116628
 Transform:
   m_ObjectHideFlags: 0
@@ -49921,7 +49961,7 @@ GameObject:
   - component: {fileID: 1766461372}
   - component: {fileID: 1766461371}
   m_Layer: 6
-  m_Name: Node
+  m_Name: 1
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49941,7 +49981,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 308645844}
-  m_Father: {fileID: 1137413187}
+  m_Father: {fileID: 476252302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1766461371
 MonoBehaviour:
@@ -52868,7 +52908,7 @@ GameObject:
   - component: {fileID: 1884853247}
   - component: {fileID: 1884853246}
   m_Layer: 6
-  m_Name: Node
+  m_Name: 2
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52888,7 +52928,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 251960091}
-  m_Father: {fileID: 1137413187}
+  m_Father: {fileID: 476252302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1884853246
 MonoBehaviour:
@@ -53449,7 +53489,7 @@ GameObject:
   - component: {fileID: 1894397303}
   - component: {fileID: 1894397302}
   m_Layer: 6
-  m_Name: Node
+  m_Name: 4
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53469,7 +53509,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1282023747}
-  m_Father: {fileID: 1137413187}
+  m_Father: {fileID: 476252302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1894397302
 MonoBehaviour:
@@ -54933,7 +54973,7 @@ GameObject:
   - component: {fileID: 1962193313}
   - component: {fileID: 1962193312}
   m_Layer: 6
-  m_Name: Node
+  m_Name: 3
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54953,7 +54993,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1183099559}
-  m_Father: {fileID: 1137413187}
+  m_Father: {fileID: 476252302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1962193312
 MonoBehaviour:
