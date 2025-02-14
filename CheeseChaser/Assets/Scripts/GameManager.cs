@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         
     }  
 
+
     public void AddToScore(int amount)
     {
         score += amount;

@@ -16,7 +16,7 @@ public class NodeController : MonoBehaviour
     public GameManager gameManager;
     public bool isWarpRightNode = false;
     public bool isWarpLeftNode = false;
-    
+
     //If the node contains a pellet when the game starts
     public bool isPelletNode = false;
 
@@ -25,7 +25,7 @@ public class NodeController : MonoBehaviour
     public bool isGhostStartingNode = false;
     void Awake()
     {
-        PelletRayCast();
+
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -35,79 +35,88 @@ public class NodeController : MonoBehaviour
             isPelletNode = true;
             pelletSprite = GetComponentInChildren<SpriteRenderer>();
         }
-     //   OnDrawGizmos();
-       
+        //   OnDrawGizmos();
+
+    }
+
+    void Start()
+    {
+        PelletRayCast();
+        //   OnDrawGizmos();
+
     }
 
     //Visualizar RayCast
-   /* void OnDrawGizmos()
-{
-    float rayDistace = 0.26f;
-    Gizmos.color = Color.red;
-    Gizmos.DrawLine(transform.position, transform.position + Vector3.down * rayDistace);
-    Gizmos.DrawLine(transform.position, transform.position + Vector3.up * rayDistace);
-    Gizmos.DrawLine(transform.position, transform.position + Vector3.right * rayDistace);
-    Gizmos.DrawLine(transform.position, transform.position + Vector3.left * rayDistace);
-}*/  
+    // void OnDrawGizmos()
+    // {
+    //     float rayDistace = 0.26f;
+
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawLine(transform.position, transform.position + Vector3.down * rayDistace);
+    //     Gizmos.DrawLine(transform.position, transform.position + Vector3.up * rayDistace);
+    //     Gizmos.DrawLine(transform.position, transform.position + Vector3.right * rayDistace);
+    //     Gizmos.DrawLine(transform.position, transform.position + Vector3.left * rayDistace);
+    // }
     private void PelletRayCast()
     {
         int pelletLayer = LayerMask.GetMask("Node");
         float rayDistace = 0.3f;
-        RaycastHit2D[] hitsDown;
-        RaycastHit2D[] hitsUp;
-        RaycastHit2D[] hitsRight;
-        RaycastHit2D[] hitsLeft;
 
-        //Shoot raycast going DOWN
-        hitsDown = Physics2D.RaycastAll(transform.position, Vector2.down, rayDistace, pelletLayer);
+        // Initialize variables to store the closest nodes
+        float closestDistanceDown = float.MaxValue;
+        float closestDistanceUp = float.MaxValue;
+        float closestDistanceRight = float.MaxValue;
+        float closestDistanceLeft = float.MaxValue;
 
-        // Loop through the gameobjects that the raycast hits
-        for (int i = 0; i < hitsDown.Length; i++)
+        // Shoot raycast going DOWN
+        RaycastHit2D[] hitsDown = Physics2D.RaycastAll(transform.position, Vector2.down, rayDistace, pelletLayer);
+        foreach (var hit in hitsDown)
         {
-            float distance = Mathf.Abs(hitsDown[i].point.y - transform.position.y);
-            if (distance < rayDistace)
+            float distance = Mathf.Abs(hit.point.y - transform.position.y);
+            if (distance < closestDistanceDown)
             {
+                closestDistanceDown = distance;
                 canMoveDown = true;
-                nodeDown = hitsDown[i].collider.gameObject;
+                nodeDown = hit.collider.gameObject;
             }
         }
-         //Shoot raycast going UP
-        hitsUp = Physics2D.RaycastAll(transform.position, Vector2.up, rayDistace, pelletLayer);
 
-        // Loop through the gameobjects that the raycast hits
-        for (int i = 0; i < hitsUp.Length; i++)
+        // Shoot raycast going UP
+        RaycastHit2D[] hitsUp = Physics2D.RaycastAll(transform.position, Vector2.up, rayDistace, pelletLayer);
+        foreach (var hit in hitsUp)
         {
-            float distance = Mathf.Abs(hitsUp[i].point.y - transform.position.y);
-            if (distance < rayDistace)
+            float distance = Mathf.Abs(hit.point.y - transform.position.y);
+            if (distance < closestDistanceUp)
             {
+                closestDistanceUp = distance;
                 canMoveUp = true;
-                nodeUp = hitsUp[i].collider.gameObject;
+                nodeUp = hit.collider.gameObject;
             }
         }
-         //Shoot raycast going RIGHT
-        hitsRight = Physics2D.RaycastAll(transform.position, Vector2.right, rayDistace, pelletLayer);
 
-        // Loop through the gameobjects that the raycast hits
-        for (int i = 0; i < hitsRight.Length; i++)
+        // Shoot raycast going RIGHT
+        RaycastHit2D[] hitsRight = Physics2D.RaycastAll(transform.position, Vector2.right, rayDistace, pelletLayer);
+        foreach (var hit in hitsRight)
         {
-            float distance = Mathf.Abs(hitsRight[i].point.x - transform.position.x);
-            if (distance < rayDistace)
+            float distance = Mathf.Abs(hit.point.x - transform.position.x);
+            if (distance < closestDistanceRight)
             {
+                closestDistanceRight = distance;
                 canMoveRight = true;
-                nodeRight = hitsRight[i].collider.gameObject;
+                nodeRight = hit.collider.gameObject;
             }
         }
-         //Shoot raycast going LEFT
-        hitsLeft = Physics2D.RaycastAll(transform.position, -Vector2.right, rayDistace, pelletLayer);
 
-        // Loop through the gameobjects that the raycast hits
-        for (int i = 0; i < hitsLeft.Length; i++)
+        // Shoot raycast going LEFT
+        RaycastHit2D[] hitsLeft = Physics2D.RaycastAll(transform.position, Vector2.left, rayDistace, pelletLayer);
+        foreach (var hit in hitsLeft)
         {
-            float distance = Mathf.Abs(hitsLeft[i].point.x - transform.position.x);
-            if (distance < rayDistace)
+            float distance = Mathf.Abs(hit.point.x - transform.position.x);
+            if (distance < closestDistanceLeft)
             {
+                closestDistanceLeft = distance;
                 canMoveLeft = true;
-                nodeLeft = hitsLeft[i].collider.gameObject;
+                nodeLeft = hit.collider.gameObject;
             }
         }
 
@@ -118,7 +127,7 @@ public class NodeController : MonoBehaviour
         }
     }
 
-    public GameObject GetNodeFromDirection (string direction)
+    public GameObject GetNodeFromDirection(string direction)
     {
         if (direction == "left" && canMoveLeft)
         {
@@ -130,7 +139,7 @@ public class NodeController : MonoBehaviour
             return nodeRight;
         }
 
-        else  if (direction == "up" && canMoveUp)
+        else if (direction == "up" && canMoveUp)
         {
             return nodeUp;
         }
@@ -138,12 +147,13 @@ public class NodeController : MonoBehaviour
         else if (direction == "down" && canMoveDown)
         {
             return nodeDown;
-        }else return null;
+        }
+        else return null;
     }
 
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player"  && hasPellet)
+        if (collision.tag == "Player" && hasPellet)
         {
             hasPellet = false;
             pelletSprite.enabled = false;

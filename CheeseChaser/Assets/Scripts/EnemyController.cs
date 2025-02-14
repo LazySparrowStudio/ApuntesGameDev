@@ -25,30 +25,29 @@ public class EnemyController : MonoBehaviour
     }
 
     public GhostType ghostType;
-    
-
     public GameObject ghostNodeLeft;
     public GameObject ghostNodeRight;
     public GameObject ghostNodeCenter;
     public GameObject ghostNodeStart;
     public GameObject startingNode;
+    public GameManager gameManager;
 
     public MovementController movementController;
-    
+
     public bool readyToLeaveHome = false;
 
-    public GameManager gameManager;
+
     public bool testRespawn = false;
     void Awake()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); 
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         movementController = GetComponent<MovementController>();
         if (ghostType == GhostType.red)
         {
             ghostNodeState = GhostNodeStateEnum.startNode;
             respawnState = GhostNodeStateEnum.centerNode;
             startingNode = ghostNodeStart;
-            readyToLeaveHome = false;
+            readyToLeaveHome = true;
         }
         else if (ghostType == GhostType.pink)
         {
@@ -89,22 +88,26 @@ public class EnemyController : MonoBehaviour
     {
         if (ghostNodeState == GhostNodeStateEnum.movingInNodes)
         {
-        // Determine next game node to go
+            // Determine next game node to go
 
             if (ghostType == GhostType.red)
             {
                 DetermineRedGhostDirection();
             }
 
-        }else if (ghostNodeState == GhostNodeStateEnum.respawning )
+        }
+        else if (ghostNodeState == GhostNodeStateEnum.respawning)
         {
             string direction = "";
             // We have reached out start node, move to the center node
-            if (transform.position.x == ghostNodeStart.transform.position.x && transform.position.y == ghostNodeStart.transform.position.y )
+            float epsilon = 0.1f;
+            if (transform.position.x == ghostNodeStart.transform.position.x &&
+                Mathf.Abs(transform.position.y - ghostNodeStart.transform.position.y) < epsilon)
             {
-                
+
                 direction = "down";
-                
+                movementController.SetDirection(direction);
+
             }
 
             // We have reached out center node, respawn or moved to the center node
@@ -122,10 +125,10 @@ public class EnemyController : MonoBehaviour
                 {
                     direction = "right";
                 }
-                
+
             }
             // If our respawn state is either the left or right node, and we got to that node, leave home again
-            else if 
+            else if
             ((transform.position.x == ghostNodeLeft.transform.position.x && transform.position.y == ghostNodeLeft.transform.position.y)
             || (transform.position.x == ghostNodeRight.transform.position.x && transform.position.y == ghostNodeRight.transform.position.y
             ))
@@ -135,14 +138,15 @@ public class EnemyController : MonoBehaviour
             //We are in the gameboard still, locate our start node
             else
             {
-                 // Determine quickest direct to home   
-            direction = GetClosestDirection(ghostNodeStart.transform.position);
-            movementController.SetDirection(direction);
+                // Determine quickest direct to home   
+                direction = GetClosestDirection(ghostNodeStart.transform.position);
+                movementController.SetDirection(direction);
             }
-        
 
-        }else
-            {
+
+        }
+        else
+        {
             //If we are ready to leave our home
             if (readyToLeaveHome)
             {
@@ -164,13 +168,13 @@ public class EnemyController : MonoBehaviour
                     ghostNodeState = GhostNodeStateEnum.startNode;
                     movementController.SetDirection("up");
                 }
-                 //If we are in the start node, start moving around in the game
+                //If we are in the start node, start moving around in the game
                 else if (ghostNodeState == GhostNodeStateEnum.startNode)
                 {
                     ghostNodeState = GhostNodeStateEnum.movingInNodes;
                     movementController.SetDirection("left");
                 }
-               
+
             }
         }
     }
@@ -196,17 +200,17 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    string  GetClosestDirection(Vector2 target)
+    string GetClosestDirection(Vector2 target)
     {
         float shortestDistance = 0;
         string lastMovingDirection = movementController.lastMovingDirection;
         string newDirection = "";
         NodeController nodeController = movementController.currentNode.GetComponent<NodeController>();
 
-         // IF we can move and and we aren´t reversing
+        // IF we can move and and we aren´t reversing
 
-         //UP
-        if(nodeController.canMoveUp && lastMovingDirection != "down")
+        //UP
+        if (nodeController.canMoveUp && lastMovingDirection != "down")
         {
             //Get the node above us
             GameObject nodeUp = nodeController.nodeUp;
@@ -215,7 +219,7 @@ public class EnemyController : MonoBehaviour
             float distance = Vector2.Distance(nodeUp.transform.position, target);
 
             //If this is the shortes distance so far, set our direction
-            if(distance < shortestDistance || shortestDistance == 0)
+            if (distance < shortestDistance || shortestDistance == 0)
             {
                 shortestDistance = distance;
                 newDirection = "up";
@@ -224,7 +228,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //DOWN
-        if(nodeController.canMoveDown && lastMovingDirection != "up")
+        if (nodeController.canMoveDown && lastMovingDirection != "up")
         {
             //Get the node below us
             GameObject nodeDown = nodeController.nodeDown;
@@ -233,7 +237,7 @@ public class EnemyController : MonoBehaviour
             float distance = Vector2.Distance(nodeDown.transform.position, target);
 
             //If this is the shortes distance so far, set our direction
-            if(distance < shortestDistance || shortestDistance == 0)
+            if (distance < shortestDistance || shortestDistance == 0)
             {
                 shortestDistance = distance;
                 newDirection = "down";
@@ -242,7 +246,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //RIGHT
-        if(nodeController.canMoveRight && lastMovingDirection != "left")
+        if (nodeController.canMoveRight && lastMovingDirection != "left")
         {
             //Get the node above us
             GameObject nodeRight = nodeController.nodeRight;
@@ -251,7 +255,7 @@ public class EnemyController : MonoBehaviour
             float distance = Vector2.Distance(nodeRight.transform.position, target);
 
             //If this is the shortes distance so far, set our direction
-            if(distance < shortestDistance || shortestDistance == 0)
+            if (distance < shortestDistance || shortestDistance == 0)
             {
                 shortestDistance = distance;
                 newDirection = "right";
@@ -260,7 +264,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //LEFT
-        if(nodeController.canMoveLeft && lastMovingDirection != "right")
+        if (nodeController.canMoveLeft && lastMovingDirection != "right")
         {
             //Get the node above us
             GameObject nodeLeft = nodeController.nodeLeft;
@@ -269,15 +273,15 @@ public class EnemyController : MonoBehaviour
             float distance = Vector2.Distance(nodeLeft.transform.position, target);
 
             //If this is the shortes distance so far, set our direction
-            if(distance < shortestDistance || shortestDistance == 0)
+            if (distance < shortestDistance || shortestDistance == 0)
             {
                 shortestDistance = distance;
                 newDirection = "left";
 
             }
         }
-        
+
         return newDirection;
-        
+
     }
 }
