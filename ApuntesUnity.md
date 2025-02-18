@@ -23,7 +23,44 @@ Invoke("MethodName", delayInSeconds);
 
 
 # VR
+ ## Unity Quest 2 setup
+ "*" For no tested
+- *Build Setting to Android
+- Package Manager - Install XR Plugin Management and Oculus XR plugin
+- Project Settings - XR Plugin Management -> Check Oculus option 
+// Hay que añadir unos objetos de los samples que no tengo muy claro
+- Finalmente añadir a la escena un XR Origin
 
+- Baseinteractable - Clase de la que derivan los interactables. Tienen los eventos del Grab sin que esten asociados directamente
+- 
+
+## Agarrar
+
+- XR Grab Interactable:
+    - Attach Transform -> Gizmo por el que queremos agarrar el objeto. Hacemos un objeto hijo del main y lo usamos como Attach Object.
+    - Interactable Events -> Lista de acciones asociadas a todos los botones de los mandos:
+        
+        - Select : Gatillo trasero 
+
+private void SelectEnteredListener(SelectEnterEventArgs args)
+XrBaseInteractor interactor = (XRBaseInteractor)args.interactorObject;
+InteractorIdentifier ii= interactor.GetComponent<InteractorIdentifier>();
+
+public void HoverEntered (HoverEnterEventArgs args)
+{
+    if(interactor is XRSocketInteractor){
+        ToogleHoverMaterial(true);
+    }
+}
+
+public void HoverExit (HoverExitEventArgs args)
+{
+    if(interactor is XRSocketInteractor){
+        ToogleHoverMaterial(false);
+    }
+}
+
+cosas a mirar. El obradoiro esta para mirar que interactables estan interaccionando con que y colocamiento de sockets.
 # Mecanicas
 
 ## Movimiento:
@@ -56,7 +93,7 @@ Invoke("MethodName", delayInSeconds);
     ~~~
 2. Traslación (transform.Translate)
 3. Físicas (Rigidbody.velocity, Rigidbody.AddForce)
-4. Rotaciones : transform.Rotate();
+4. Rotaciones : transform.Rotate(); EulerRotations;
 5. Metodo de Vector3,moverse hacia un punto especifico: 
     MoveTowards(a,b,c)
         a = current, position de move from
@@ -155,6 +192,15 @@ GetComponent<>().material.color = Color.black;
 - Copias de un objeto como estancias
 - Cambios sobre un prefab pueder overridear el resto de instancias que se encuentren en el estado puro de ese prefab
 
+~~~C#
+GameObject bylletPrefab;
+
+if (Input.GetKeyDown(KeyCode.Space))
+{
+    GameObject bullet = Instatiate 
+}
+~~~
+
 ## Order of execution
 - [UnityDOC](https://docs.unity3d.com/Manual/execution-order.html)
 
@@ -163,13 +209,16 @@ GetComponent<>().material.color = Color.black;
 
 ## Particules
 - Añadir componente Particle System
+
 ## Scenes
  - File - BuildProfiles -> There we have a list(index) of the diff scenes 
  - Scene max value --> SceneManager.sceneCountInBuildSettings
 
 ## Build & Share
 - File - Build Profiles - "Seleccionar la plataforma en la que exportar" - Build
+
 # Design Tips
  - Design "moments" and then expand them into a level. 
 
  
+
