@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+
+
 public class EnemyController : MonoBehaviour
 {
     public enum GhostNodeStateEnum
@@ -86,6 +88,15 @@ public class EnemyController : MonoBehaviour
             readyToLeaveHome = true;
         }
 
+        if (movementController.currentNode.GetComponent<NodeController>().isSideNode == true)
+        {
+            movementController.SetSpeed(1f);
+        }
+        else 
+        {
+            movementController.SetSpeed(3f);
+        }
+
     }
 
     public void ReachedCenterofNode(NodeController nodeController)
@@ -107,6 +118,7 @@ public class EnemyController : MonoBehaviour
                 }
 
                 string direction = GetClosestDirection(scatterNodes[scatterNodeIndex].transform.position);
+                movementController.SetDirection(direction);
             }
             //Frightened mode
             else if (isFrightened)
@@ -116,9 +128,21 @@ public class EnemyController : MonoBehaviour
             //Chase Mode
             else 
             // Determine next game node to go
-            if (ghostType == GhostType.red)
+            if (ghostType == GhostType.red )
             {
                 DetermineRedGhostDirection();
+            }
+            else if (ghostType == GhostType.pink)
+            {
+                DeterminePinkGhostDirection();
+            }
+            else if (ghostType == GhostType.blue)
+            {
+                DetermineBlueGhostDirection();
+            }
+            else if (ghostType == GhostType.orange)
+            {
+                DetermineOrangeGhostDirection();
             }
 
         }
@@ -213,7 +237,14 @@ public class EnemyController : MonoBehaviour
 
     void DeterminePinkGhostDirection()
     {
+        string pacmanDirection = gameManager.pacman.GetComponent<MovementController>().lastMovingDirection;
+        float distanceBetweenNodes = 0.35f;
 
+        Vector2 target = gameManager.pacman.transform.position;
+        if (pacmanDirection == "left")
+        {
+            target.x = target.x - distanceBetweenNodes * 2;
+        }
     }
 
     void DetermineBlueGhostDirection()

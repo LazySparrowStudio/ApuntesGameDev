@@ -23,6 +23,7 @@ public class NodeController : MonoBehaviour
     //If the node still has a pellet
     public bool hasPellet = false;
     public bool isGhostStartingNode = false;
+    public bool isSideNode = false;
     void Awake()
     {
 

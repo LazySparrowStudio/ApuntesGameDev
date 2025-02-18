@@ -25,7 +25,7 @@ public class MovementController : MonoBehaviour
 
         bool reverseDirection = false;
 
-        if(direction == "left" && lastMovingDirection == "right"
+        if (direction == "left" && lastMovingDirection == "right"
         || direction == "right" && lastMovingDirection == "left"
         || direction == "up" && lastMovingDirection == "down"
         || direction == "down" && lastMovingDirection == "up")
@@ -42,7 +42,7 @@ public class MovementController : MonoBehaviour
 
             // If we reached the center of the left warp, warp to the right warp
             if (currentNodeController.isWarpLeftNode && canWarp)
-            {   
+            {
                 currentNode = gameManager.rightWarpNode;
                 direction = "left";
                 lastMovingDirection = "left";
@@ -63,14 +63,14 @@ public class MovementController : MonoBehaviour
             else
             {
                 //If we are not a ghost that is respawning, and we are on the start node, and we are trying to move down, stop
-                if(currentNodeController.isGhostStartingNode && direction == "down" 
+                if (currentNodeController.isGhostStartingNode && direction == "down"
                 && (!isGhost || GetComponent<EnemyController>().ghostNodeState != EnemyController.GhostNodeStateEnum.respawning))
                 {
                     direction = lastMovingDirection;
                 }
                 // Get the next node from out node controller using our current direction
                 GameObject newNode = currentNodeController.GetNodeFromDirection(direction);
-                
+
                 // If we can move in the desire direction
                 if (newNode != null)
                 {
@@ -82,25 +82,30 @@ public class MovementController : MonoBehaviour
                 {
                     direction = lastMovingDirection;
                     newNode = currentNodeController.GetNodeFromDirection(direction);
-                    if(newNode != null)
+                    if (newNode != null)
                     {
                         currentNode = newNode;
                     }
 
                 }
             }
-           
+
         }
         // We are not in the center of a node
-        else {
-           canWarp = true;
+        else
+        {
+            canWarp = true;
         }
     }
 
-        public void SetDirection (string newDirection)
-        {
-            direction = newDirection; 
-        }
-    
+    public void SetSpeed (float newSpeed)
+    {
+        speed = newSpeed;
+    }
+    public void SetDirection(string newDirection)
+    {
+        direction = newDirection;
+    }
+
 }
 
