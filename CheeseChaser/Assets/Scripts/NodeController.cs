@@ -24,6 +24,7 @@ public class NodeController : MonoBehaviour
     public bool hasPellet = false;
     public bool isGhostStartingNode = false;
     public bool isSideNode = false;
+
     void Awake()
     {
 
@@ -32,8 +33,8 @@ public class NodeController : MonoBehaviour
 
         if (transform.childCount > 0)
         {
-            gameManager.GotPelletFromNodeController();
-            hasPellet = true; 
+            gameManager.GotPelletFromNodeController(this);
+            hasPellet = true;
             isPelletNode = true;
             pelletSprite = GetComponentInChildren<SpriteRenderer>();
         }
@@ -129,6 +130,11 @@ public class NodeController : MonoBehaviour
         }
     }
 
+    public void RespawnPellet()
+    {
+        hasPellet = true;
+        pelletSprite.enabled = true;
+    }
     public GameObject GetNodeFromDirection(string direction)
     {
         if (direction == "left" && canMoveLeft)
