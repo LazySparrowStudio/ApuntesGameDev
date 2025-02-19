@@ -32,7 +32,8 @@ public class NodeController : MonoBehaviour
 
         if (transform.childCount > 0)
         {
-            hasPellet = true;
+            gameManager.GotPelletFromNodeController();
+            hasPellet = true; 
             isPelletNode = true;
             pelletSprite = GetComponentInChildren<SpriteRenderer>();
         }

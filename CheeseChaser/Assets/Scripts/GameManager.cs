@@ -26,29 +26,40 @@ public class GameManager : MonoBehaviour
     public GameObject blueGhost;
     public GameObject orangeGhost;
 
+    public int totalPellets;
+    public int pelletsLeft;
+    public int pelletsCollectedOnThisLife;
+    public bool hadDeathOnThisLevel = false;
 
 
-    public enum GhostMode 
+
+
+    public enum GhostMode
     {
         chase,
         scatter
-    }    
+    }
 
     public GhostMode currentGhostMode;
     void Awake()
     {
-        
+        pinkGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
         currentGhostMode = GhostMode.chase;
         ghostNodeStart.GetComponent<NodeController>().isGhostStartingNode = true;
         pacman = GameObject.Find("Player");
-        
+
         score = 0;
         currentMunch = 0;
         siren.Play();
-        
-    }  
+
+    }
 
 
+    public void GotPelletFromNodeController()
+    {
+        totalPellets++;
+        pelletsLeft++;
+    }
     public void AddToScore(int amount)
     {
         score += amount;
@@ -56,9 +67,10 @@ public class GameManager : MonoBehaviour
     }
     public void CollectedPellet(NodeController nodeController)
     {
-        if(currentMunch == 0)
+        if (currentMunch == 0)
         {
             munch1.Play();
+            currentMunch = 1;
         }
         else if (currentMunch == 1)
         {
@@ -66,6 +78,30 @@ public class GameManager : MonoBehaviour
             currentMunch = 0;
         }
 
+        pelletsLeft--;
+        pelletsCollectedOnThisLife++;
+
+        int requiredBluePellets = 0;
+        int requiredOrangePellets = 0;
+
+        if (hadDeathOnThisLevel)
+        {
+            requiredBluePellets = 12;
+            requiredOrangePellets = 32;
+        }
+        else
+        {
+            requiredBluePellets = 30;
+            requiredOrangePellets = 60;
+        }
+        if (pelletsCollectedOnThisLife >= requiredBluePellets && !blueGhost.GetComponent<EnemyController>().leftHomeBefore)
+        {
+            blueGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
+        }
+        if (pelletsCollectedOnThisLife >= requiredOrangePellets && !orangeGhost.GetComponent<EnemyController>().leftHomeBefore)
+        {
+            orangeGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
+        }
         AddToScore(10);
         //Add to our score
 
