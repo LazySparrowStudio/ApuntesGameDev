@@ -84,9 +84,25 @@ public class PlayerController : MonoBehaviour
 
     public void Setup()
     {
+        animator.SetBool("dead", false);
         movementController.currentNode = startNode;
+        movementController.direction = "left";
         movementController.lastMovingDirection = "left";
+        sprite.flipX = false;
         transform.position = startPosition;
+
+    }
+
+    public void Stop()
+    {
+        animator.speed = 0;
+    }
+
+    public void Death(){
+        
         animator.SetBool("moving", false);
+        animator.speed = 1;
+        animator.SetBool("dead", true);
+
     }
 }

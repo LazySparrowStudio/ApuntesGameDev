@@ -46,9 +46,12 @@ public class GameManager : MonoBehaviour
     public bool clearedLevel = false;
 
     public AudioSource startGameAudio;
+    public AudioSource deathSound;
 
     public int lives = 3;
     public int currentLevel = 1;
+    public Image blackBackground;
+    public Text gameOverText;
 
     public enum GhostMode
     {
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
     public GhostMode currentGhostMode;
     void Awake()
     {
+        blackBackground.enabled = false;
         newGame = true;
         clearedLevel = false;
 
@@ -70,22 +74,25 @@ public class GameManager : MonoBehaviour
         ghostNodeStart.GetComponent<NodeController>().isGhostStartingNode = true;
         pacman = GameObject.Find("Player");
 
-       
+
 
     }
     void Start()
     {
-         StartCoroutine(Setup());
+        StartCoroutine(Setup());
     }
 
     public IEnumerator Setup()
     {
+        gameOverText.enabled = false;
         //If player clears a level, a background will appear covering the level, and the game will pause for 0.1 seconds
         if (clearedLevel)
         {
+            blackBackground.enabled = true;
             //Activate the background
             yield return new WaitForSeconds(0.1f);
         }
+        blackBackground.enabled = false;
 
         pelletsCollectedOnThisLife = 0;
         currentGhostMode = GhostMode.scatter;
@@ -95,6 +102,7 @@ public class GameManager : MonoBehaviour
         float gameTimer = 1f;
         if (clearedLevel || newGame)
         {
+            pelletsLeft = totalPellets;
             gameTimer = 4f;
             //Pellets will respawn when player clears the level or starts a new game
             for (int i = 0; i < nodeControllerList.Count; i++)
@@ -136,6 +144,13 @@ public class GameManager : MonoBehaviour
         siren.Play();
     }
 
+    void StopGame()
+    {
+        isGameRunning = false;
+        siren.Stop();
+        pacman.GetComponent<PlayerController>().Stop();
+    }
+
 
     public void GotPelletFromNodeController(NodeController nodeController)
     {
@@ -148,7 +163,7 @@ public class GameManager : MonoBehaviour
         score += amount;
         scoreText.text = "Score: " + score.ToString();
     }
-    public void CollectedPellet(NodeController nodeController)
+    public IEnumerator CollectedPellet(NodeController nodeController)
     {
         if (currentMunch == 0)
         {
@@ -185,13 +200,58 @@ public class GameManager : MonoBehaviour
         {
             orangeGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
         }
+
+
         AddToScore(10);
-        //Add to our score
+
 
         //Check if there are any pellets left
-
+        if (pelletsLeft == 0)
+        {
+            currentLevel++;
+            clearedLevel = true;
+            StopGame();
+            yield return new WaitForSeconds(1);
+            StartCoroutine(Setup());
+        }
         //Check how many pellets are left
 
         //Powerpellets
+    }
+
+    public IEnumerator playerEaten()
+    {
+        hadDeathOnThisLevel = true;
+        StopGame();
+        yield return new WaitForSeconds(1f);
+
+        redGhostController.SetVisible(false);
+        blueGhostController.SetVisible(false);
+        orangeGhostController.SetVisible(false);
+        pinkGhostController.SetVisible(false);
+
+        pacman.GetComponent<PlayerController>().Death();
+        deathSound.Play();
+        yield return new WaitForSeconds(3);
+
+        lives--;
+        if (lives <= 0)
+        {
+            newGame = true;
+            //Display GameOverlay
+            gameOverText.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+            gameOverText.enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            gameOverText.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+            gameOverText.enabled = false;
+            gameOverText.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+            gameOverText.enabled = false;
+            
+            yield return new WaitForSeconds(3);
+        }
+        StartCoroutine(Setup());
     }
 }
