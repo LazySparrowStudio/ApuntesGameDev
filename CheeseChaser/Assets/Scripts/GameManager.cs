@@ -60,6 +60,12 @@ public class GameManager : MonoBehaviour
     }
 
     public GhostMode currentGhostMode;
+
+    public int[] ghostModeTimers = new int[] { 7, 20, 7, 20, 5, 20, 5 };
+    public int ghostModeTimersIndex;
+    public float ghostModeTimer;
+    public bool runningTimer;
+    public bool completedTimer;
     void Awake()
     {
         blackBackground.enabled = false;
@@ -77,13 +83,53 @@ public class GameManager : MonoBehaviour
 
 
     }
+
     void Start()
     {
         StartCoroutine(Setup());
     }
 
+    void Update()
+    {
+        if (!isGameRunning)
+        {
+            return;
+        }
+
+        if (!completedTimer && runningTimer)
+        {
+            ghostModeTimer += Time.deltaTime;
+            if (ghostModeTimer > ghostModeTimers[ghostModeTimersIndex])
+            {
+                ghostModeTimer = 0;
+                ghostModeTimersIndex++;
+
+                if (currentGhostMode == GhostMode.chase)
+                {
+                    currentGhostMode = GhostMode.scatter;
+                }
+                else
+                {
+                    currentGhostMode = (GhostMode.chase);
+                }
+                currentGhostMode = (GhostMode.chase);
+            }
+            
+            if ( ghostModeTimersIndex == ghostModeTimers[ghostModeTimersIndex])
+            {
+                completedTimer = true;
+                runningTimer = false;
+                currentGhostMode = (GhostMode.chase);
+            }
+        }
+    }
+
     public IEnumerator Setup()
     {
+        ghostModeTimer = 0;
+        ghostModeTimersIndex = 0;
+        completedTimer = false;
+        runningTimer = true;
         gameOverText.enabled = false;
         //If player clears a level, a background will appear covering the level, and the game will pause for 0.1 seconds
         if (clearedLevel)
@@ -249,7 +295,7 @@ public class GameManager : MonoBehaviour
             gameOverText.enabled = true;
             yield return new WaitForSeconds(0.2f);
             gameOverText.enabled = false;
-            
+
             yield return new WaitForSeconds(3);
         }
         StartCoroutine(Setup());

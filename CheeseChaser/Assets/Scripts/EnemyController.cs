@@ -50,11 +50,15 @@ public class EnemyController : MonoBehaviour
     public bool isVisible = true;
     public SpriteRenderer ghostSprite;
     public SpriteRenderer eyesSprite;
+    public Animator animator;
+    public Color color;
+
 
 
 
     void Awake()
     {
+        animator = GetComponent<Animator>();
         ghostSprite = GetComponent<SpriteRenderer>();
         scatterNodeIndex = 0;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -91,11 +95,12 @@ public class EnemyController : MonoBehaviour
 
     }
 
-   public void Setup()
-    {   
+    public void Setup()
+    {
+        animator.SetBool("moving", true);
         ghostNodeState = startGhostNodeState;
         readyToLeaveHome = false;
-        
+
         //Reset our ghosts back to their home position
         movementController.currentNode = startingNode;
         transform.position = startingNode.transform.position;
@@ -125,20 +130,39 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if(isVisible)
+        //Show our sprites
+        if (isVisible)
         {
             ghostSprite.enabled = true;
             eyesSprite.enabled = true;
         }
+        //Hide our sprites
         else
         {
             ghostSprite.enabled = false;
             eyesSprite.enabled = false;
         }
+
+        if (isFrightened)
+        {
+
+            animator.SetBool("frightened", true);
+            eyesSprite.enabled = false;
+            ghostSprite.color = new Color(1f, 1f, 1f, 1f);
+        }
+        else
+        {
+            animator.SetBool("frightened", false);
+            ghostSprite.color = color;
+
+        }
         if (!gameManager.isGameRunning)
         {
             return;
         }
+
+
+        animator.SetBool("moving", true);
 
         if (testRespawn == true)
         {
@@ -518,16 +542,17 @@ public class EnemyController : MonoBehaviour
         isVisible = newIsVisible;
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    {   
+    {
         if (collision.tag == "Player")
         {
             //Get eaten
-            if(isFrightened)
+            if (isFrightened)
             {
-                
+
             }
             //Eat player
-            else{
+            else
+            {
                 StartCoroutine(gameManager.playerEaten());
             }
         }

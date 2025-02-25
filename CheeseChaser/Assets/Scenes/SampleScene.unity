@@ -12752,6 +12752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 470184783}
   - component: {fileID: 470184782}
+  - component: {fileID: 470184784}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -12829,6 +12830,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &470184784
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470184781}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee40d12c324bc7244990081e22e1b9aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &471367149
 GameObject:
   m_ObjectHideFlags: 0
@@ -19476,6 +19499,7 @@ GameObject:
   - component: {fileID: 692649891}
   - component: {fileID: 692649888}
   - component: {fileID: 692649892}
+  - component: {fileID: 692649893}
   m_Layer: 0
   m_Name: Red
   m_TagString: Enemy
@@ -19528,7 +19552,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 6963287583850828681, guid: 484e7fd15a84e7b43b64a84d8213f9ad, type: 3}
-  m_Color: {r: 0.98039216, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19590,6 +19614,8 @@ MonoBehaviour:
   isVisible: 1
   ghostSprite: {fileID: 0}
   eyesSprite: {fileID: 625220462}
+  animator: {fileID: 0}
+  color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &692649891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19655,6 +19681,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!95 &692649893
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692649887}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee40d12c324bc7244990081e22e1b9aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &692995146
 GameObject:
   m_ObjectHideFlags: 0
@@ -22809,6 +22857,7 @@ GameObject:
   - component: {fileID: 785619626}
   - component: {fileID: 785619625}
   - component: {fileID: 785619624}
+  - component: {fileID: 785619629}
   m_Layer: 0
   m_Name: Orange
   m_TagString: Enemy
@@ -22907,7 +22956,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 6963287583850828681, guid: 484e7fd15a84e7b43b64a84d8213f9ad, type: 3}
-  m_Color: {r: 0.98039216, g: 0.54509807, b: 0.050980393, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -22976,6 +23025,8 @@ MonoBehaviour:
   isVisible: 1
   ghostSprite: {fileID: 0}
   eyesSprite: {fileID: 1097146448}
+  animator: {fileID: 0}
+  color: {r: 1, g: 0.5568628, b: 0, a: 1}
 --- !u!4 &785619628
 Transform:
   m_ObjectHideFlags: 0
@@ -22992,6 +23043,28 @@ Transform:
   - {fileID: 1097146447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &785619629
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785619623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee40d12c324bc7244990081e22e1b9aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &787327710
 GameObject:
   m_ObjectHideFlags: 0
@@ -38407,6 +38480,11 @@ MonoBehaviour:
   blackBackground: {fileID: 184305082}
   gameOverText: {fileID: 1768275564}
   currentGhostMode: 0
+  ghostModeTimers: 07000000140000000700000014000000050000001400000005000000
+  ghostModeTimersIndex: 0
+  ghostModeTimer: 0
+  runningTimer: 0
+  completedTimer: 0
 --- !u!4 &1302116628
 Transform:
   m_ObjectHideFlags: 0
@@ -46916,6 +46994,7 @@ GameObject:
   - component: {fileID: 1636727889}
   - component: {fileID: 1636727888}
   - component: {fileID: 1636727887}
+  - component: {fileID: 1636727892}
   m_Layer: 0
   m_Name: Pink
   m_TagString: Enemy
@@ -47014,7 +47093,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 6963287583850828681, guid: 484e7fd15a84e7b43b64a84d8213f9ad, type: 3}
-  m_Color: {r: 0.98039216, g: 0.5568628, b: 0.88235295, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -47079,6 +47158,8 @@ MonoBehaviour:
   isVisible: 1
   ghostSprite: {fileID: 0}
   eyesSprite: {fileID: 159467363}
+  animator: {fileID: 0}
+  color: {r: 0.98039216, g: 0.5568628, b: 1, a: 1}
 --- !u!4 &1636727891
 Transform:
   m_ObjectHideFlags: 0
@@ -47095,6 +47176,28 @@ Transform:
   - {fileID: 159467362}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1636727892
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636727886}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee40d12c324bc7244990081e22e1b9aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1643444555
 GameObject:
   m_ObjectHideFlags: 0
@@ -59720,6 +59823,7 @@ GameObject:
   - component: {fileID: 2096774751}
   - component: {fileID: 2096774750}
   - component: {fileID: 2096774749}
+  - component: {fileID: 2096774754}
   m_Layer: 0
   m_Name: Blue
   m_TagString: Enemy
@@ -59818,7 +59922,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 6963287583850828681, guid: 484e7fd15a84e7b43b64a84d8213f9ad, type: 3}
-  m_Color: {r: 0.019607844, g: 0.98039216, b: 0.98039216, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -59887,6 +59991,8 @@ MonoBehaviour:
   isVisible: 1
   ghostSprite: {fileID: 0}
   eyesSprite: {fileID: 1396359726}
+  animator: {fileID: 0}
+  color: {r: 0.019607844, g: 0.98039216, b: 0.98039216, a: 1}
 --- !u!4 &2096774753
 Transform:
   m_ObjectHideFlags: 0
@@ -59903,6 +60009,28 @@ Transform:
   - {fileID: 1396359725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2096774754
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096774748}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee40d12c324bc7244990081e22e1b9aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2099283535
 GameObject:
   m_ObjectHideFlags: 0
