@@ -21,7 +21,28 @@ Invoke("MethodName", delayInSeconds);
 
 ## Entrada
 
+## Delegate
+~~~C#
+ public delegate PlayerBullet OnCannonShotDelegate(PlayerBullet bullet);
+ public OnCannonShotDelegate onCannonShot;
 
+     void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && CanShoot())
+        {
+            Shoot();
+            GameObject bullet = Instantiate (bulletPrefab, shotPoint.position, shotPoint.rotation);
+            bulletPrefab.GetComponent<Rigidbody>().AddForce(bulletPrefab.transform.position * 600f, ForceMode.Impulse);
+            //Invocamos el Delegate onCannonShot
+            if(onCannonShot != null)
+            {
+                onCannonShot(bullet.GetComponent<PlayerBullet>());
+            }
+        }
+    }
+~~~
+
+## OnGUI
 # VR
  ## Unity Quest 2 setup
  "*" For no tested
@@ -32,7 +53,7 @@ Invoke("MethodName", delayInSeconds);
 - Finalmente añadir a la escena un XR Origin
 
 - Baseinteractable - Clase de la que derivan los interactables. Tienen los eventos del Grab sin que esten asociados directamente
-- 
+
 
 ## Agarrar
 

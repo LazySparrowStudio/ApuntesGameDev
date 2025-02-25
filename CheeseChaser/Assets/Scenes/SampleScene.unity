@@ -181,6 +181,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &8060525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -289,6 +291,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &9371008
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -397,6 +401,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &9756577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -679,6 +685,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &28441029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -787,6 +795,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &29582413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1069,6 +1079,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &34185233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1438,6 +1450,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &43251991
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1546,6 +1560,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &47136368
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1654,6 +1670,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &53013346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1762,6 +1780,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &56816657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1869,6 +1889,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &67345514
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1977,6 +1999,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &68691433
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2172,6 +2196,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &76680277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2280,6 +2306,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &90986136
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2910,6 +2938,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &117044445
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3018,6 +3048,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &122238466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3126,6 +3158,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &122381210
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3408,6 +3442,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &141151658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3777,6 +3813,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &156095045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3972,6 +4010,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &158807248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4254,6 +4294,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &171999610
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4337,6 +4379,7 @@ Transform:
   - {fileID: 840393345}
   - {fileID: 238097696}
   - {fileID: 364795256}
+  - {fileID: 1574227717}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &181147046
@@ -4401,6 +4444,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &181147049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4509,6 +4554,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &181569836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4692,6 +4739,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &185848615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4887,6 +4936,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &194980462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5082,6 +5133,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &211059045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5190,6 +5243,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &212160826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5298,6 +5353,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &212652547
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5493,6 +5550,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &225090443
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5862,6 +5921,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &234488921
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6270,6 +6331,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &245839854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6378,6 +6441,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &245880219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6660,6 +6725,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &252987987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6855,6 +6922,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &255006006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6963,6 +7032,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &255193466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7158,6 +7229,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &257649679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7266,6 +7339,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &261785709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7461,6 +7536,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &263247470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7569,6 +7646,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &264161166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7748,6 +7827,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &297096992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7958,6 +8039,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &297972945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8153,6 +8236,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &313078954
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8348,6 +8433,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &316722763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8630,6 +8717,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &338685436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8738,6 +8827,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &343401181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8846,6 +8937,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &345409737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9128,6 +9221,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &355055999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9449,6 +9544,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &367186433
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9557,6 +9654,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &368992487
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9665,6 +9764,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &370554486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9860,6 +9961,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &371675213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10142,6 +10245,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &387914340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10250,6 +10355,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &390696907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10358,6 +10465,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &392675282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10640,6 +10749,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &403166288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10922,6 +11033,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &410955843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11290,6 +11403,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &420183404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11398,6 +11513,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &420666867
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11505,6 +11622,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &423380425
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11613,6 +11732,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &429006843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12069,6 +12190,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &444650734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12264,6 +12387,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &454068420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12342,7 +12467,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1251852679}
-  m_Father: {fileID: 1137413187}
+  m_Father: {fileID: 1574227717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &464838924
 MonoBehaviour:
@@ -12372,6 +12497,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 1
+  powerPelletBlinkTimer: 0
 --- !u!61 &464838925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12480,6 +12607,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &466915803
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12588,6 +12717,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &467590482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12696,6 +12827,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &467771233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13001,6 +13134,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &472891286
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13144,6 +13279,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &481640323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13252,6 +13389,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &482975587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13447,6 +13586,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &486058399
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13555,6 +13696,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &486815626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13663,6 +13806,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &489662618
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13945,6 +14090,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &499231278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14140,6 +14287,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &502048920
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14248,6 +14397,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &512929564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14754,6 +14905,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &524903241
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14949,6 +15102,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &529046436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15057,6 +15212,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &530458384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15164,6 +15321,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &530606831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15256,6 +15415,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &546041829
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15379,6 +15540,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &548048892
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15574,6 +15737,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &558272736
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15682,6 +15847,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &561170523
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15877,6 +16044,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &576684305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16072,6 +16241,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &589535996
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16354,6 +16525,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &603607199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16462,6 +16635,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &607851033
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16570,6 +16745,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &612457367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16678,6 +16855,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &612565279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17064,6 +17243,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &618869529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17343,6 +17524,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &631881436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17451,6 +17634,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &638457563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17559,6 +17744,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &640010813
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17667,6 +17854,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &643509204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17775,6 +17964,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &646287295
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17883,6 +18074,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &648944140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17991,6 +18184,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &651304058
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18186,6 +18381,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &659565256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18294,6 +18491,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &665277236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18372,7 +18571,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 699382406}
-  m_Father: {fileID: 1137413187}
+  m_Father: {fileID: 1574227717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &672186908
 MonoBehaviour:
@@ -18402,6 +18601,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 1
+  powerPelletBlinkTimer: 0
 --- !u!61 &672186909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18510,6 +18711,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &674482984
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18618,6 +18821,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &675665260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18726,6 +18931,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &676742633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18834,6 +19041,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &679701233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18942,6 +19151,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &679990156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19050,6 +19261,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &680206062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19158,6 +19371,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &680281580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19353,6 +19568,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &689871687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19765,6 +19982,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &692995149
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19960,6 +20179,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &697797389
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20068,6 +20289,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &699371410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20141,8 +20364,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 672186907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20190,7 +20413,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4405721588880470262, guid: 50191ecf7c6445846869dd5605a9d252, type: 3}
+  m_Sprite: {fileID: -3220040767054732860, guid: c9f7f4290b6dbbe4696de2bbf5ddffe4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20263,6 +20486,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &702706919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20371,6 +20596,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &704225703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20653,6 +20880,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &707665486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21022,6 +21251,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &721347638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21130,6 +21361,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &723659734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21499,6 +21732,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &743534643
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21607,6 +21842,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &744510424
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21715,6 +21952,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &749938610
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21788,8 +22027,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1310075173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21837,7 +22076,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4405721588880470262, guid: 50191ecf7c6445846869dd5605a9d252, type: 3}
+  m_Sprite: {fileID: -3220040767054732860, guid: c9f7f4290b6dbbe4696de2bbf5ddffe4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -21910,6 +22149,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &755950079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22018,6 +22259,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &757433026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22126,6 +22369,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &757805615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22408,6 +22653,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &763622367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22603,6 +22850,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &770018156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22711,6 +22960,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &778907079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23301,6 +23552,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &795050895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23409,6 +23662,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &795706148
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23604,6 +23859,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &796899402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23712,6 +23969,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &799815914
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23906,6 +24165,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &815353868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24014,6 +24275,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &820441857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24122,6 +24385,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &823037565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24578,6 +24843,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &838012035
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24808,6 +25075,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &842536353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24916,6 +25185,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &845341835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25024,6 +25295,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &846129546
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25219,6 +25492,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &868891463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25327,6 +25602,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &870571607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25435,6 +25712,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &870912276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25630,6 +25909,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &875085647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25817,6 +26098,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &889674054
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25895,7 +26178,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2078599208}
-  m_Father: {fileID: 1137413187}
+  m_Father: {fileID: 1574227717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &891706377
 MonoBehaviour:
@@ -25925,6 +26208,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 1
+  powerPelletBlinkTimer: 0
 --- !u!61 &891706378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26033,6 +26318,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &891780701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26228,6 +26515,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &902125524
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26510,6 +26799,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &918665173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26705,6 +26996,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &926301625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26813,6 +27106,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &929150022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26921,6 +27216,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &933757560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27116,6 +27413,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &934971813
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27311,6 +27610,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &937502544
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27506,6 +27807,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &949680513
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27614,6 +27917,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &950513212
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27722,6 +28027,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &956737546
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27830,6 +28137,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &960551488
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28112,6 +28421,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &969568342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28481,6 +28792,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &990973707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28676,6 +28989,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &995280117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28784,6 +29099,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &995941518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28979,6 +29296,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1002000839
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29087,6 +29406,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1017565841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29230,6 +29551,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1024118308
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29599,6 +29922,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1033578604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29794,6 +30119,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1047478498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30076,6 +30403,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1059302319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30270,6 +30599,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1067750308
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30378,6 +30709,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1076285579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30485,6 +30818,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1077458463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30593,6 +30928,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1080411541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30700,6 +31037,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1084178959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30808,6 +31147,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1085354962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31177,6 +31518,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1097521228
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31372,6 +31715,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1101145931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31741,6 +32086,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1125135220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31849,6 +32196,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1125188398
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32201,7 +32550,6 @@ Transform:
   - {fileID: 1846541814}
   - {fileID: 2143352719}
   - {fileID: 481640321}
-  - {fileID: 1310075173}
   - {fileID: 313078952}
   - {fileID: 1334159208}
   - {fileID: 1589675873}
@@ -32209,7 +32557,6 @@ Transform:
   - {fileID: 680206060}
   - {fileID: 345409735}
   - {fileID: 1759468591}
-  - {fileID: 464838923}
   - {fileID: 699371408}
   - {fileID: 1306895078}
   - {fileID: 1242499498}
@@ -32261,7 +32608,6 @@ Transform:
   - {fileID: 1438807104}
   - {fileID: 1603466595}
   - {fileID: 263247468}
-  - {fileID: 891706376}
   - {fileID: 1980529704}
   - {fileID: 1903689596}
   - {fileID: 2103692820}
@@ -32269,7 +32615,6 @@ Transform:
   - {fileID: 723659732}
   - {fileID: 1976660373}
   - {fileID: 1192942068}
-  - {fileID: 672186907}
   - {fileID: 721347636}
   - {fileID: 1177963568}
   - {fileID: 1643444556}
@@ -32766,6 +33111,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1158901717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32961,6 +33308,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1164330631
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33069,6 +33418,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1168696215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33177,6 +33528,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1170610447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33372,6 +33725,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1175458032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33799,6 +34154,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1177961133
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33907,6 +34264,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1177963570
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34102,6 +34461,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1178499018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34297,6 +34658,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1182012501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34579,6 +34942,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1185970071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34774,6 +35139,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1187078594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34882,6 +35249,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1192942070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35164,6 +35533,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1218537362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35272,6 +35643,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1220979711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35380,6 +35753,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1221474653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35488,6 +35863,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1223954251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35596,6 +35973,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1225705995
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35704,6 +36083,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1232125482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35899,6 +36280,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1237260917
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36007,6 +36390,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1237869491
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36289,6 +36674,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1242499500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36400,8 +36787,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 464838923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36449,7 +36836,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4405721588880470262, guid: 50191ecf7c6445846869dd5605a9d252, type: 3}
+  m_Sprite: {fileID: -3220040767054732860, guid: c9f7f4290b6dbbe4696de2bbf5ddffe4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -36696,6 +37083,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1257971387
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36804,6 +37193,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1260502783
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36912,6 +37303,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1264351375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37281,6 +37674,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1270746167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37389,6 +37784,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1272004973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37584,6 +37981,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1273334146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38040,6 +38439,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1289566472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38148,6 +38549,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1295028276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38256,6 +38659,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1296106621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38364,6 +38769,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1299602111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38425,6 +38832,7 @@ GameObject:
   - component: {fileID: 1302116630}
   - component: {fileID: 1302116632}
   - component: {fileID: 1302116633}
+  - component: {fileID: 1302116634}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -38450,6 +38858,7 @@ MonoBehaviour:
   siren: {fileID: 1302116629}
   munch1: {fileID: 1302116631}
   munch2: {fileID: 1302116630}
+  powerPelletSound: {fileID: 1302116634}
   currentMunch: 0
   score: 0
   scoreText: {fileID: 886228909}
@@ -38465,11 +38874,14 @@ MonoBehaviour:
   blueGhostController: {fileID: 2096774752}
   pinkGhostController: {fileID: 1636727890}
   orangeGhostController: {fileID: 785619627}
+  isPowerPelletRunning: 0
+  currentPowerPelletTimer: 0
   totalPellets: 0
   pelletsLeft: 0
   pelletsCollectedOnThisLife: 0
   hadDeathOnThisLevel: 0
   isGameRunning: 0
+  powerPelletMultiplier: 1
   nodeControllerList: []
   newGame: 0
   clearedLevel: 0
@@ -38485,6 +38897,7 @@ MonoBehaviour:
   ghostModeTimer: 0
   runningTimer: 0
   completedTimer: 0
+  powerPelletTimer: 8
 --- !u!4 &1302116628
 Transform:
   m_ObjectHideFlags: 0
@@ -38985,6 +39398,103 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &1302116634
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302116626}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 496c76bc1f5dd3346a2bd1c55609d841, type: 3}
+  m_Resource: {fileID: 8300000, guid: 496c76bc1f5dd3346a2bd1c55609d841, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1306895077
 GameObject:
   m_ObjectHideFlags: 0
@@ -39047,6 +39557,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1306895080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39212,7 +39724,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 751443270}
-  m_Father: {fileID: 1137413187}
+  m_Father: {fileID: 1574227717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1310075174
 MonoBehaviour:
@@ -39242,6 +39754,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 1
+  powerPelletBlinkTimer: 0
 --- !u!61 &1310075175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39523,6 +40037,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1313949108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39718,6 +40234,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1323044278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39826,6 +40344,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1334159210
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40108,6 +40628,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1337871900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40303,6 +40825,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1346940175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40759,6 +41283,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1375755156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41128,6 +41654,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1382850339
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41845,6 +42373,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1418205811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42388,6 +42918,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1438807106
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42496,6 +43028,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1443275868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42691,6 +43225,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1456825810
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43234,6 +43770,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1515290064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43595,6 +44133,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1522762950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43703,6 +44243,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1532690937
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43898,6 +44440,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1547353159
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44093,6 +44637,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1554256021
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44574,6 +45120,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1574227716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1574227717}
+  m_Layer: 0
+  m_Name: PowerPelletNodes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1574227717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574227716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 672186907}
+  - {fileID: 464838923}
+  - {fileID: 891706376}
+  - {fileID: 1310075173}
+  m_Father: {fileID: 178874964}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576251870
 GameObject:
   m_ObjectHideFlags: 0
@@ -44723,6 +45304,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1578660551
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44918,6 +45501,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1581222990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45026,6 +45611,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1586091961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45221,6 +45808,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1589675875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45503,6 +46092,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1596349923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45611,6 +46202,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1603466597
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45719,6 +46312,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1605713076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45827,6 +46422,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1606891403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46305,6 +46902,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1615141240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46587,6 +47186,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1624075039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47260,6 +47861,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1643444558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47455,6 +48058,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1657239377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47911,6 +48516,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1677338588
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48019,6 +48626,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1679258992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48127,6 +48736,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1679556529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48235,6 +48846,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1683350115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48517,6 +49130,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1695011020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48625,6 +49240,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1701037795
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48733,6 +49350,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1703080792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48840,6 +49459,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1704582452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49034,6 +49655,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1707742028
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49403,6 +50026,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1712640497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49511,6 +50136,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1714597655
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49619,6 +50246,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1719512549
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49727,6 +50356,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1724955870
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49922,6 +50553,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1731384327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50030,6 +50663,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1732660301
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50399,6 +51034,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1750504979
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50507,6 +51144,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1752414262
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50615,6 +51254,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1752710291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50810,6 +51451,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1759468593
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50917,6 +51560,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1759814298
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51112,6 +51757,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1766461372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51299,6 +51946,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1777121482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51494,6 +52143,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1784814319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51950,6 +52601,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1804883484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52319,6 +52972,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1834506511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52426,6 +53081,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1837691230
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52534,6 +53191,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1839454275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52729,6 +53388,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1846541816
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52837,6 +53498,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1851113017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53032,6 +53695,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1859819933
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53178,6 +53843,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1864039510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53373,6 +54040,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1866693029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53568,6 +54237,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1871411500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53763,6 +54434,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1874150013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53871,6 +54544,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1877648401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54153,6 +54828,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1884853247
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54434,6 +55111,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1888278025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54629,6 +55308,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1894229952
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54737,6 +55418,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1894397303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54845,6 +55528,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1897193364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54953,6 +55638,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1903689598
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55148,6 +55835,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1915998116
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55343,6 +56032,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1927723324
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55451,6 +56142,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1928053486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55559,6 +56252,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1929751186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55667,6 +56362,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1936178240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56035,6 +56732,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1958011062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56230,6 +56929,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1962193313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56425,6 +57126,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1976660375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56620,6 +57323,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1980529706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56815,6 +57520,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1983792691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57010,6 +57717,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1987178641
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57118,6 +57827,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &1993556450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57226,6 +57937,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2000121079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57421,6 +58134,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2001987368
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57529,6 +58244,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2002854571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57811,6 +58528,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2009629015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58006,6 +58725,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2026963579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58375,6 +59096,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2038250470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58483,6 +59206,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2046764234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58852,6 +59577,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2049372152
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59047,6 +59774,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2053632083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59381,8 +60110,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 891706376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59430,7 +60159,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4405721588880470262, guid: 50191ecf7c6445846869dd5605a9d252, type: 3}
+  m_Sprite: {fileID: -3220040767054732860, guid: c9f7f4290b6dbbe4696de2bbf5ddffe4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -59503,6 +60232,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2085860234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60179,6 +60910,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 1
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2099934553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60287,6 +61020,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2100013906
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60395,6 +61130,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2103692822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60938,6 +61675,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2134304248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61046,6 +61785,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2138749696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61154,6 +61895,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2143352721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61349,6 +62092,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2145286308
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61457,6 +62202,8 @@ MonoBehaviour:
   hasPellet: 0
   isGhostStartingNode: 0
   isSideNode: 0
+  isPowerPellet: 0
+  powerPelletBlinkTimer: 0
 --- !u!61 &2145633048
 BoxCollider2D:
   m_ObjectHideFlags: 0

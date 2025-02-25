@@ -1,0 +1,2 @@
+- Al cambiar de direccion en el mismo instante en el que se warpea pac man se queda bloqueado
+- La animacion de muerte a veces se queda bloqueada 

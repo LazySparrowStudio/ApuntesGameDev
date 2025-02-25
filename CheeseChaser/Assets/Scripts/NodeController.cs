@@ -24,6 +24,8 @@ public class NodeController : MonoBehaviour
     public bool hasPellet = false;
     public bool isGhostStartingNode = false;
     public bool isSideNode = false;
+     public bool isPowerPellet = false;
+     public float powerPelletBlinkTimer = 0.0f;
 
     void Awake()
     {
@@ -60,6 +62,24 @@ public class NodeController : MonoBehaviour
     //     Gizmos.DrawLine(transform.position, transform.position + Vector3.right * rayDistace);
     //     Gizmos.DrawLine(transform.position, transform.position + Vector3.left * rayDistace);
     // }
+
+    void Update()
+    {
+        if(!gameManager.isGameRunning)
+        {
+            return;
+        }
+
+        if (isPowerPellet && hasPellet)
+        {
+            powerPelletBlinkTimer += Time.deltaTime;
+            if(powerPelletBlinkTimer>=0.1f)
+            {
+                powerPelletBlinkTimer = 0.0f;
+                pelletSprite.enabled = !pelletSprite.enabled;
+            }
+        }
+    }
     private void PelletRayCast()
     {
         int pelletLayer = LayerMask.GetMask("Node");
@@ -134,6 +154,7 @@ public class NodeController : MonoBehaviour
     {
         hasPellet = true;
         pelletSprite.enabled = true;
+        StartCoroutine(gameManager.CollectedPellet(this));
     }
     public GameObject GetNodeFromDirection(string direction)
     {

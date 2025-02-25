@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public AudioSource siren;
     public AudioSource munch1;
     public AudioSource munch2;
+    public AudioSource powerPelletSound;
+
+
     public int currentMunch = 0;
 
     public int score;
@@ -34,12 +37,15 @@ public class GameManager : MonoBehaviour
     public EnemyController pinkGhostController;
 
     public EnemyController orangeGhostController;
+    public bool isPowerPelletRunning = false;
+    public float currentPowerPelletTimer = 0;
 
     public int totalPellets;
     public int pelletsLeft;
     public int pelletsCollectedOnThisLife;
     public bool hadDeathOnThisLevel = false;
     public bool isGameRunning;
+    public int powerPelletMultiplier = 1;
 
     public List<NodeController> nodeControllerList = new List<NodeController>();
     public bool newGame;
@@ -66,6 +72,7 @@ public class GameManager : MonoBehaviour
     public float ghostModeTimer;
     public bool runningTimer;
     public bool completedTimer;
+    public float powerPelletTimer = 8f;
     void Awake()
     {
         blackBackground.enabled = false;
@@ -114,12 +121,25 @@ public class GameManager : MonoBehaviour
                 }
                 currentGhostMode = (GhostMode.chase);
             }
-            
-            if ( ghostModeTimersIndex == ghostModeTimers[ghostModeTimersIndex])
+
+            if (ghostModeTimersIndex == ghostModeTimers[ghostModeTimersIndex])
             {
                 completedTimer = true;
                 runningTimer = false;
                 currentGhostMode = (GhostMode.chase);
+            }
+        }
+
+        if (isPowerPelletRunning)
+        {
+            currentPowerPelletTimer += Time.deltaTime;
+            if (currentPowerPelletTimer >= powerPelletTimer)
+            {
+                isPowerPelletRunning = false;
+                currentPowerPelletTimer = 0;
+                powerPelletSound.Stop();
+                siren.Play();
+                powerPelletMultiplier = 1;
             }
         }
     }
@@ -195,6 +215,7 @@ public class GameManager : MonoBehaviour
         isGameRunning = false;
         siren.Stop();
         pacman.GetComponent<PlayerController>().Stop();
+        powerPelletSound.Stop();
     }
 
 
@@ -263,6 +284,30 @@ public class GameManager : MonoBehaviour
         //Check how many pellets are left
 
         //Powerpellets
+        if (nodeController.isPowerPellet)
+        {
+            siren.Stop();
+            powerPelletSound.Play();
+            isPowerPelletRunning = true;
+            currentPowerPelletTimer = 0;
+
+
+            redGhostController.SetFrightened(true);
+            pinkGhostController.SetFrightened(true);
+            blueGhostController.SetFrightened(true);
+            orangeGhostController.SetFrightened(true);
+        }
+    }
+
+    public IEnumerator PauseGame(float timeToPause)
+    {
+        isGameRunning = false;
+        yield return new WaitForSeconds(timeToPause);
+        isGameRunning = true;
+    }
+    public void GhostEaten(EnemyController enemyController)
+    {
+        StartCoroutine(PauseGame(1f));
     }
 
     public IEnumerator playerEaten()

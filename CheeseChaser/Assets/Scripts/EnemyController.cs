@@ -130,6 +130,13 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if(ghostNodeState != GhostNodeStateEnum.movingInNodes || !gameManager.isPowerPelletRunning){
+            isFrightened = false;
+        }
+        if(!gameManager.isPowerPelletRunning)
+        {
+            isFrightened = false;
+        }
         //Show our sprites
         if (isVisible)
         {
@@ -194,6 +201,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void SetFrightened(bool newIsFrightened)
+    {
+        isFrightened = newIsFrightened;
+    } 
     public void ReachedCenterofNode(NodeController nodeController)
     {
         if (ghostNodeState == GhostNodeStateEnum.movingInNodes)
@@ -548,7 +559,8 @@ public class EnemyController : MonoBehaviour
             //Get eaten
             if (isFrightened)
             {
-
+                gameManager.GhostEaten(this);
+                ghostNodeState = GhostNodeStateEnum.respawning;
             }
             //Eat player
             else
