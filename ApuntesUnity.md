@@ -82,6 +82,9 @@ public void HoverExit (HoverExitEventArgs args)
 }
 
 cosas a mirar. El obradoiro esta para mirar que interactables estan interaccionando con que y colocamiento de sockets.
+
+Examen Tema 2 : XR Grabable. Sockets por capas
+Componentes basicos de XR toolkit + un poco de codigo
 # Mecanicas
 
 ## Movimiento:
