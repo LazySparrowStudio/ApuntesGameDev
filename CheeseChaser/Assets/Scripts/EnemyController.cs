@@ -130,16 +130,27 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if(ghostNodeState != GhostNodeStateEnum.movingInNodes || !gameManager.isPowerPelletRunning){
+        if (ghostNodeState != GhostNodeStateEnum.movingInNodes || !gameManager.isPowerPelletRunning)
+        {
             isFrightened = false;
         }
-        if(!gameManager.isPowerPelletRunning)
+        if (!gameManager.isPowerPelletRunning)
         {
             isFrightened = false;
         }
         //Show our sprites
         if (isVisible)
         {
+            if (ghostNodeState != GhostNodeStateEnum.respawning)
+            {
+                ghostSprite.enabled = true;
+            }
+            else
+            {
+                ghostSprite.enabled = false;
+
+            }
+
             ghostSprite.enabled = true;
             eyesSprite.enabled = true;
         }
@@ -156,11 +167,13 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("frightened", true);
             eyesSprite.enabled = false;
             ghostSprite.color = new Color(1f, 1f, 1f, 1f);
+            animator.SetBool("frightenedBlinking", false);
         }
         else
         {
             animator.SetBool("frightened", false);
             ghostSprite.color = color;
+
 
         }
         if (!gameManager.isGameRunning)
@@ -168,6 +181,14 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
+        if (gameManager.powerPelletTimer - gameManager.currentPowerPelletTimer <= 3)
+        {
+            animator.SetBool("frightenedBlinking", true);
+        }
+        else
+        {
+            animator.SetBool("frightenedBlinking", false);
+        }
 
         animator.SetBool("moving", true);
 
@@ -204,7 +225,7 @@ public class EnemyController : MonoBehaviour
     public void SetFrightened(bool newIsFrightened)
     {
         isFrightened = newIsFrightened;
-    } 
+    }
     public void ReachedCenterofNode(NodeController nodeController)
     {
         if (ghostNodeState == GhostNodeStateEnum.movingInNodes)
@@ -554,7 +575,7 @@ public class EnemyController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && ghostNodeState != GhostNodeStateEnum.respawning)
         {
             //Get eaten
             if (isFrightened)

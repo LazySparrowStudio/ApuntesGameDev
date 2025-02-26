@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public AudioSource munch1;
     public AudioSource munch2;
     public AudioSource powerPelletSound;
+    public AudioSource respawningAudio;
+    public AudioSource ghostEatenAudio;
 
 
     public int currentMunch = 0;
@@ -101,6 +103,24 @@ public class GameManager : MonoBehaviour
         if (!isGameRunning)
         {
             return;
+        }
+
+        if ((redGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
+        || (pinkGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
+        || (blueGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
+        || (orangeGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning))
+        {
+            if (!respawningAudio.isPlaying)
+            {
+                respawningAudio.Play();
+            }
+            else
+            {
+                if (respawningAudio.isPlaying)
+                {
+                    respawningAudio.Stop();
+                }
+            }
         }
 
         if (!completedTimer && runningTimer)
@@ -215,6 +235,7 @@ public class GameManager : MonoBehaviour
         isGameRunning = false;
         siren.Stop();
         pacman.GetComponent<PlayerController>().Stop();
+        respawningAudio.Stop();
         powerPelletSound.Stop();
     }
 
@@ -307,6 +328,9 @@ public class GameManager : MonoBehaviour
     }
     public void GhostEaten(EnemyController enemyController)
     {
+        ghostEatenAudio.Play();
+        AddToScore(400 * powerPelletMultiplier);
+        powerPelletMultiplier++;
         StartCoroutine(PauseGame(1f));
     }
 
