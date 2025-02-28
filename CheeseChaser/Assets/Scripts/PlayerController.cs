@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
             {
                 animator.speed = 0;
             }
-            animator.speed = 0;
+            animator.speed = 1;
             return;
         }
 
@@ -90,15 +90,16 @@ public class PlayerController : MonoBehaviour
 
     public void Setup()
     {
+        animator.speed = 1;
         isDead = false;
         animator.SetBool("dead", false);
-        
+
         movementController.currentNode = startNode;
         movementController.direction = "left";
         movementController.lastMovingDirection = "left";
         sprite.flipX = false;
         transform.position = startPosition;
-        animator.speed = 1;
+
         animator.SetBool("moving", false);
 
     }
@@ -110,10 +111,9 @@ public class PlayerController : MonoBehaviour
 
     public void Death()
     {
-
+        animator.speed = 1;
         isDead = true;
         animator.SetBool("moving", false);
-        animator.speed = 1;
         animator.SetBool("dead", true);
 
 

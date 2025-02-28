@@ -4366,8 +4366,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178874963}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.01, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.19278264, y: -0.37257183, z: -0.05220773}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4380,7 +4380,7 @@ Transform:
   - {fileID: 238097696}
   - {fileID: 364795256}
   - {fileID: 1574227717}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1636967851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &181147046
 GameObject:
@@ -12956,12 +12956,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470184781}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0.4, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.18278265, y: 0.03742817, z: 0.9477923}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1636967851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &470184784
 Animator:
@@ -12973,7 +12973,7 @@ Animator:
   m_GameObject: {fileID: 470184781}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee40d12c324bc7244990081e22e1b9aa, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -19787,13 +19787,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692649887}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.407001, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.22278264, y: 1.0444292, z: -0.05220773}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 625220461}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1636967851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &692649890
 MonoBehaviour:
@@ -19818,17 +19818,17 @@ MonoBehaviour:
   startingNode: {fileID: 0}
   gameManager: {fileID: 0}
   movementController: {fileID: 0}
-  readyToLeaveHome: 0
-  testRespawn: 0
-  isFrightened: 0
   scatterNodes:
   - {fileID: 1766461369}
   - {fileID: 1884853244}
   - {fileID: 1962193310}
   - {fileID: 1894397300}
-  scatterNodeIndex: 0
+  readyToLeaveHome: 0
+  testRespawn: 0
+  isFrightened: 0
   leftHomeBefore: 0
   isVisible: 1
+  scatterNodeIndex: 0
   ghostSprite: {fileID: 0}
   eyesSprite: {fileID: 625220462}
   animator: {fileID: 0}
@@ -23259,9 +23259,6 @@ MonoBehaviour:
   startingNode: {fileID: 0}
   gameManager: {fileID: 0}
   movementController: {fileID: 0}
-  readyToLeaveHome: 0
-  testRespawn: 0
-  isFrightened: 0
   scatterNodes:
   - {fileID: 1596349920}
   - {fileID: 643509201}
@@ -23271,9 +23268,12 @@ MonoBehaviour:
   - {fileID: 1897193361}
   - {fileID: 1260502780}
   - {fileID: 589535993}
-  scatterNodeIndex: 0
+  readyToLeaveHome: 0
+  testRespawn: 0
+  isFrightened: 0
   leftHomeBefore: 0
   isVisible: 1
+  scatterNodeIndex: 0
   ghostSprite: {fileID: 0}
   eyesSprite: {fileID: 1097146448}
   animator: {fileID: 0}
@@ -23286,13 +23286,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785619623}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.489, y: 0.611, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.26621735, y: 0.24842817, z: -0.05220773}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1097146447}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1636967851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &785619629
 Animator:
@@ -33975,13 +33975,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177134929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.17, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.22278264, y: -0.53257185, z: -0.05220773}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1611438770}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1636967851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1177134931
 MonoBehaviour:
@@ -34019,6 +34019,7 @@ MonoBehaviour:
   startNode: {fileID: 0}
   startPosition: {x: 0, y: 0}
   gameManager: {fileID: 0}
+  isDead: 0
 --- !u!50 &1177134933
 Rigidbody2D:
   serializedVersion: 5
@@ -34080,7 +34081,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.00085408986}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -34090,7 +34091,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.33, y: 0.33}
+  m_Size: {x: 0.3129182, y: 0.3282918}
   m_EdgeRadius: 0
 --- !u!1 &1177961130
 GameObject:
@@ -38854,6 +38855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb557879536d754883449f9df6daad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGhostMode: 0
+  nodeControllerList: []
   pacman: {fileID: 1177134929}
   leftWarpNode: {fileID: 1888278022}
   rightWarpNode: {fileID: 1084178956}
@@ -38863,9 +38866,8 @@ MonoBehaviour:
   powerPelletSound: {fileID: 1302116634}
   respawningAudio: {fileID: 1302116636}
   ghostEatenAudio: {fileID: 1302116635}
-  currentMunch: 0
-  score: 0
-  scoreText: {fileID: 886228909}
+  startGameAudio: {fileID: 1302116632}
+  deathSound: {fileID: 1302116633}
   ghostNodeLeft: {fileID: 297096990}
   ghostNodeRight: {fileID: 1313949105}
   ghostNodeCenter: {fileID: 546041827}
@@ -38878,30 +38880,29 @@ MonoBehaviour:
   blueGhostController: {fileID: 2096774752}
   pinkGhostController: {fileID: 1636727890}
   orangeGhostController: {fileID: 785619627}
-  isPowerPelletRunning: 0
-  currentPowerPelletTimer: 0
+  scoreText: {fileID: 886228909}
+  gameOverText: {fileID: 1768275564}
+  blackBackground: {fileID: 184305082}
+  currentMunch: 0
+  score: 0
   totalPellets: 0
   pelletsLeft: 0
   pelletsCollectedOnThisLife: 0
-  hadDeathOnThisLevel: 0
-  isGameRunning: 0
   powerPelletMultiplier: 1
-  nodeControllerList: []
-  newGame: 0
-  clearedLevel: 0
-  startGameAudio: {fileID: 1302116632}
-  deathSound: {fileID: 1302116633}
   lives: 3
   currentLevel: 1
-  blackBackground: {fileID: 184305082}
-  gameOverText: {fileID: 1768275564}
-  currentGhostMode: 0
-  ghostModeTimers: 07000000140000000700000014000000050000001400000005000000
-  ghostModeTimersIndex: 0
+  currentPowerPelletTimer: 0
   ghostModeTimer: 0
+  powerPelletTimer: 8
+  isPowerPelletRunning: 0
+  hadDeathOnThisLevel: 0
+  isGameRunning: 0
+  newGame: 0
+  clearedLevel: 0
   runningTimer: 0
   completedTimer: 0
-  powerPelletTimer: 8
+  ghostModeTimers: 07000000140000000700000014000000050000001400000005000000
+  ghostModeTimersIndex: 0
 --- !u!4 &1302116628
 Transform:
   m_ObjectHideFlags: 0
@@ -38910,12 +38911,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302116626}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2043376, y: 2.0986001, z: 0.031052008}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.981555, y: 1.7360283, z: -0.021155722}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1636967851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1302116629
 AudioSource:
@@ -47944,17 +47945,17 @@ MonoBehaviour:
   startingNode: {fileID: 0}
   gameManager: {fileID: 0}
   movementController: {fileID: 0}
-  readyToLeaveHome: 0
-  testRespawn: 0
-  isFrightened: 0
   scatterNodes:
   - {fileID: 1168696212}
   - {fileID: 1187078591}
   - {fileID: 770018153}
   - {fileID: 1033578601}
-  scatterNodeIndex: 0
+  readyToLeaveHome: 0
+  testRespawn: 0
+  isFrightened: 0
   leftHomeBefore: 0
   isVisible: 1
+  scatterNodeIndex: 0
   ghostSprite: {fileID: 0}
   eyesSprite: {fileID: 159467363}
   animator: {fileID: 0}
@@ -47967,13 +47968,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636727886}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.611, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.22278264, y: 0.24842817, z: -0.05220773}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 159467362}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1636967851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1636727892
 Animator:
@@ -47997,6 +47998,45 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1636967850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1636967851}
+  m_Layer: 0
+  m_Name: Pantalla Azul
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1636967851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636967850}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.22278264, y: 0.36257184, z: 0.05220773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 470184783}
+  - {fileID: 178874964}
+  - {fileID: 1177134930}
+  - {fileID: 1302116628}
+  - {fileID: 692649889}
+  - {fileID: 1636727891}
+  - {fileID: 785619628}
+  - {fileID: 2096774753}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1643444555
 GameObject:
   m_ObjectHideFlags: 0
@@ -60903,9 +60943,6 @@ MonoBehaviour:
   startingNode: {fileID: 0}
   gameManager: {fileID: 0}
   movementController: {fileID: 0}
-  readyToLeaveHome: 0
-  testRespawn: 0
-  isFrightened: 0
   scatterNodes:
   - {fileID: 868891460}
   - {fileID: 870912273}
@@ -60915,9 +60952,12 @@ MonoBehaviour:
   - {fileID: 392675279}
   - {fileID: 9756574}
   - {fileID: 1929751183}
-  scatterNodeIndex: 0
+  readyToLeaveHome: 0
+  testRespawn: 0
+  isFrightened: 0
   leftHomeBefore: 0
   isVisible: 1
+  scatterNodeIndex: 0
   ghostSprite: {fileID: 0}
   eyesSprite: {fileID: 1396359726}
   animator: {fileID: 0}
@@ -60930,13 +60970,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096774748}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.467, y: 0.611, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.6897826, y: 0.24842817, z: -0.05220773}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1396359725}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1636967851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2096774754
 Animator:
@@ -62456,11 +62496,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 617404429}
   - {fileID: 1132842149}
-  - {fileID: 470184783}
-  - {fileID: 178874964}
-  - {fileID: 1177134930}
-  - {fileID: 1302116628}
-  - {fileID: 692649889}
-  - {fileID: 1636727891}
-  - {fileID: 785619628}
-  - {fileID: 2096774753}
+  - {fileID: 1636967851}
