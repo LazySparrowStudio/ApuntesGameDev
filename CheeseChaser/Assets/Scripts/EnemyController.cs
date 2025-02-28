@@ -55,6 +55,8 @@ public class EnemyController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         ghostSprite = GetComponent<SpriteRenderer>();
+        ghostSprite.sortingOrder = 2;
+        eyesSprite.sortingOrder = 3;
         movementController = GetComponent<MovementController>();
 
         if (ghostType == GhostType.red)

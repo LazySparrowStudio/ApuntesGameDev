@@ -2,31 +2,26 @@ using UnityEngine;
 
 public class NodeController : MonoBehaviour
 {
-    public bool canMoveLeft = false;
-    public bool canMoveRight = false;
-    public bool canMoveUp = false;
-    public bool canMoveDown = false;
-
     public GameObject nodeLeft;
     public GameObject nodeRight;
     public GameObject nodeUp;
     public GameObject nodeDown;
-
+    public bool canMoveLeft = false;
+    public bool canMoveRight = false;
+    public bool canMoveUp = false;
+    public bool canMoveDown = false;
     public SpriteRenderer pelletSprite;
     public GameManager gameManager;
     public bool isWarpRightNode = false;
     public bool isWarpLeftNode = false;
-
     //If the node contains a pellet when the game starts
     public bool isPelletNode = false;
-
     //If the node still has a pellet
     public bool hasPellet = false;
     public bool isGhostStartingNode = false;
     public bool isSideNode = false;
-     public bool isPowerPellet = false;
-     public float powerPelletBlinkTimer = 0.0f;
-
+    public bool isPowerPellet = false;
+    public float powerPelletBlinkTimer = 0.0f;
     void Awake()
     {
 
@@ -38,6 +33,7 @@ public class NodeController : MonoBehaviour
             hasPellet = true;
             isPelletNode = true;
             pelletSprite = GetComponentInChildren<SpriteRenderer>();
+            pelletSprite.sortingOrder = 1;
         }
         //   OnDrawGizmos();
 
@@ -46,7 +42,7 @@ public class NodeController : MonoBehaviour
     void Start()
     {
         PelletRayCast();
-        //   OnDrawGizmos();
+         
 
     }
 
@@ -64,7 +60,7 @@ public class NodeController : MonoBehaviour
 
     void Update()
     {
-        if(!gameManager.isGameRunning)
+        if (!gameManager.isGameRunning)
         {
             return;
         }
@@ -72,7 +68,7 @@ public class NodeController : MonoBehaviour
         if (isPowerPellet && hasPellet)
         {
             powerPelletBlinkTimer += Time.deltaTime;
-            if(powerPelletBlinkTimer>=0.1f)
+            if (powerPelletBlinkTimer >= 0.1f)
             {
                 powerPelletBlinkTimer = 0.0f;
                 pelletSprite.enabled = !pelletSprite.enabled;
@@ -187,6 +183,7 @@ public class NodeController : MonoBehaviour
             pelletSprite.enabled = false;
             gameManager.CollectedPellet(this);
             StartCoroutine(gameManager.CollectedPellet(this));
+            Debug.Log("Pellet Collected");
         }
     }
 }

@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-
+       
         if ((redGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
         || (pinkGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
         || (blueGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)

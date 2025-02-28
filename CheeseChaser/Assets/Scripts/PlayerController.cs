@@ -15,11 +15,13 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        startPosition = new Vector2(0f, -0.17f);
+        startPosition = new Vector2(0f, -0.1229997f);
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.sortingOrder = 2;
         movementController = GetComponent<MovementController>();
         startNode = movementController.currentNode;
+
 
     }
 
@@ -35,8 +37,7 @@ public class PlayerController : MonoBehaviour
             animator.speed = 1;
             return;
         }
-
-
+       
         animator.SetBool("moving", true);
         if (Input.GetKey(KeyCode.LeftArrow))
         {

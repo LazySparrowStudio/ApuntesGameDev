@@ -4,6 +4,8 @@ public class MovementController : MonoBehaviour
 {
     public GameManager gameManager;
     public GameObject currentNode;
+    public GameObject nodeToTheLeft;
+    public GameObject nodeToTheRight;
     [SerializeField] public float speed = 4f;
     public string direction = "";
     public string lastMovingDirection = "";
@@ -13,6 +15,9 @@ public class MovementController : MonoBehaviour
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        //nodeToTheLeft = currentNode.GetComponent<NodeController>().nodeLeft;
+       // nodeToTheRight = currentNode.GetComponent<NodeController>().nodeRight;
     }
 
     // Update is called once per frame
