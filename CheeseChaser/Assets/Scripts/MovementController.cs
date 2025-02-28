@@ -101,7 +101,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void SetSpeed (float newSpeed)
+    public void SetSpeed(float newSpeed)
     {
         speed = newSpeed;
     }

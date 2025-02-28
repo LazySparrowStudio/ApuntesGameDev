@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameManager.isGameRunning == false)
+        if (!gameManager.isGameRunning)
         {
             if (!isDead)
             {
@@ -92,11 +92,14 @@ public class PlayerController : MonoBehaviour
     {
         isDead = false;
         animator.SetBool("dead", false);
+        
         movementController.currentNode = startNode;
         movementController.direction = "left";
         movementController.lastMovingDirection = "left";
         sprite.flipX = false;
         transform.position = startPosition;
+        animator.speed = 1;
+        animator.SetBool("moving", false);
 
     }
 

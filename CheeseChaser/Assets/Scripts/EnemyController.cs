@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-
 public class EnemyController : MonoBehaviour
 {
     public enum GhostNodeStateEnum
@@ -37,31 +34,27 @@ public class EnemyController : MonoBehaviour
     public GameManager gameManager;
 
     public MovementController movementController;
+    public GameObject[] scatterNodes;
 
     public bool readyToLeaveHome = false;
-
-
     public bool testRespawn = false;
     public bool isFrightened = false;
-    public GameObject[] scatterNodes;
-    public int scatterNodeIndex;
     public bool leftHomeBefore = false;
-
     public bool isVisible = true;
+    public int scatterNodeIndex;
     public SpriteRenderer ghostSprite;
     public SpriteRenderer eyesSprite;
     public Animator animator;
     public Color color;
 
-
-
-
     void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        scatterNodeIndex = 0;
+
         animator = GetComponent<Animator>();
         ghostSprite = GetComponent<SpriteRenderer>();
-        scatterNodeIndex = 0;
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         movementController = GetComponent<MovementController>();
 
         if (ghostType == GhostType.red)
@@ -586,7 +579,7 @@ public class EnemyController : MonoBehaviour
             //Eat player
             else
             {
-                StartCoroutine(gameManager.playerEaten());
+                StartCoroutine(gameManager.PlayerEaten());
             }
         }
     }

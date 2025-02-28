@@ -30,7 +30,6 @@ public class NodeController : MonoBehaviour
     void Awake()
     {
 
-
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         if (transform.childCount > 0)
