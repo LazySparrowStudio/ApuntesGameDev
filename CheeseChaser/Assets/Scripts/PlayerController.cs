@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        startPosition = new Vector2(0f, -0.1229997f);
+        startPosition = new Vector2(0f, -0.5325719f);
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         sprite.sortingOrder = 2;

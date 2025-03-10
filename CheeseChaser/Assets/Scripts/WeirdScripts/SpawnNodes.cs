@@ -1,31 +1,40 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SpawnNodes : MonoBehaviour
 {
-    
-    [SerializeField] int numToSpawn;
-    [SerializeField] public float spawnOffset;
-    public float currentSpawnOffset;
+    [SerializeField] private int numToSpawnX; // Cantidad de nodos en X
+    [SerializeField] private int numToSpawnY; // Cantidad de nodos en Y
+    [SerializeField] private float spawnOffsetX; // Espaciado en X
+    [SerializeField] private float spawnOffsetY; // Espaciado en Y
+    [SerializeField] private GameObject nodePrefab; // Prefab del nodo
+
     void Start()
     {
-        /*gameObject.name = "Node";
-        return;
-        if (gameObject.name == "Node")
-        {
-            currentSpawnOffset = spawnOffset;
-            for (int i = 0; i < numToSpawn; i++) 
-            {
-                //Clone a new node
-                GameObject clone = Instantiate(gameObject, new Vector3(transform.position.x , transform.position.y + currentSpawnOffset,0), Quaternion.identity);
-                currentSpawnOffset += spawnOffset;
-            }
-        }
-        */
+        SpawnGrid();
     }
 
-    void Update()
+    private void SpawnGrid()
     {
+        if (nodePrefab == null)
+        {
+            Debug.LogError("Node Prefab is not assigned!");
+            return;
+        }
         
+        Vector3 startPosition = nodePrefab.transform.position;
+        
+        for (int y = 0; y < numToSpawnY; y++) // Filas en Y
+        {
+            for (int x = 0; x < numToSpawnX; x++) // Columnas en X
+            {
+                Vector3 spawnPosition = new Vector3(
+                    startPosition.x + (x * spawnOffsetX), 
+                    startPosition.y + (y * spawnOffsetY), 
+                    startPosition.z);
+                
+                GameObject clone = Instantiate(nodePrefab, spawnPosition, Quaternion.identity, transform);
+                clone.name = $"Node_{x}_{y}";
+            }
+        }
     }
 }

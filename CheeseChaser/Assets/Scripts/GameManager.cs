@@ -12,8 +12,9 @@ public class GameManager : MonoBehaviour
         scatter
     }
     public GhostMode currentGhostMode;
+
     public List<NodeController> nodeControllerList = new List<NodeController>();
-    public List<Transform> screenPositions = new List<Transform>{};
+    public string screenPositions = "BlueScreen";
     public GameObject pacman;
     public GameObject leftWarpNode;
     public GameObject rightWarpNode;
@@ -33,7 +34,6 @@ public class GameManager : MonoBehaviour
     public GameObject pinkGhost;
     public GameObject blueGhost;
     public GameObject orangeGhost;
-    public GameObject rotationCube;
     public EnemyController redGhostController;
     public EnemyController blueGhostController;
     public EnemyController pinkGhostController;
@@ -213,7 +213,16 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    // Cesar me comenta (jaja) que use estos metodos para acceder a la variable
+   /* public void SetGameMode(GhostMode mode)
+    {
+        currentGhostMode = mode;
+    }
 
+    public GhostMode GetGameMode()
+    {
+        return currentGhostMode;
+    }*/
 
     void StartGame()
     {
@@ -322,6 +331,7 @@ public class GameManager : MonoBehaviour
         ghostEatenAudio.Play();
         AddToScore(400 * powerPelletMultiplier);
         powerPelletMultiplier++;
+        enemyController.ghostSprite.enabled = false;
         StartCoroutine(PauseGame(1f));
     }
 

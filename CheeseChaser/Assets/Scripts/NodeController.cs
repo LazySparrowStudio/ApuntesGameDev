@@ -183,7 +183,6 @@ public class NodeController : MonoBehaviour
             pelletSprite.enabled = false;
             gameManager.CollectedPellet(this);
             StartCoroutine(gameManager.CollectedPellet(this));
-            Debug.Log("Pellet Collected");
         }
     }
 }

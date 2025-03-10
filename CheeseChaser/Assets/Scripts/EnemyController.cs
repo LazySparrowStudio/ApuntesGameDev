@@ -110,6 +110,8 @@ public class EnemyController : MonoBehaviour
 
         leftHomeBefore = false;
 
+        ghostSprite.enabled = true;
+
         //Set readyToLeaveHome to be false if they are red or pink
         if (ghostType == GhostType.red)
         {
@@ -366,7 +368,15 @@ public class EnemyController : MonoBehaviour
 
         string direction = "";
         int randomDirectionIndex = Random.Range(0, possibleDirections.Count - 1);
-        direction = possibleDirections[randomDirectionIndex];
+        if (isFrightened && (nodeController.isWarpLeftNode || nodeController.isWarpRightNode))
+        {
+            direction = movementController.lastMovingDirection;
+            return direction;
+
+        }
+        else
+
+            direction = possibleDirections[randomDirectionIndex];
         return direction;
 
     }
