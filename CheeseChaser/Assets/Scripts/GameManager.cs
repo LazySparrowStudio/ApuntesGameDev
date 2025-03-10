@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     }
     public GhostMode currentGhostMode;
     public List<NodeController> nodeControllerList = new List<NodeController>();
+    public List<Transform> screenPositions = new List<Transform>{};
     public GameObject pacman;
     public GameObject leftWarpNode;
     public GameObject rightWarpNode;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     public GameObject pinkGhost;
     public GameObject blueGhost;
     public GameObject orangeGhost;
+    public GameObject rotationCube;
     public EnemyController redGhostController;
     public EnemyController blueGhostController;
     public EnemyController pinkGhostController;
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text gameOverText;
     public Image blackBackground;
+    public string screenType;
     public int currentMunch = 0;
     public int score;
     public int totalPellets;
@@ -348,4 +351,6 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(Setup());
     }
+
+
 }

@@ -9467,8 +9467,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176529057}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: -0.54, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9480,7 +9480,7 @@ Transform:
   - {fileID: 614919885}
   - {fileID: 2119465540}
   m_Father: {fileID: 655232485}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
 --- !u!1 &178874963
 GameObject:
   m_ObjectHideFlags: 0
@@ -29206,13 +29206,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0.99999964, z: -0, w: -0.00087574124}
+  m_LocalPosition: {x: -0.00000006627509, y: 0, z: 0.53999984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.1, z: 0}
 --- !u!1 &519787299
 GameObject:
   m_ObjectHideFlags: 0
@@ -36825,15 +36825,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655232481}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.3083484, y: 0, z: -2.5806582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1636967851}
   - {fileID: 176529058}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &659565253
 GameObject:
   m_ObjectHideFlags: 0
@@ -75111,6 +75111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGhostMode: 0
   nodeControllerList: []
+  screenPositions: []
   pacman: {fileID: 1177134929}
   leftWarpNode: {fileID: 1888278022}
   rightWarpNode: {fileID: 1084178956}
@@ -75130,6 +75131,7 @@ MonoBehaviour:
   pinkGhost: {fileID: 1636727886}
   blueGhost: {fileID: 2096774748}
   orangeGhost: {fileID: 785619623}
+  rotationCube: {fileID: 0}
   redGhostController: {fileID: 692649890}
   blueGhostController: {fileID: 2096774752}
   pinkGhostController: {fileID: 1636727890}
@@ -75137,6 +75139,7 @@ MonoBehaviour:
   scoreText: {fileID: 886228909}
   gameOverText: {fileID: 1768275564}
   blackBackground: {fileID: 184305082}
+  screenType: 
   currentMunch: 0
   score: 0
   totalPellets: 0
