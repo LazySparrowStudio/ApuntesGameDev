@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         ghostSprite = GetComponent<SpriteRenderer>();
+        eyesSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         ghostSprite.sortingOrder = 2;
         eyesSprite.sortingOrder = 3;
         movementController = GetComponent<MovementController>();
@@ -89,6 +90,7 @@ public class EnemyController : MonoBehaviour
         transform.position = startingNode.transform.position;
 
     }
+    
 
     public void Setup()
     {
@@ -455,7 +457,7 @@ public class EnemyController : MonoBehaviour
             target.y -= distanceBetweenNodes * 2;
         }
 
-        GameObject redGhost = gameManager.redGhost;
+        GameObject redGhost = gameManager.redGhostPrefab;
         float xDistance = target.x - redGhost.transform.position.x;
         float yDistance = target.y - redGhost.transform.position.y;
 

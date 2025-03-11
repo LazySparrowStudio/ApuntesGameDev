@@ -39007,14 +39007,14 @@ MonoBehaviour:
   ghostNodeRight: {fileID: 1313949105}
   ghostNodeCenter: {fileID: 546041827}
   ghostNodeStart: {fileID: 67345511}
-  redGhost: {fileID: 692649887}
-  pinkGhost: {fileID: 1636727886}
-  blueGhost: {fileID: 2096774748}
-  orangeGhost: {fileID: 785619623}
-  redGhostController: {fileID: 0}
-  blueGhostController: {fileID: 0}
-  pinkGhostController: {fileID: 0}
-  orangeGhostController: {fileID: 0}
+  redGhostPrefab: {fileID: 692649887}
+  pinkGhostPrefab: {fileID: 1636727886}
+  blueGhostPrefab: {fileID: 2096774748}
+  orangeGhostPrefab: {fileID: 785619623}
+  blueGhostPrefabController: {fileID: 0}
+  orangeGhostPrefabController: {fileID: 0}
+  pinkGhostPrefabController: {fileID: 0}
+  redGhostPrefabController: {fileID: 0}
   scoreText: {fileID: 886228909}
   gameOverText: {fileID: 1768275564}
   blackBackground: {fileID: 184305082}

@@ -30,17 +30,18 @@ public class GameManager : MonoBehaviour
     public GameObject ghostNodeRight;
     public GameObject ghostNodeCenter;
     public GameObject ghostNodeStart;
-    public GameObject redGhost;
-    public GameObject pinkGhost;
-    public GameObject blueGhost;
-    public GameObject orangeGhost;
-    public EnemyController redGhostController;
-    public EnemyController blueGhostController;
-    public EnemyController pinkGhostController;
-    public EnemyController orangeGhostController;
+    public GameObject redGhostPrefab;
+    public GameObject pinkGhostPrefab;
+    public GameObject blueGhostPrefab;
+    public GameObject orangeGhostPrefab;
+    public EnemyController blueGhostPrefabController;
+    public EnemyController orangeGhostPrefabController;
+    public EnemyController pinkGhostPrefabController;
+    public EnemyController redGhostPrefabController;
     public Text scoreText;
     public Text gameOverText;
     public Image blackBackground;
+
     public string screenType;
     public int currentMunch = 0;
     public int score;
@@ -72,10 +73,10 @@ public class GameManager : MonoBehaviour
         clearedLevel = false;
         isPowerPelletRunning = false;
 
-        redGhostController = redGhost.GetComponent<EnemyController>();
-        blueGhostController = blueGhost.GetComponent<EnemyController>();
-        pinkGhostController = pinkGhost.GetComponent<EnemyController>();
-        orangeGhostController = orangeGhost.GetComponent<EnemyController>();
+        redGhostPrefabController = redGhostPrefab.GetComponent<EnemyController>();
+        blueGhostPrefabController = blueGhostPrefab.GetComponent<EnemyController>();
+        pinkGhostPrefabController = pinkGhostPrefab.GetComponent<EnemyController>();
+        orangeGhostPrefabController = orangeGhostPrefab.GetComponent<EnemyController>();
 
         ghostNodeStart.GetComponent<NodeController>().isGhostStartingNode = true;
 
@@ -135,10 +136,10 @@ public class GameManager : MonoBehaviour
         pacman.GetComponent<PlayerController>().Setup();
 
         //Ghosts respawn
-        redGhostController.Setup();
-        pinkGhostController.Setup();
-        blueGhostController.Setup();
-        orangeGhostController.Setup();
+        redGhostPrefabController.Setup();
+        pinkGhostPrefabController.Setup();
+        blueGhostPrefabController.Setup();
+        orangeGhostPrefabController.Setup();
 
         newGame = false;
         clearedLevel = false;
@@ -155,10 +156,10 @@ public class GameManager : MonoBehaviour
             return;
         }
        
-        if ((redGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
-        || (pinkGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
-        || (blueGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
-        || (orangeGhostController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning))
+        if ((redGhostPrefabController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
+        || (pinkGhostPrefabController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
+        || (blueGhostPrefabController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning)
+        || (orangeGhostPrefabController.ghostNodeState == EnemyController.GhostNodeStateEnum.respawning))
         {
             if (!respawningAudio.isPlaying)
             {
@@ -280,13 +281,13 @@ public class GameManager : MonoBehaviour
             requiredBluePellets = 30;
             requiredOrangePellets = 60;
         }
-        if (pelletsCollectedOnThisLife >= requiredBluePellets && !blueGhost.GetComponent<EnemyController>().leftHomeBefore)
+        if (pelletsCollectedOnThisLife >= requiredBluePellets && !blueGhostPrefab.GetComponent<EnemyController>().leftHomeBefore)
         {
-            blueGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
+            blueGhostPrefab.GetComponent<EnemyController>().readyToLeaveHome = true;
         }
-        if (pelletsCollectedOnThisLife >= requiredOrangePellets && !orangeGhost.GetComponent<EnemyController>().leftHomeBefore)
+        if (pelletsCollectedOnThisLife >= requiredOrangePellets && !orangeGhostPrefab.GetComponent<EnemyController>().leftHomeBefore)
         {
-            orangeGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
+            orangeGhostPrefab.GetComponent<EnemyController>().readyToLeaveHome = true;
         }
 
 
@@ -313,10 +314,10 @@ public class GameManager : MonoBehaviour
             currentPowerPelletTimer = 0;
 
 
-            redGhostController.SetFrightened(true);
-            pinkGhostController.SetFrightened(true);
-            blueGhostController.SetFrightened(true);
-            orangeGhostController.SetFrightened(true);
+            redGhostPrefabController.SetFrightened(true);
+            pinkGhostPrefabController.SetFrightened(true);
+            blueGhostPrefabController.SetFrightened(true);
+            orangeGhostPrefabController.SetFrightened(true);
         }
     }
 
@@ -335,16 +336,25 @@ public class GameManager : MonoBehaviour
         StartCoroutine(PauseGame(1f));
     }
 
+      public void GhostEaten(EnemyControllerRedScreen enemyController)
+    {
+        ghostEatenAudio.Play();
+        AddToScore(400 * powerPelletMultiplier);
+        powerPelletMultiplier++;
+        enemyController.ghostSprite.enabled = false;
+        StartCoroutine(PauseGame(1f));
+    }
+
     public IEnumerator PlayerEaten()
     {
         hadDeathOnThisLevel = true;
         StopGame();
         yield return new WaitForSeconds(1f);
 
-        redGhostController.SetVisible(false);
-        blueGhostController.SetVisible(false);
-        orangeGhostController.SetVisible(false);
-        pinkGhostController.SetVisible(false);
+        redGhostPrefabController.SetVisible(false);
+        blueGhostPrefabController.SetVisible(false);
+        orangeGhostPrefabController.SetVisible(false);
+        pinkGhostPrefabController.SetVisible(false);
 
         pacman.GetComponent<PlayerController>().Death();
         deathSound.Play();
