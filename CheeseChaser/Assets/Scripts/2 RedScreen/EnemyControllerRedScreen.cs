@@ -28,10 +28,6 @@ public class EnemyControllerRedScreen : MonoBehaviour
     public GhostType ghostType;
     public GameObject ghostPrefab;
     public Vector3 spawnPosition;
-    public GameObject ghostNodeLeft;
-    public GameObject ghostNodeRight;
-    public GameObject ghostNodeCenter;
-    public GameObject ghostNodeStart;
     public GameObject startingNode;
     public GameManagerRedScreen gameManager;
 
@@ -53,14 +49,23 @@ public class EnemyControllerRedScreen : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManagerRedScreen").GetComponent<GameManagerRedScreen>();
 
-        animator = GetComponent<Animator>();
-        ghostSprite = GetComponent<SpriteRenderer>();
-        eyesSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        movementController = GetComponent<MovementControllerRedScreen>();
     }
 
     public void Start()
     {
+
+        animator = GetComponent<Animator>();
+        ghostSprite = GetComponent<SpriteRenderer>();
+        string hexaColor = "00FFDC";
+
+        Color newColor;
+
+        if (ColorUtility.TryParseHtmlString(hexaColor, out newColor))
+        {
+            ghostSprite.color = newColor;
+        }
+
+        eyesSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         scatterNodeIndex = 0;
         ghostSprite.sortingOrder = 2;
         eyesSprite.sortingOrder = 3;
@@ -71,6 +76,14 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
     public void Setup()
     {
+        if (gameObject.GetComponent<Animator>() == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+        if (startingNode == null)
+        {
+            startingNode = GameObject.Find("PlaceHolderNode");
+        }
         animator.SetBool("moving", true);
         ghostNodeState = startGhostNodeState;
         readyToLeaveHome = false;
@@ -242,47 +255,9 @@ public class EnemyControllerRedScreen : MonoBehaviour
         else if (ghostNodeState == GhostNodeStateEnum.respawning)
         {
             string direction = "";
-            // We have reached out start node, move to the center node
-            float epsilon = 0.1f;
-            if (transform.position.x == ghostNodeStart.transform.position.x &&
-                Mathf.Abs(transform.position.y - ghostNodeStart.transform.position.y) < epsilon)
-            {
-
-                direction = "down";
-                movementController.SetDirection(direction);
-
-            }
-
-            // We have reached out center node, respawn or moved to the center node
-            else if (transform.position.x == ghostNodeCenter.transform.position.x && transform.position.y == ghostNodeCenter.transform.position.y)
-            {
-                if (respawnState == GhostNodeStateEnum.centerNode)
-                {
-                    ghostNodeState = respawnState;
-                }
-                else if (respawnState == GhostNodeStateEnum.leftNode)
-                {
-                    direction = "left";
-                }
-                else if (respawnState == GhostNodeStateEnum.rightNode)
-                {
-                    direction = "right";
-                }
-
-            }
-            // If our respawn state is either the left or right node, and we got to that node, leave home again
-            else if
-            ((transform.position.x == ghostNodeLeft.transform.position.x && transform.position.y == ghostNodeLeft.transform.position.y)
-            || (transform.position.x == ghostNodeRight.transform.position.x && transform.position.y == ghostNodeRight.transform.position.y
-            ))
-            {
-                ghostNodeState = respawnState;
-            }
-            //We are in the gameboard still, locate our start node
-            else
             {
                 // Determine quickest direct to home   
-                direction = GetClosestDirection(ghostNodeStart.transform.position);
+                direction = GetClosestDirection(startingNode.transform.position);
                 movementController.SetDirection(direction);
             }
 

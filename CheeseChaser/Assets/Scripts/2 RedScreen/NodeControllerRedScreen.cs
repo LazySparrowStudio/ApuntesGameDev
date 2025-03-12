@@ -33,7 +33,7 @@ public class NodeControllerRedScreen : MonoBehaviour
             hasPellet = true;
             isPelletNode = true;
             pelletSprite = GetComponentInChildren<SpriteRenderer>();
-            pelletSprite.sortingOrder = 1;
+            pelletSprite.sortingOrder = 2;
         }
         //   OnDrawGizmos();
 

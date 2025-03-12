@@ -61,9 +61,6 @@ public class GameManagerRedScreen : MonoBehaviour
         newGame = true;
         clearedLevel = false;
         isPowerPelletRunning = false;
-
-        redGhostPrefabController = redGhostPrefab.GetComponent<EnemyControllerRedScreen>();
-
         pacman = GameObject.Find("Player");
     }
 
@@ -74,6 +71,7 @@ public class GameManagerRedScreen : MonoBehaviour
 
     public IEnumerator Setup()
     {
+
         ghostModeTimer = 0;
         ghostModeTimersIndex = 0;
         completedTimer = false;
@@ -247,20 +245,6 @@ public class GameManagerRedScreen : MonoBehaviour
         pelletsLeft--;
         pelletsCollectedOnThisLife++;
 
-        int requiredBluePellets = 0;
-        int requiredOrangePellets = 0;
-
-        if (hadDeathOnThisLevel)
-        {
-            requiredBluePellets = 12;
-            requiredOrangePellets = 32;
-        }
-        else
-        {
-            requiredBluePellets = 30;
-            requiredOrangePellets = 60;
-        }
-
         AddToScore(10);
 
 
@@ -294,7 +278,7 @@ public class GameManagerRedScreen : MonoBehaviour
         yield return new WaitForSeconds(timeToPause);
         isGameRunning = true;
     }
- 
+
 
     public void GhostEaten(EnemyControllerRedScreen enemyController)
     {
