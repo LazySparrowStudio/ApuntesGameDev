@@ -109,23 +109,22 @@ public class ActivateOnTrigger : MonoBehaviour
 - Añadirle al XR ORIGIN un componente CharacterController
 - Objeto vacio llamado Locomotion System
 - Añadir Locomotion System
-- Arrastrat XR ORIGIN al campo XR origin del Locomotion System
-- Añadir a XR ORIGIN wl componente Continuous Move Provider (Action Based)
+- Arrastrar XR ORIGIN al campo XR origin del Locomotion System
+- Añadir a XR ORIGIN al componente Continuous Move Provider (Action Based)
 - En la opcion Move Input Action, asignar al joystick
     - Use reference
     - El preset XRI LeftHand/Move para mover con el stick izquierdo
-En el XR Origin añadir el componente Continuos Turn Proider (Action Based)
+
 
 #### Snap Turn
 - Añadirle al XR ORIGIN un componente CharacterController
 - Objeto vacio llamado Locomotion System
 - Añadir Locomotion System
-- Arrastrat XR ORIGIN al campo XR origin del Locomotion System
-- Añadir a XR ORIGIN wl componente Continuous Move Provider (Action Based)
+- Arrastrar XR ORIGIN al campo XR origin del Locomotion System
+- Añadir a XR ORIGIN wl componente Snap Turn Provider (Action Based)
 - En la opcion Move Input Action, asignar al joystick
     - Use reference
     - El preset XRI LeftHand/Move para mover con el stick izquierdo
-- En el XR Origin añadir el componente Snap Turn Provider
 - Si quieres cambiar el angulo de giro, modifica el valor de giro (por defecto esta a 45)
 
 #### Teleport
@@ -140,6 +139,125 @@ En el XR Origin añadir el componente Continuos Turn Proider (Action Based)
 - Crear Teleportation area
 - Modificar el Line Bend Ratio para evitar curvatura del rayo
 
+### Colocar un GameObjeto(A) sobre otro GameObjeto(B) en el que ya existe un Socket. Agarrar A y soltarlo en B. Solo poder retirar A MIENTRAS agarras B
+- Hacer un Empty Object(B) y añadirle Rigidbody y XRGrabInteractable
+- Añadirle los hijos correspondientes:
+    1. Apartado visual (Opcional) - MeshRender
+    2. Zona y orientacion de agarre (Attach) - Empty Object
+    3. Lugar de colocación del objeto flotante - Empty Object con componente XR SocketInteractor y un Collider
+- Crear el objeto flotante que va a ser colocado (A) - GameObject (cubo o el objeto que sea) con un Collider, Rigidbody y XRInteractable  
+- Ojito a las curvas que se vienen:
+    - Al EmptyObject(B) que hicimos al pricipio, añadimos un script para tener un registro de los distintos sockets que tenemos:
+    ~~~C#
+    // Script para la tabla
+        using System.Collections;
+        using System.Collections.Generic;
+        using UnityEngine;
+
+        public class PuzzleBoard : MonoBehaviour
+        {
+            //Array en el que van a ir los sockets
+            PuzzleSocket[] onBoardPuzzleSockets;
+
+            void Start()
+            {
+                //Buscamos as referencias ós PuzzleSocket situados dentro do PuzzleBoard
+                onBoardPuzzleSockets = GetComponentsInChildren<PuzzleSocket>();
+            }
+
+            //
+            public void EnableHandInteraction(bool enabled)
+            {
+                //Recoge el Socket de cada hijo y llama al EnableHandsInteraction de PuzzleSocket y le pasa el bool
+                foreach (PuzzleSocket ps in onBoardPuzzleSockets)
+                {
+                    ps.EnableHandInteraction(enabled);
+                }
+            }
+        }
+
+    ~~~
+    ~~~C#
+    //PuzzleSocket.cs
+        using System.Collections;
+        using System.Collections.Generic;
+        using UnityEngine;
+        using UnityEngine.XR;
+        using UnityEngine.XR.Interaction.Toolkit;
+
+        public class PuzzleSocket : MonoBehaviour {
+            private XRSocketInteractor xrSocketInteractor;
+
+            //Variable que controla si esta siendo agarrado
+            private bool handInteraction;
+
+            public bool HandInteraction => handInteraction;
+            
+            // Start is called before the first frame updat
+            void Start() {
+                xrSocketInteractor = GetComponent<XRSocketInteractor>();
+                handInteraction = false;
+            }
+
+            //Metodo llamado por PuzzleSocket que coge el bool, activa o desactiva el que la tabla este agarrada y si tiene algo coge el Script Puzzle Piece que este dentro, es decir, el del Objeto que tiene que colocarse
+            public void EnableHandInteraction(bool enabled)  {
+                handInteraction = enabled;
+                PuzzlePiece pp;
+                if(xrSocketInteractor.selectTarget != null) {
+                    pp = xrSocketInteractor.selectTarget.GetComponent<PuzzlePiece>();
+                    pp.EnableHandInteraction(enabled);
+                    
+                }
+            }
+        }
+
+    ~~~
+        ~~~C#
+        //PuzzlePiece.cs
+        using System.Collections;
+        using System.Collections.Generic;
+        using UnityEngine;
+        using UnityEngine.XR.Interaction.Toolkit;
+
+        public class PuzzlePiece : MonoBehaviour {
+            private XRGrabInteractable xrGrabInteractable;
+
+            public InteractionLayerMask handsEnabledLayerMask;
+            public InteractionLayerMask handsDisabledLayerMask;
+
+            // Start is called before the first frame update
+            void Start() {
+                xrGrabInteractable = GetComponent<XRGrabInteractable>();
+            }
+
+            public void SetMaterial(Material material) {
+                GetComponent<MeshRenderer>().material = material;
+            }
+
+            public void EnableHandInteraction(bool enabled) {
+                if(enabled) {
+                    xrGrabInteractable.interactionLayers = handsEnabledLayerMask;
+                } else {
+                    xrGrabInteractable.interactionLayers = handsDisabledLayerMask;
+                }
+            }
+
+            public void EnableHandInteraction() {
+                xrGrabInteractable.interactionLayers = handsEnabledLayerMask;
+            }
+
+            public void DisableHandInteraction(SelectEnterEventArgs args) {
+                if(args.interactorObject is XRSocketInteractor) {
+                    XRSocketInteractor socket = (XRSocketInteractor)args.interactorObject;
+                    PuzzleSocket ps = socket.GetComponent<PuzzleSocket>();
+                    if( ! ps.HandInteraction) {
+                        xrGrabInteractable.interactionLayers = handsDisabledLayerMask;
+                    }
+                }
+            }
+        }
+    ~~~
+ 
  ## Unity Quest 2 setup
  "*" For no tested
 - *Build Setting to Android
@@ -149,6 +267,8 @@ En el XR Origin añadir el componente Continuos Turn Proider (Action Based)
 - Finalmente añadir a la escena un XR Origin
 
 - Baseinteractable - Clase de la que derivan los interactables. Tienen los eventos del Grab sin que esten asociados directamente
+
+
 
 
 ## Agarrar
