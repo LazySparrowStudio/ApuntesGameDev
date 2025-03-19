@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 2641218090563443382, guid: aa1a242b6e530a74795f68cb2320eaea, type: 3}
+  m_Sprite: {fileID: -6807869484260107788, guid: a7b2fa3af30b53b4ca039675127fa075, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 1727170791848164294}
   - component: {fileID: 4639808806835179363}
   m_Layer: 0
-  m_Name: BlueRedScreen
+  m_Name: BlueRedGhost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,9 +116,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2900705666975194723}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.583271, y: 0.31514823, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4935232576737274249}
@@ -136,27 +136,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff6f71543e5ae04fa6e05e2a85d7a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostNodeState: 0
-  respawnState: 0
-  startGhostNodeState: 0
-  ghostType: 0
-  ghostPrefab: {fileID: 2900705666975194723}
-  spawnPosition: {x: 0.85, y: -0.52, z: 0}
-  startingNode: {fileID: 0}
-  gameManager: {fileID: 0}
-  movementController: {fileID: 95594133889498900}
+  startGhostNodeState: 5
   scatterNodes:
   - {fileID: 0}
-  readyToLeaveHome: 0
-  testRespawn: 0
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  isRespawning: 0
   isFrightened: 0
-  leftHomeBefore: 0
   isVisible: 1
   scatterNodeIndex: 0
-  ghostSprite: {fileID: 0}
-  eyesSprite: {fileID: 0}
+  ghostPrefab: {fileID: 2900705666975194723}
+  startingNode: {fileID: 0}
+  gameManager: {fileID: 0}
+  ghostSprite: {fileID: 5535379173585294113}
+  eyesSprite: {fileID: 6303116523008439200}
   animator: {fileID: 4639808806835179363}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 0}
+  ghostType: 0
+  ghostNodeState: 0
+  movementController: {fileID: 95594133889498900}
 --- !u!114 &95594133889498900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +219,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 6963287583850828681, guid: 484e7fd15a84e7b43b64a84d8213f9ad, type: 3}
+  m_Sprite: {fileID: -4340680871664347006, guid: 1376916bbd98c3d49a78170cf61d5760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -269,13 +268,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1, y: 2.1}
+    oldSize: {x: 0.45, y: 0.45}
     newSize: {x: 2.1, y: 2.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 0.35, y: 0.35}
   m_EdgeRadius: 0
 --- !u!95 &4639808806835179363
 Animator:

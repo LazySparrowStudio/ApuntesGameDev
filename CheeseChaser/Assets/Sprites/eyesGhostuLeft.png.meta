@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: eeb55c81a364c96448b9d13f9fb81c24
+guid: a7b2fa3af30b53b4ca039675127fa075
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8125589024476192929
-    second: pacmanLeft_0
+      213: -6807869484260107788
+    second: eyesGhostuLeft_0
+  - first:
+      213: -6650593674136399893
+    second: eyesGhostuLeft_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pacmanLeft_0
+      name: eyesGhostuLeft_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 45
-        height: 45
+        x: 9
+        y: 13
+        width: 26
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a067b2aa24e3c070800000000000000
-      internalID: 8125589024476192929
+      spriteID: 4f9547116c69581a0800000000000000
+      internalID: -6807869484260107788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyesGhostuLeft_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 20
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: befc3ab2a4854b3a0800000000000000
+      internalID: -6650593674136399893
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 610fac99680865f4fae1c5ba76179574
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      eyesGhostuLeft_0: -6807869484260107788
+      eyesGhostuLeft_1: -6650593674136399893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
