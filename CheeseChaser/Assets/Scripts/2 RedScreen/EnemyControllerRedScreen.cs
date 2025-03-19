@@ -3,6 +3,20 @@ using UnityEngine;
 
 public class EnemyControllerRedScreen : MonoBehaviour
 {
+    public GhostNodeStateEnum startGhostNodeState;
+
+    public GameObject[] scatterNodes;
+    public bool isRespawning = false;
+    public bool isFrightened = false;
+    public bool isVisible = true;
+    public int scatterNodeIndex;
+    public GameObject ghostPrefab;
+    public GameObject startingNode;
+    public GameManagerRedScreen gameManager;
+    public SpriteRenderer ghostSprite;
+    public SpriteRenderer eyesSprite;
+    public Animator animator;
+    public Color color;
     public enum GhostNodeStateEnum
     {
         respawning,
@@ -12,11 +26,6 @@ public class EnemyControllerRedScreen : MonoBehaviour
         startNode,
         movingInNodes
     }
-
-    public GhostNodeStateEnum ghostNodeState;
-    public GhostNodeStateEnum respawnState;
-    public GhostNodeStateEnum startGhostNodeState;
-
     public enum GhostType
     {
         red,
@@ -24,26 +33,12 @@ public class EnemyControllerRedScreen : MonoBehaviour
         pink,
         orange
     }
-
     public GhostType ghostType;
-    public GameObject ghostPrefab;
-    public Vector3 spawnPosition;
-    public GameObject startingNode;
-    public GameManagerRedScreen gameManager;
+
+    public GhostNodeStateEnum ghostNodeState;
+
 
     public MovementControllerRedScreen movementController;
-    public GameObject[] scatterNodes;
-
-    public bool readyToLeaveHome = false;
-    public bool testRespawn = false;
-    public bool isFrightened = false;
-    public bool leftHomeBefore = false;
-    public bool isVisible = true;
-    public int scatterNodeIndex;
-    public SpriteRenderer ghostSprite;
-    public SpriteRenderer eyesSprite;
-    public Animator animator;
-    public Color color;
 
     void Awake()
     {
@@ -67,8 +62,8 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
         eyesSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         scatterNodeIndex = 0;
-        ghostSprite.sortingOrder = 2;
-        eyesSprite.sortingOrder = 3;
+        ghostSprite.sortingOrder = 3;
+        eyesSprite.sortingOrder = 4;
 
 
 
@@ -76,6 +71,7 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
     public void Setup()
     {
+        //Debugging
         if (gameObject.GetComponent<Animator>() == null)
         {
             animator = GetComponent<Animator>();
@@ -86,7 +82,7 @@ public class EnemyControllerRedScreen : MonoBehaviour
         }
         animator.SetBool("moving", true);
         ghostNodeState = startGhostNodeState;
-        readyToLeaveHome = false;
+
 
         //Reset our ghosts back to their home position
         movementController.currentNode = startingNode;
@@ -97,23 +93,10 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
         scatterNodeIndex = 0;
 
-        //Set isFrightened
+        //Reset isFrightened
         isFrightened = false;
-
-        leftHomeBefore = false;
-
         ghostSprite.enabled = true;
 
-        //Set readyToLeaveHome to be false if they are red or pink
-        if (ghostType == GhostType.red)
-        {
-            readyToLeaveHome = true;
-            leftHomeBefore = true;
-        }
-        else if (ghostType == GhostType.pink)
-        {
-            readyToLeaveHome = true;
-        }
         SetVisible(true);
     }
 
@@ -122,17 +105,18 @@ public class EnemyControllerRedScreen : MonoBehaviour
         if (ghostNodeState != GhostNodeStateEnum.movingInNodes || !gameManager.isPowerPelletRunning)
         {
             isFrightened = false;
-        }
-        if (!gameManager.isPowerPelletRunning)
+            animator.speed = 0.5f;
+        }else
         {
-            isFrightened = false;
+            animator.speed = 1;
         }
+
         //Show our sprites
         if (isVisible)
         {
             if (ghostNodeState != GhostNodeStateEnum.respawning)
             {
-                ghostSprite.enabled = true;
+                ghostSprite.enabled = false;
             }
             else
             {
@@ -181,33 +165,34 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
         animator.SetBool("moving", true);
 
-        if (testRespawn == true)
+        if (isRespawning == true)
         {
-            readyToLeaveHome = false;
+
             ghostNodeState = GhostNodeStateEnum.respawning;
-            testRespawn = false;
+            isRespawning = false;
 
         }
 
         if (movementController.currentNode.GetComponent<NodeControllerRedScreen>().isSideNode == true)
         {
-            movementController.SetSpeed(1f);
+            if (ghostNodeState == GhostNodeStateEnum.respawning)
+            {
+                movementController.SetSpeed(5f);
+            }
+            else movementController.SetSpeed(1f);
+
+        }
+        else if (isFrightened)
+        {
+            movementController.SetSpeed(1);
+        }
+        else if (ghostNodeState == GhostNodeStateEnum.respawning)
+        {
+            movementController.SetSpeed(5);
         }
         else
         {
-            if (isFrightened)
-            {
-                movementController.SetSpeed(1);
-            }
-            else if (ghostNodeState == GhostNodeStateEnum.respawning)
-            {
-                movementController.SetSpeed(7);
-            }
-            else
-            {
-                movementController.SetSpeed(2);
-            }
-
+            movementController.SetSpeed(2);
         }
     }
 
@@ -215,11 +200,12 @@ public class EnemyControllerRedScreen : MonoBehaviour
     {
         isFrightened = newIsFrightened;
     }
+
+    //Movimiento
     public void ReachedCenterofNode(NodeControllerRedScreen nodeController)
     {
         if (ghostNodeState == GhostNodeStateEnum.movingInNodes)
         {
-            leftHomeBefore = true;
             //Scatter Mode
             if (gameManager.currentGhostMode == GameManagerRedScreen.GhostMode.scatter)
             {
@@ -233,22 +219,24 @@ public class EnemyControllerRedScreen : MonoBehaviour
             }
             //Chase Mode
             else
-            // Determine next game node to go
-            if (ghostType == GhostType.red)
             {
-                DetermineRedGhostDirection();
-            }
-            else if (ghostType == GhostType.pink)
-            {
-                DeterminePinkGhostDirection();
-            }
-            else if (ghostType == GhostType.blue)
-            {
-                DetermineBlueGhostDirection();
-            }
-            else if (ghostType == GhostType.orange)
-            {
-                DetermineOrangeGhostDirection();
+                // Determine next game node to go
+                if (ghostType == GhostType.red)
+                {
+                    DetermineRedGhostDirection();
+                }
+                else if (ghostType == GhostType.pink)
+                {
+                    DeterminePinkGhostDirection();
+                }
+                else if (ghostType == GhostType.blue)
+                {
+                    DetermineBlueGhostDirection();
+                }
+                else if (ghostType == GhostType.orange)
+                {
+                    DetermineOrangeGhostDirection();
+                }
             }
 
         }
@@ -261,39 +249,6 @@ public class EnemyControllerRedScreen : MonoBehaviour
                 movementController.SetDirection(direction);
             }
 
-
-        }
-        else
-        {
-            //If we are ready to leave our home
-            if (readyToLeaveHome)
-            {
-                //If we are in the left home node, move to the center
-                if (ghostNodeState == GhostNodeStateEnum.leftNode)
-                {
-                    ghostNodeState = GhostNodeStateEnum.centerNode;
-                    movementController.SetDirection("right");
-                }
-                //If we are in the right home node, move to the center
-                else if (ghostNodeState == GhostNodeStateEnum.rightNode)
-                {
-                    ghostNodeState = GhostNodeStateEnum.centerNode;
-                    movementController.SetDirection("left");
-                }
-                //If we are in the center node, move to the start node
-                else if (ghostNodeState == GhostNodeStateEnum.centerNode)
-                {
-                    ghostNodeState = GhostNodeStateEnum.startNode;
-                    movementController.SetDirection("up");
-                }
-                //If we are in the start node, start moving around in the game
-                else if (ghostNodeState == GhostNodeStateEnum.startNode)
-                {
-                    ghostNodeState = GhostNodeStateEnum.movingInNodes;
-                    movementController.SetDirection("left");
-                }
-
-            }
         }
     }
 

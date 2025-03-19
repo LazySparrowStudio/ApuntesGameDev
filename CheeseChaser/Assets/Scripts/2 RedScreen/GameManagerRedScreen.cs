@@ -17,7 +17,7 @@ public class GameManagerRedScreen : MonoBehaviour
     public string screenPositions = "BlueScreen";
     public GameObject pacman;
     public GameObject redGhostPrefab;
-    public EnemyControllerRedScreen redGhostPrefabController;
+    public EnemyControllerRedScreen GhostPrefabController;
     public Text scoreText;
     public Text gameOverText;
     public Image blackBackground;
@@ -119,7 +119,7 @@ public class GameManagerRedScreen : MonoBehaviour
         pacman.GetComponent<PlayerControllerRedScreen>().Setup();
 
         //Ghosts respawn
-        redGhostPrefabController.Setup();
+        GhostPrefabController.Setup();
 
         newGame = false;
         clearedLevel = false;
@@ -136,7 +136,7 @@ public class GameManagerRedScreen : MonoBehaviour
             return;
         }
 
-        if (redGhostPrefabController.ghostNodeState == EnemyControllerRedScreen.GhostNodeStateEnum.respawning)
+        if (GhostPrefabController.ghostNodeState == EnemyControllerRedScreen.GhostNodeStateEnum.respawning)
         {
             if (!respawningAudio.isPlaying)
             {
@@ -151,33 +151,7 @@ public class GameManagerRedScreen : MonoBehaviour
             }
         }
 
-        if (!completedTimer && runningTimer)
-        {
-            ghostModeTimer += Time.deltaTime;
-            if (ghostModeTimer > ghostModeTimers[ghostModeTimersIndex])
-            {
-                ghostModeTimer = 0;
-                ghostModeTimersIndex++;
-
-                if (currentGhostMode == GhostMode.chase)
-                {
-                    currentGhostMode = GhostMode.scatter;
-                }
-                else
-                {
-                    currentGhostMode = (GhostMode.chase);
-                }
-                currentGhostMode = (GhostMode.chase);
-            }
-
-            if (ghostModeTimersIndex == ghostModeTimers[ghostModeTimersIndex])
-            {
-                completedTimer = true;
-                runningTimer = false;
-                currentGhostMode = (GhostMode.chase);
-            }
-        }
-
+      
         if (isPowerPelletRunning)
         {
             currentPowerPelletTimer += Time.deltaTime;
@@ -268,7 +242,7 @@ public class GameManagerRedScreen : MonoBehaviour
             currentPowerPelletTimer = 0;
 
 
-            redGhostPrefabController.SetFrightened(true);
+            GhostPrefabController.SetFrightened(true);
         }
     }
 
@@ -295,7 +269,7 @@ public class GameManagerRedScreen : MonoBehaviour
         StopGame();
         yield return new WaitForSeconds(1f);
 
-        redGhostPrefabController.SetVisible(false);
+        GhostPrefabController.SetVisible(false);
 
         pacman.GetComponent<PlayerController>().Death();
         deathSound.Play();

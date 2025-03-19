@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eeb55c81a364c96448b9d13f9fb81c24
+guid: c29c6f17f0909d1448e60960bf1fcd6e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8125589024476192929
-    second: pacmanLeft_0
+      213: 8240531243436253685
+    second: pacmanClosed 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pacmanLeft_0
+      name: pacmanClosed 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a067b2aa24e3c070800000000000000
-      internalID: 8125589024476192929
+      spriteID: 5f1a685718f3c5270800000000000000
+      internalID: 8240531243436253685
       vertices: []
       indices: 
       edges: []
