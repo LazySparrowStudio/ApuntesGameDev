@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff6f71543e5ae04fa6e05e2a85d7a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGhostNodeState: 5
+  startGhostNodeState: 1
   scatterNodes:
   - {fileID: 0}
   - {fileID: 0}
@@ -154,8 +154,10 @@ MonoBehaviour:
   animator: {fileID: 4639808806835179363}
   color: {r: 1, g: 1, b: 1, a: 0}
   ghostType: 0
-  ghostNodeState: 0
+  ghostNodeState: 1
   movementController: {fileID: 95594133889498900}
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  alphaColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &95594133889498900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +176,7 @@ MonoBehaviour:
   direction: 
   lastMovingDirection: 
   canWarp: 0
-  isGhost: 0
+  isGhost: 1
 --- !u!212 &5535379173585294113
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -20,10 +20,6 @@ public class EnemyControllerRedScreen : MonoBehaviour
     public enum GhostNodeStateEnum
     {
         respawning,
-        leftNode,
-        rightNode,
-        centerNode,
-        startNode,
         movingInNodes
     }
     public enum GhostType
@@ -39,21 +35,23 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
 
     public MovementControllerRedScreen movementController;
+    string hexaColor = "00FFDC";
+    public Color newColor;
+    public Color alphaColor = new Color(1f, 1f, 1f, 1f);
 
     void Awake()
     {
         gameManager = GameObject.Find("GameManagerRedScreen").GetComponent<GameManagerRedScreen>();
+        movementController.currentNode = startingNode;
+        startGhostNodeState = GhostNodeStateEnum.movingInNodes;
 
+        scatterNodeIndex = 0;
     }
 
     public void Start()
     {
 
         animator = GetComponent<Animator>();
-        ghostSprite = GetComponent<SpriteRenderer>();
-        string hexaColor = "00FFDC";
-
-        Color newColor;
 
         if (ColorUtility.TryParseHtmlString(hexaColor, out newColor))
         {
@@ -62,10 +60,8 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
         eyesSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         scatterNodeIndex = 0;
-        ghostSprite.sortingOrder = 3;
-        eyesSprite.sortingOrder = 4;
-
-
+        ghostSprite.sortingOrder = 4;
+        eyesSprite.sortingOrder = 5;
 
     }
 
@@ -76,6 +72,7 @@ public class EnemyControllerRedScreen : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+
         if (startingNode == null)
         {
             startingNode = GameObject.Find("PlaceHolderNode");
@@ -102,11 +99,13 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
     void Update()
     {
+
         if (ghostNodeState != GhostNodeStateEnum.movingInNodes || !gameManager.isPowerPelletRunning)
         {
             isFrightened = false;
-            animator.speed = 0.5f;
-        }else
+            animator.speed = 0.3f;
+        }
+        else
         {
             animator.speed = 1;
         }
@@ -114,18 +113,16 @@ public class EnemyControllerRedScreen : MonoBehaviour
         //Show our sprites
         if (isVisible)
         {
-            if (ghostNodeState != GhostNodeStateEnum.respawning)
+            if (ghostNodeState == GhostNodeStateEnum.respawning)
             {
                 ghostSprite.enabled = false;
             }
             else
             {
-                ghostSprite.enabled = false;
+                ghostSprite.enabled = true;
+                eyesSprite.enabled = true;
 
             }
-
-            ghostSprite.enabled = true;
-            eyesSprite.enabled = true;
         }
         //Hide our sprites
         else
@@ -139,13 +136,13 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
             animator.SetBool("frightened", true);
             eyesSprite.enabled = false;
-            ghostSprite.color = new Color(1f, 1f, 1f, 1f);
+            ghostSprite.color = alphaColor;
             animator.SetBool("frightenedBlinking", false);
         }
         else
         {
             animator.SetBool("frightened", false);
-            ghostSprite.color = color;
+            ghostSprite.color = newColor;
 
 
         }
@@ -195,7 +192,6 @@ public class EnemyControllerRedScreen : MonoBehaviour
             movementController.SetSpeed(2);
         }
     }
-
     public void SetFrightened(bool newIsFrightened)
     {
         isFrightened = newIsFrightened;
@@ -220,23 +216,7 @@ public class EnemyControllerRedScreen : MonoBehaviour
             //Chase Mode
             else
             {
-                // Determine next game node to go
-                if (ghostType == GhostType.red)
-                {
-                    DetermineRedGhostDirection();
-                }
-                else if (ghostType == GhostType.pink)
-                {
-                    DeterminePinkGhostDirection();
-                }
-                else if (ghostType == GhostType.blue)
-                {
-                    DetermineBlueGhostDirection();
-                }
-                else if (ghostType == GhostType.orange)
-                {
-                    DetermineOrangeGhostDirection();
-                }
+                DetermineRedGhostDirection();
             }
 
         }
@@ -248,7 +228,6 @@ public class EnemyControllerRedScreen : MonoBehaviour
                 direction = GetClosestDirection(startingNode.transform.position);
                 movementController.SetDirection(direction);
             }
-
         }
     }
 

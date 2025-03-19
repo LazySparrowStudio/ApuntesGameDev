@@ -12,7 +12,6 @@ public class GameManagerRedScreen : MonoBehaviour
         scatter
     }
     public GhostMode currentGhostMode;
-
     public List<NodeControllerRedScreen> nodeControllerList = new List<NodeControllerRedScreen>();
     public string screenPositions = "BlueScreen";
     public GameObject pacman;
@@ -21,7 +20,6 @@ public class GameManagerRedScreen : MonoBehaviour
     public Text scoreText;
     public Text gameOverText;
     public Image blackBackground;
-
     public string screenType;
     public int currentMunch = 0;
     public int score;
@@ -33,7 +31,6 @@ public class GameManagerRedScreen : MonoBehaviour
     public int currentLevel = 1;
     public float currentPowerPelletTimer = 0;
     public float ghostModeTimer;
-
     public float powerPelletTimer = 8f;
     public bool isPowerPelletRunning = false;
     public bool hadDeathOnThisLevel = false;
@@ -42,10 +39,8 @@ public class GameManagerRedScreen : MonoBehaviour
     public bool clearedLevel = false;
     public bool runningTimer;
     public bool completedTimer;
-
     public int[] ghostModeTimers = new int[] { 7, 20, 7, 20, 5, 20, 5 };
     public int ghostModeTimersIndex;
-
     public AudioSource siren;
     public AudioSource munch1;
     public AudioSource munch2;
@@ -62,6 +57,7 @@ public class GameManagerRedScreen : MonoBehaviour
         clearedLevel = false;
         isPowerPelletRunning = false;
         pacman = GameObject.Find("Player");
+     
     }
 
     void Start()

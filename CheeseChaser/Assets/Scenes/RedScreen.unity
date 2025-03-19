@@ -9318,6 +9318,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2900705666975194723, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
   m_PrefabInstance: {fileID: 598285974}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &126921719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8222715588458914498, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
+  m_PrefabInstance: {fileID: 598285974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126921714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff6f71543e5ae04fa6e05e2a85d7a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &129221280
 GameObject:
   m_ObjectHideFlags: 0
@@ -42232,20 +42243,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 95594133889498900, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
-      propertyPath: currentNode
+      propertyPath: gameManager
       value: 
-      objectReference: {fileID: 251366861}
+      objectReference: {fileID: 1302116637}
     - target: {fileID: 2900705666975194723, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
     - target: {fileID: 6844767943441090013, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.947
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: 6844767943441090013, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.493
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 6844767943441090013, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42286,7 +42297,7 @@ PrefabInstance:
     - target: {fileID: 8222715588458914498, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
       propertyPath: startingNode
       value: 
-      objectReference: {fileID: 251366861}
+      objectReference: {fileID: 2093175793}
     - target: {fileID: 8222715588458914498, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
       propertyPath: 'scatterNodes.Array.data[0]'
       value: 
@@ -93701,7 +93712,7 @@ MonoBehaviour:
   screenPositions: RedScreen
   pacman: {fileID: 758197189}
   redGhostPrefab: {fileID: 126921714}
-  GhostPrefabController: {fileID: 0}
+  GhostPrefabController: {fileID: 126921719}
   scoreText: {fileID: 886228909}
   gameOverText: {fileID: 1768275564}
   blackBackground: {fileID: 184305082}

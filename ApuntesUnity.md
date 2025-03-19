@@ -87,7 +87,7 @@ public class ActivateOnTrigger : MonoBehaviour
     {
         if (objetoActivar.activeSelf == false)
         {
-            objetoActiar.SetActive(true);
+            objetoActivar.SetActive(true);
         }else
         {
             objetoActivar.SetActive(false);
@@ -108,7 +108,7 @@ public class ActivateOnTrigger : MonoBehaviour
 #### Movimiento Continuo
 - Añadirle al XR ORIGIN un componente CharacterController
 - Objeto vacio llamado Locomotion System
-- Añadir Locomotion System
+- Añadirle el componente Locomotion System
 - Arrastrar XR ORIGIN al campo XR origin del Locomotion System
 - Añadir a XR ORIGIN al componente Continuous Move Provider (Action Based)
 - En la opcion Move Input Action, asignar al joystick
@@ -119,7 +119,7 @@ public class ActivateOnTrigger : MonoBehaviour
 #### Snap Turn
 - Añadirle al XR ORIGIN un componente CharacterController
 - Objeto vacio llamado Locomotion System
-- Añadir Locomotion System
+- Añadirle el componente Locomotion System
 - Arrastrar XR ORIGIN al campo XR origin del Locomotion System
 - Añadir a XR ORIGIN wl componente Snap Turn Provider (Action Based)
 - En la opcion Move Input Action, asignar al joystick
