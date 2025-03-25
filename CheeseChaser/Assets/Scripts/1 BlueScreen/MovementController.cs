@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class MovementController : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         //nodeToTheLeft = currentNode.GetComponent<NodeController>().nodeLeft;
-       // nodeToTheRight = currentNode.GetComponent<NodeController>().nodeRight;
+        // nodeToTheRight = currentNode.GetComponent<NodeController>().nodeRight;
     }
 
     // Update is called once per frame
@@ -51,20 +52,29 @@ public class MovementController : MonoBehaviour
             // If we reached the center of the left warp, warp to the right warp
             if (currentNodeController.isWarpLeftNode && canWarp)
             {
-                currentNode = gameManager.rightWarpNode;
+                /*currentNode = gameManager.rightWarpNode;
                 direction = "left";
                 lastMovingDirection = "left";
                 transform.position = currentNode.transform.position;
                 canWarp = false;
-
+                */
             }   // If we reached the center of the right warp, warp to the left warp
             else if (currentNode == currentNodeController.isWarpRightNode && canWarp)
             {
-                currentNode = gameManager.leftWarpNode;
-                direction = "right";
-                lastMovingDirection = "right";
-                transform.position = currentNode.transform.position;
-                canWarp = false;
+                /*  currentNode = gameManager.leftWarpNode;
+                  direction = "right";
+                  lastMovingDirection = "right";
+                  transform.position = currentNode.transform.position;
+                  canWarp = false;
+              */ 
+                int currentScene = SceneManager.GetActiveScene().buildIndex;
+                int nextScene = currentScene + 1;
+
+                if (nextScene == SceneManager.sceneCountInBuildSettings)
+                {
+                    nextScene = 0;
+                }
+                SceneManager.LoadScene(nextScene);
             }
 
             // Otherwise, find the next node we are going to be moving towards

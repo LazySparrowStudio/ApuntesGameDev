@@ -3,25 +3,20 @@ using UnityEngine;
 
 public class EnemyControllerRedScreen : MonoBehaviour
 {
-    public GhostNodeStateEnum startGhostNodeState;
-
-    public GameObject[] scatterNodes;
-    public bool isRespawning = false;
-    public bool isFrightened = false;
-    public bool isVisible = true;
-    public int scatterNodeIndex;
-    public GameObject ghostPrefab;
-    public GameObject startingNode;
-    public GameManagerRedScreen gameManager;
-    public SpriteRenderer ghostSprite;
-    public SpriteRenderer eyesSprite;
-    public Animator animator;
-    public Color color;
     public enum GhostNodeStateEnum
     {
         respawning,
+        leftNode,
+        rightNode,
+        centerNode,
+        startNode,
         movingInNodes
     }
+
+    public GhostNodeStateEnum ghostNodeState;
+    public GhostNodeStateEnum respawnState;
+    public GhostNodeStateEnum startGhostNodeState;
+
     public enum GhostType
     {
         red,
@@ -29,57 +24,80 @@ public class EnemyControllerRedScreen : MonoBehaviour
         pink,
         orange
     }
+
     public GhostType ghostType;
-
-    public GhostNodeStateEnum ghostNodeState;
-
+    public GameObject ghostNodeLeft;
+    public GameObject ghostNodeRight;
+    public GameObject ghostNodeCenter;
+    public GameObject ghostNodeStart;
+    public GameObject startingNode;
+    public GameManagerRedScreen gameManager;
 
     public MovementControllerRedScreen movementController;
-    string hexaColor = "00FFDC";
-    public Color newColor;
-    public Color alphaColor = new Color(1f, 1f, 1f, 1f);
+    public GameObject[] scatterNodes;
+
+    public bool readyToLeaveHome = false;
+    public bool testRespawn = false;
+    public bool isFrightened = false;
+    public bool leftHomeBefore = false;
+    public bool isVisible = true;
+    public int scatterNodeIndex;
+    public SpriteRenderer ghostSprite;
+    public SpriteRenderer eyesSprite;
+    public Animator animator;
+    public Color color = new Color(255f, 255f, 255f, 0f);
 
     void Awake()
     {
         gameManager = GameObject.Find("GameManagerRedScreen").GetComponent<GameManagerRedScreen>();
-        movementController.currentNode = startingNode;
-        startGhostNodeState = GhostNodeStateEnum.movingInNodes;
 
         scatterNodeIndex = 0;
-    }
-
-    public void Start()
-    {
+        ghostNodeStart = startingNode;
 
         animator = GetComponent<Animator>();
-
-        if (ColorUtility.TryParseHtmlString(hexaColor, out newColor))
-        {
-            ghostSprite.color = newColor;
-        }
-
+        ghostSprite = GetComponent<SpriteRenderer>();
         eyesSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        scatterNodeIndex = 0;
         ghostSprite.sortingOrder = 4;
         eyesSprite.sortingOrder = 5;
+        movementController = GetComponent<MovementControllerRedScreen>();
+
+        if (ghostType == GhostType.red)
+        {
+            startGhostNodeState = GhostNodeStateEnum.startNode;
+            startingNode = ghostNodeStart;
+            respawnState = GhostNodeStateEnum.centerNode;
+
+        }
+        else if (ghostType == GhostType.pink)
+        {
+            startGhostNodeState = GhostNodeStateEnum.centerNode;
+            startingNode = ghostNodeCenter;
+            respawnState = GhostNodeStateEnum.leftNode;
+        }
+        else if (ghostType == GhostType.blue)
+        {
+            startGhostNodeState = GhostNodeStateEnum.leftNode;
+            startingNode = ghostNodeLeft;
+            respawnState = GhostNodeStateEnum.rightNode;
+        }
+        else if (ghostType == GhostType.orange)
+        {
+            startGhostNodeState = GhostNodeStateEnum.rightNode;
+            startingNode = ghostNodeRight;
+            respawnState = GhostNodeStateEnum.centerNode;
+        }
+
+        movementController.currentNode = startingNode;
+        transform.position = startingNode.transform.position;
 
     }
+    
 
     public void Setup()
     {
-        //Debugging
-        if (gameObject.GetComponent<Animator>() == null)
-        {
-            animator = GetComponent<Animator>();
-        }
-
-        if (startingNode == null)
-        {
-            startingNode = GameObject.Find("PlaceHolderNode");
-        }
         animator.SetBool("moving", true);
         ghostNodeState = startGhostNodeState;
-
+        readyToLeaveHome = false;
 
         //Reset our ghosts back to their home position
         movementController.currentNode = startingNode;
@@ -92,35 +110,53 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
         //Reset isFrightened
         isFrightened = false;
+
+        leftHomeBefore = false;
+
         ghostSprite.enabled = true;
 
+        //Set readyToLeaveHome to be false if they are red or pink
+        if (ghostType == GhostType.red)
+        {
+            readyToLeaveHome = true;
+            leftHomeBefore = true;
+        }
+        else if (ghostType == GhostType.pink)
+        {
+            readyToLeaveHome = true;
+        }
         SetVisible(true);
     }
 
     void Update()
     {
+        if(ghostNodeState == GhostNodeStateEnum.startNode)
+        {
+            readyToLeaveHome = true;
+            DetermineGhostScatterModeDirection();
+            
+        }
 
         if (ghostNodeState != GhostNodeStateEnum.movingInNodes || !gameManager.isPowerPelletRunning)
         {
             isFrightened = false;
-            animator.speed = 0.3f;
         }
-        else
+        if (!gameManager.isPowerPelletRunning)
         {
-            animator.speed = 1;
+            isFrightened = false;
         }
-
         //Show our sprites
         if (isVisible)
         {
-            if (ghostNodeState == GhostNodeStateEnum.respawning)
-            {
-                ghostSprite.enabled = false;
-            }
-            else
+            if (ghostNodeState != GhostNodeStateEnum.respawning)
             {
                 ghostSprite.enabled = true;
                 eyesSprite.enabled = true;
+            }
+            else
+            {
+                ghostSprite.enabled = false;
+                eyesSprite.enabled = false;
 
             }
         }
@@ -131,21 +167,24 @@ public class EnemyControllerRedScreen : MonoBehaviour
             eyesSprite.enabled = false;
         }
 
+
         if (isFrightened)
         {
 
             animator.SetBool("frightened", true);
             eyesSprite.enabled = false;
-            ghostSprite.color = alphaColor;
+            ghostSprite.color = new Color(1f, 1f, 1f, 1f);
             animator.SetBool("frightenedBlinking", false);
         }
         else
         {
             animator.SetBool("frightened", false);
-            ghostSprite.color = newColor;
+            ghostSprite.color = color;
 
 
         }
+
+        
         if (!gameManager.isGameRunning)
         {
             return;
@@ -162,46 +201,45 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
         animator.SetBool("moving", true);
 
-        if (isRespawning == true)
+        if (testRespawn == true)
         {
-
+            readyToLeaveHome = false;
             ghostNodeState = GhostNodeStateEnum.respawning;
-            isRespawning = false;
+            testRespawn = false;
 
         }
 
         if (movementController.currentNode.GetComponent<NodeControllerRedScreen>().isSideNode == true)
         {
-            if (ghostNodeState == GhostNodeStateEnum.respawning)
-            {
-                movementController.SetSpeed(5f);
-            }
-            else movementController.SetSpeed(1f);
-
-        }
-        else if (isFrightened)
-        {
-            movementController.SetSpeed(1);
-        }
-        else if (ghostNodeState == GhostNodeStateEnum.respawning)
-        {
-            movementController.SetSpeed(5);
+            movementController.SetSpeed(1f);
         }
         else
         {
-            movementController.SetSpeed(2);
+            if (isFrightened)
+            {
+                movementController.SetSpeed(1);
+            }
+            else if (ghostNodeState == GhostNodeStateEnum.respawning)
+            {
+                movementController.SetSpeed(7);
+            }
+            else
+            {
+                movementController.SetSpeed(2);
+            }
+
         }
     }
+
     public void SetFrightened(bool newIsFrightened)
     {
         isFrightened = newIsFrightened;
     }
-
-    //Movimiento
     public void ReachedCenterofNode(NodeControllerRedScreen nodeController)
     {
         if (ghostNodeState == GhostNodeStateEnum.movingInNodes)
         {
+            leftHomeBefore = true;
             //Scatter Mode
             if (gameManager.currentGhostMode == GameManagerRedScreen.GhostMode.scatter)
             {
@@ -215,18 +253,104 @@ public class EnemyControllerRedScreen : MonoBehaviour
             }
             //Chase Mode
             else
+            // Determine next game node to go
+            if (ghostType == GhostType.red)
             {
                 DetermineRedGhostDirection();
+            }
+            else if (ghostType == GhostType.pink)
+            {
+                DeterminePinkGhostDirection();
+            }
+            else if (ghostType == GhostType.blue)
+            {
+                DetermineBlueGhostDirection();
+            }
+            else if (ghostType == GhostType.orange)
+            {
+                DetermineOrangeGhostDirection();
             }
 
         }
         else if (ghostNodeState == GhostNodeStateEnum.respawning)
         {
             string direction = "";
+            // We have reached out start node, move to the center node
+            float epsilon = 0.1f;
+            if (transform.position.x == ghostNodeStart.transform.position.x &&
+                Mathf.Abs(transform.position.y - ghostNodeStart.transform.position.y) < epsilon)
+            {
+
+                direction = "down";
+                movementController.SetDirection(direction);
+
+            }
+
+            // We have reached out center node, respawn or moved to the center node
+            else if (transform.position.x == ghostNodeCenter.transform.position.x && transform.position.y == ghostNodeCenter.transform.position.y)
+            {
+                if (respawnState == GhostNodeStateEnum.centerNode)
+                {
+                    ghostNodeState = respawnState;
+                }
+                else if (respawnState == GhostNodeStateEnum.leftNode)
+                {
+                    direction = "left";
+                }
+                else if (respawnState == GhostNodeStateEnum.rightNode)
+                {
+                    direction = "right";
+                }
+
+            }
+            // If our respawn state is either the left or right node, and we got to that node, leave home again
+            else if
+            ((transform.position.x == ghostNodeLeft.transform.position.x && transform.position.y == ghostNodeLeft.transform.position.y)
+            || (transform.position.x == ghostNodeRight.transform.position.x && transform.position.y == ghostNodeRight.transform.position.y
+            ))
+            {
+                ghostNodeState = respawnState;
+            }
+            //We are in the gameboard still, locate our start node
+            else
             {
                 // Determine quickest direct to home   
-                direction = GetClosestDirection(startingNode.transform.position);
+                direction = GetClosestDirection(ghostNodeStart.transform.position);
                 movementController.SetDirection(direction);
+            }
+
+
+        }
+        else
+        {
+            //If we are ready to leave our home
+            if (readyToLeaveHome)
+            {
+                //If we are in the left home node, move to the center
+                if (ghostNodeState == GhostNodeStateEnum.leftNode)
+                {
+                    ghostNodeState = GhostNodeStateEnum.centerNode;
+                    movementController.SetDirection("right");
+                }
+                //If we are in the right home node, move to the center
+                else if (ghostNodeState == GhostNodeStateEnum.rightNode)
+                {
+                    ghostNodeState = GhostNodeStateEnum.centerNode;
+                    movementController.SetDirection("left");
+                }
+                //If we are in the center node, move to the start node
+                else if (ghostNodeState == GhostNodeStateEnum.centerNode)
+                {
+                    ghostNodeState = GhostNodeStateEnum.startNode;
+                    movementController.SetDirection("up");
+                }
+                //If we are in the start node, start moving around in the game
+                else if (ghostNodeState == GhostNodeStateEnum.startNode)
+                {
+                    ghostNodeState = GhostNodeStateEnum.movingInNodes;
+                    movementController.SetDirection("left");
+                }
+
             }
         }
     }
@@ -240,7 +364,6 @@ public class EnemyControllerRedScreen : MonoBehaviour
         if (nodeController.canMoveDown && movementController.lastMovingDirection != "up")
         {
             possibleDirections.Add("down");
-
         }
         if (nodeController.canMoveUp && movementController.lastMovingDirection != "down")
         {
@@ -295,7 +418,7 @@ public class EnemyControllerRedScreen : MonoBehaviour
 
     void DeterminePinkGhostDirection()
     {
-        string pacmanDirection = gameManager.pacman.GetComponent<MovementController>().lastMovingDirection;
+        string pacmanDirection = gameManager.pacman.GetComponent<MovementControllerRedScreen>().lastMovingDirection;
         float distanceBetweenNodes = 0.35f;
 
         Vector2 target = gameManager.pacman.transform.position;
@@ -323,7 +446,7 @@ public class EnemyControllerRedScreen : MonoBehaviour
     void DetermineBlueGhostDirection()
     {
 
-        string pacmanDirection = gameManager.pacman.GetComponent<MovementController>().lastMovingDirection;
+        string pacmanDirection = gameManager.pacman.GetComponent<MovementControllerRedScreen>().lastMovingDirection;
         float distanceBetweenNodes = 0.35f;
 
         Vector2 target = gameManager.pacman.transform.position;

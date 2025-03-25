@@ -53,8 +53,8 @@ public class EnemyController : MonoBehaviour
 
         scatterNodeIndex = 0;
 
-        animator = GetComponent<Animator>();
-        ghostSprite = GetComponent<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
+        ghostSprite = transform.GetChild(1).GetComponent<SpriteRenderer>();
         eyesSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         ghostSprite.sortingOrder = 2;
         eyesSprite.sortingOrder = 3;

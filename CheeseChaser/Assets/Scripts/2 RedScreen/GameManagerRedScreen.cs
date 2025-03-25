@@ -12,14 +12,33 @@ public class GameManagerRedScreen : MonoBehaviour
         scatter
     }
     public GhostMode currentGhostMode;
+
     public List<NodeControllerRedScreen> nodeControllerList = new List<NodeControllerRedScreen>();
     public string screenPositions = "BlueScreen";
     public GameObject pacman;
+    public GameObject leftWarpNode;
+    public GameObject rightWarpNode;
+    public AudioSource siren;
+    public AudioSource munch1;
+    public AudioSource munch2;
+    public AudioSource powerPelletSound;
+    public AudioSource respawningAudio;
+    public AudioSource ghostEatenAudio;
+    public AudioSource startGameAudio;
+    public AudioSource deathSound;
+    public GameObject ghostNodeLeft;
+    public GameObject ghostNodeRight;
+    public GameObject ghostNodeCenter;
+    public GameObject ghostNodeStart;
     public GameObject redGhostPrefab;
-    public EnemyControllerRedScreen GhostPrefabController;
+    public GameObject pinkGhostPrefab;
+    public GameObject blueGhostPrefab;
+    public GameObject orangeGhostPrefab;
+    public EnemyControllerRedScreen ghostPrefabController;
     public Text scoreText;
     public Text gameOverText;
     public Image blackBackground;
+
     public string screenType;
     public int currentMunch = 0;
     public int score;
@@ -31,6 +50,7 @@ public class GameManagerRedScreen : MonoBehaviour
     public int currentLevel = 1;
     public float currentPowerPelletTimer = 0;
     public float ghostModeTimer;
+
     public float powerPelletTimer = 8f;
     public bool isPowerPelletRunning = false;
     public bool hadDeathOnThisLevel = false;
@@ -39,16 +59,9 @@ public class GameManagerRedScreen : MonoBehaviour
     public bool clearedLevel = false;
     public bool runningTimer;
     public bool completedTimer;
+
     public int[] ghostModeTimers = new int[] { 7, 20, 7, 20, 5, 20, 5 };
     public int ghostModeTimersIndex;
-    public AudioSource siren;
-    public AudioSource munch1;
-    public AudioSource munch2;
-    public AudioSource powerPelletSound;
-    public AudioSource respawningAudio;
-    public AudioSource ghostEatenAudio;
-    public AudioSource startGameAudio;
-    public AudioSource deathSound;
 
     void Awake()
     {
@@ -56,8 +69,12 @@ public class GameManagerRedScreen : MonoBehaviour
         newGame = true;
         clearedLevel = false;
         isPowerPelletRunning = false;
+
+        ghostPrefabController = redGhostPrefab.GetComponent<EnemyControllerRedScreen>();
+
+        ghostNodeStart.GetComponent<NodeControllerRedScreen>().isGhostStartingNode = true;
+
         pacman = GameObject.Find("Player");
-     
     }
 
     void Start()
@@ -67,13 +84,11 @@ public class GameManagerRedScreen : MonoBehaviour
 
     public IEnumerator Setup()
     {
-
         ghostModeTimer = 0;
         ghostModeTimersIndex = 0;
         completedTimer = false;
         runningTimer = true;
         gameOverText.enabled = false;
-
         //If player clears a level, a background will appear covering the level, and the game will pause for 0.1 seconds
         if (clearedLevel)
         {
@@ -89,7 +104,7 @@ public class GameManagerRedScreen : MonoBehaviour
         currentMunch = 0;
 
         float gameTimer = 1f;
-
+        
         if (clearedLevel || newGame)
         {
             pelletsLeft = totalPellets;
@@ -115,7 +130,7 @@ public class GameManagerRedScreen : MonoBehaviour
         pacman.GetComponent<PlayerControllerRedScreen>().Setup();
 
         //Ghosts respawn
-        GhostPrefabController.Setup();
+        ghostPrefabController.Setup();
 
         newGame = false;
         clearedLevel = false;
@@ -131,8 +146,9 @@ public class GameManagerRedScreen : MonoBehaviour
         {
             return;
         }
-
-        if (GhostPrefabController.ghostNodeState == EnemyControllerRedScreen.GhostNodeStateEnum.respawning)
+       
+        if (ghostPrefabController.ghostNodeState == EnemyControllerRedScreen.GhostNodeStateEnum.respawning)
+        
         {
             if (!respawningAudio.isPlaying)
             {
@@ -147,7 +163,33 @@ public class GameManagerRedScreen : MonoBehaviour
             }
         }
 
-      
+        if (!completedTimer && runningTimer)
+        {
+            ghostModeTimer += Time.deltaTime;
+            if (ghostModeTimer > ghostModeTimers[ghostModeTimersIndex])
+            {
+                ghostModeTimer = 0;
+                ghostModeTimersIndex++;
+
+                if (currentGhostMode == GhostMode.chase)
+                {
+                    currentGhostMode = GhostMode.scatter;
+                }
+                else
+                {
+                    currentGhostMode = (GhostMode.chase);
+                }
+                currentGhostMode = (GhostMode.chase);
+            }
+
+            if (ghostModeTimersIndex == ghostModeTimers[ghostModeTimersIndex])
+            {
+                completedTimer = true;
+                runningTimer = false;
+                currentGhostMode = (GhostMode.chase);
+            }
+        }
+
         if (isPowerPelletRunning)
         {
             currentPowerPelletTimer += Time.deltaTime;
@@ -162,15 +204,15 @@ public class GameManagerRedScreen : MonoBehaviour
         }
     }
     // Cesar me comenta (jaja) que use estos metodos para acceder a la variable
-    /* public void SetGameMode(GhostMode mode)
-     {
-         currentGhostMode = mode;
-     }
+   /* public void SetGameMode(GhostMode mode)
+    {
+        currentGhostMode = mode;
+    }
 
-     public GhostMode GetGameMode()
-     {
-         return currentGhostMode;
-     }*/
+    public GhostMode GetGameMode()
+    {
+        return currentGhostMode;
+    }*/
 
     void StartGame()
     {
@@ -214,7 +256,6 @@ public class GameManagerRedScreen : MonoBehaviour
 
         pelletsLeft--;
         pelletsCollectedOnThisLife++;
-
         AddToScore(10);
 
 
@@ -238,7 +279,7 @@ public class GameManagerRedScreen : MonoBehaviour
             currentPowerPelletTimer = 0;
 
 
-            GhostPrefabController.SetFrightened(true);
+            ghostPrefabController.SetFrightened(true);
         }
     }
 
@@ -248,8 +289,6 @@ public class GameManagerRedScreen : MonoBehaviour
         yield return new WaitForSeconds(timeToPause);
         isGameRunning = true;
     }
-
-
     public void GhostEaten(EnemyControllerRedScreen enemyController)
     {
         ghostEatenAudio.Play();
@@ -265,9 +304,10 @@ public class GameManagerRedScreen : MonoBehaviour
         StopGame();
         yield return new WaitForSeconds(1f);
 
-        GhostPrefabController.SetVisible(false);
+        ghostPrefabController.SetVisible(false);
 
-        pacman.GetComponent<PlayerController>().Death();
+
+        pacman.GetComponent<PlayerControllerRedScreen>().Death();
         deathSound.Play();
         yield return new WaitForSeconds(3);
 

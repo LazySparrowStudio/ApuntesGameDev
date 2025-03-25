@@ -53,6 +53,7 @@ public class MovementControllerRedScreen : MonoBehaviour
                 if (currentNodeController.isGhostStartingNode && direction == "down"
                 && (!isGhost || GetComponent<EnemyControllerRedScreen>().ghostNodeState != EnemyControllerRedScreen.GhostNodeStateEnum.respawning))
                 {
+                    lastMovingDirection = "down";
                     direction = lastMovingDirection;
                 }
                 // Get the next node from out node controller using our current direction

@@ -9318,17 +9318,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2900705666975194723, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
   m_PrefabInstance: {fileID: 598285974}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &126921719 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8222715588458914498, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
-  m_PrefabInstance: {fileID: 598285974}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126921714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ff6f71543e5ae04fa6e05e2a85d7a90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &129221280
 GameObject:
   m_ObjectHideFlags: 0
@@ -41696,7 +41685,7 @@ GameObject:
   - component: {fileID: 593062250}
   - component: {fileID: 593062249}
   m_Layer: 6
-  m_Name: Node_6_7
+  m_Name: StartingNodeGhost3
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41774,7 +41763,7 @@ MonoBehaviour:
   isWarpLeftNode: 0
   isPelletNode: 1
   hasPellet: 1
-  isGhostStartingNode: 0
+  isGhostStartingNode: 1
   isSideNode: 0
   isPowerPellet: 0
   powerPelletBlinkTimer: 0
@@ -42295,9 +42284,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1302116637}
     - target: {fileID: 8222715588458914498, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
+      propertyPath: ghostPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222715588458914498, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
       propertyPath: startingNode
       value: 
-      objectReference: {fileID: 2093175793}
+      objectReference: {fileID: 593062248}
     - target: {fileID: 8222715588458914498, guid: 6fa1688623d7d7244bdf86debae3d92d, type: 3}
       propertyPath: 'scatterNodes.Array.data[0]'
       value: 
@@ -93711,8 +93704,25 @@ MonoBehaviour:
   nodeControllerList: []
   screenPositions: RedScreen
   pacman: {fileID: 758197189}
+  leftWarpNode: {fileID: 0}
+  rightWarpNode: {fileID: 0}
+  siren: {fileID: 1302116629}
+  munch1: {fileID: 1302116631}
+  munch2: {fileID: 1302116630}
+  powerPelletSound: {fileID: 1302116634}
+  respawningAudio: {fileID: 1302116636}
+  ghostEatenAudio: {fileID: 1302116635}
+  startGameAudio: {fileID: 1302116632}
+  deathSound: {fileID: 1302116633}
+  ghostNodeLeft: {fileID: 0}
+  ghostNodeRight: {fileID: 0}
+  ghostNodeCenter: {fileID: 0}
+  ghostNodeStart: {fileID: 593062248}
   redGhostPrefab: {fileID: 126921714}
-  GhostPrefabController: {fileID: 126921719}
+  pinkGhostPrefab: {fileID: 0}
+  blueGhostPrefab: {fileID: 0}
+  orangeGhostPrefab: {fileID: 0}
+  ghostPrefabController: {fileID: 0}
   scoreText: {fileID: 886228909}
   gameOverText: {fileID: 1768275564}
   blackBackground: {fileID: 184305082}
@@ -93737,14 +93747,6 @@ MonoBehaviour:
   completedTimer: 0
   ghostModeTimers: 07000000140000000700000014000000050000001400000005000000
   ghostModeTimersIndex: 0
-  siren: {fileID: 1302116629}
-  munch1: {fileID: 1302116631}
-  munch2: {fileID: 1302116630}
-  powerPelletSound: {fileID: 1302116634}
-  respawningAudio: {fileID: 1302116636}
-  ghostEatenAudio: {fileID: 1302116635}
-  startGameAudio: {fileID: 1302116632}
-  deathSound: {fileID: 1302116633}
 --- !u!1 &1302272740
 GameObject:
   m_ObjectHideFlags: 0
@@ -133874,6 +133876,7 @@ Transform:
   m_Children:
   - {fileID: 1323044276}
   - {fileID: 361337817}
+  - {fileID: 593062251}
   - {fileID: 484954165}
   - {fileID: 165678321}
   - {fileID: 133541652}
@@ -134062,7 +134065,6 @@ Transform:
   - {fileID: 95796747}
   - {fileID: 1341249216}
   - {fileID: 1724630836}
-  - {fileID: 593062251}
   - {fileID: 110552810}
   - {fileID: 586380668}
   - {fileID: 1255360531}

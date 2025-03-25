@@ -34,6 +34,10 @@ public class NodeController : MonoBehaviour
             isPelletNode = true;
             pelletSprite = GetComponentInChildren<SpriteRenderer>();
             pelletSprite.sortingOrder = 1;
+            if (isPowerPellet)
+            {
+                pelletSprite.sortingOrder = 2;
+            }
         }
         //   OnDrawGizmos();
 

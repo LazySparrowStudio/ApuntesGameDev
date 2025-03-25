@@ -336,15 +336,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(PauseGame(1f));
     }
 
-      public void GhostEaten(EnemyControllerRedScreen enemyController)
-    {
-        ghostEatenAudio.Play();
-        AddToScore(400 * powerPelletMultiplier);
-        powerPelletMultiplier++;
-        enemyController.ghostSprite.enabled = false;
-        StartCoroutine(PauseGame(1f));
-    }
-
     public IEnumerator PlayerEaten()
     {
         hadDeathOnThisLevel = true;

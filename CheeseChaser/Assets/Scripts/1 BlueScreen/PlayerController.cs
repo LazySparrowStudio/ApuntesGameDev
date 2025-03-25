@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
         movementController = GetComponent<MovementController>();
         startNode = movementController.currentNode;
 
-
     }
 
     // Update is called once per frame
@@ -116,7 +115,6 @@ public class PlayerController : MonoBehaviour
         isDead = true;
         animator.SetBool("moving", false);
         animator.SetBool("dead", true);
-
 
     }
 }
