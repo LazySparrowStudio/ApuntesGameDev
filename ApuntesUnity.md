@@ -45,7 +45,7 @@ Invoke("MethodName", delayInSeconds);
 ## OnGUI
 # VR
 
-# Examen
+# Examen VR
 ### Agarre y posicionamiento de objectos con las manos
 - Añadir el objeto 
 - Añadirle el componente XR Grab Interactable
@@ -354,7 +354,39 @@ La 2ª entrada solo comprueba 1 vez
     - Objeto se mueve de punto A a punto B de forma progresiva 
 
 ## Salto:
-- Comprobar suelo:  collider o Physics.Raycast/Collider.IsTouchingLayers
+### Salto con comprobacion de suelo
+~~~C#
+
+private bool IsGrounded() {
+    float jumpForce = 6.5f;
+    int movementDirection;
+    bool startingJump;
+    void Start()
+    {
+        startingJump = false;
+        walking = false;
+        elapsedTime = 0;
+    }
+
+        //Si estamos iniciando el salto no se utiliza el raycast para detectar si Mario está en el suelo,
+        //por definición Mario no está en el suelo
+        if(startingJump) {
+            return false;
+        }
+        Vector3 raycastOrigin = transform.position;
+        raycastOrigin.y -= 0.44f;
+        float raycastRange = 0.10f;
+        RaycastHit2D hit;
+
+        hit = Physics2D.Raycast(raycastOrigin, Vector2.down, raycastRange, groundDetectionLayerMask);
+
+        if(hit.collider != null)  {
+            //Debug.Log("[Mario] IsGrounded raycast hit: "+ hit.collider.gameObject.name);
+            return true;
+        }
+        return false;
+    }
+~~~
 
 ## Colisiones:
 -  Tipos: Box, Sphere, Capsule
