@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public GhostMode currentGhostMode;
 
     public List<NodeController> nodeControllerList = new List<NodeController>();
-    public string screenPositions = "BlueScreen";
     public GameObject pacman;
     public GameObject leftWarpNode;
     public GameObject rightWarpNode;
@@ -330,7 +329,6 @@ public class GameManager : MonoBehaviour
     public void GhostEaten(EnemyController enemyController)
     {
         ghostEatenAudio.Play();
-        AddToScore(400 * powerPelletMultiplier);
         powerPelletMultiplier++;
         enemyController.ghostSprite.enabled = false;
         StartCoroutine(PauseGame(1f));

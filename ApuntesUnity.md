@@ -43,7 +43,6 @@ Invoke("MethodName", delayInSeconds);
 ~~~
 
 ## OnGUI
-# VR
 
 # Examen VR
 ### Agarre y posicionamiento de objectos con las manos
@@ -356,18 +355,29 @@ La 2ª entrada solo comprueba 1 vez
 ## Salto:
 ### Salto con comprobacion de suelo
 ~~~C#
-
-private bool IsGrounded() {
-    float jumpForce = 6.5f;
-    int movementDirection;
-    bool startingJump;
+// ESTO ES UN EJEMPLO EXTRAIDO SOLO CON LO RELACIONADO CON SALTAR.
+public class MarioMovement : MonoBehaviour
+{
+    float jumpForce = 6.5f; // Fuerza a aplicar con el salto
+    int movementDirection;  //Direccion en la que esta mirando 
+    bool startingJump; //Comprueba si ha empezado el salto (Creo que relacionado con la animacion)
     void Start()
     {
-        startingJump = false;
-        walking = false;
-        elapsedTime = 0;
+        startingJump = false; // Esta quieto
+        walking = false; // Esta quieto
     }
 
+    void Update(){
+        if( IsGrounded() ) {
+            animator.SetBool("jumping", false); //Si esta en el suelo, animacion no de salto
+            if(Input.GetKeyDown(KeyCode.Space)) { //Pulsamos la tecla Space
+                rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse); //Le damos un impulso al rigidbody para que el calculo se realiza con las fisicas.
+                startingJump = true; //Ha empezado a saltar
+                animator.SetBool("jumping", true); //Animador para que salte
+            }
+        }
+    }
+    private bool IsGrounded() {
         //Si estamos iniciando el salto no se utiliza el raycast para detectar si Mario está en el suelo,
         //por definición Mario no está en el suelo
         if(startingJump) {
@@ -386,6 +396,8 @@ private bool IsGrounded() {
         }
         return false;
     }
+}
+
 ~~~
 
 ## Colisiones:
@@ -491,6 +503,15 @@ if (Input.GetKeyDown(KeyCode.Space))
 
 # Design Tips
  - Design "moments" and then expand them into a level. 
+
+# Unity Moduls
+## Terrain
+- Añadir elemento > Terrain
+- Tiene una elementa de terreo con herramientas de esculpido, modificacion etc. Por ahora parece mas versatil el de blender a falta de tener en cuenta como realizar la importacion
+
+## MasterLine
+- Basicamente un timeline gigante para la escena.
+
 
  
 
