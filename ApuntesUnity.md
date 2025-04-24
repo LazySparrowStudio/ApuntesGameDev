@@ -3,6 +3,7 @@
 ## Atajos
 - Ctrl + F12 -- Rename all Ocurrences
 - Ctrl + . -- Quick Fix (Encapsule method)
+- Crear un singleton para acceder al Gamemanager directamente
 
 ## Classes and Namespaces
 - Encapsulated code. What the code can see, change or be changed by
@@ -20,6 +21,10 @@ Invoke("MethodName", delayInSeconds);
 ~~~
 
 ## Entrada
+### Input Actions
+- Parte del sistema de entrada moderno que reemplaza al sistema clásico (Input.GetKey, Input.GetButton, etc.)
+
+- Podemos asignar distintos tipos de entrada y llamarlos en codigo para, por ejemplo, implentar movimiento
 
 ## Delegate
 ~~~C#
@@ -41,265 +46,7 @@ Invoke("MethodName", delayInSeconds);
         }
     }
 ~~~
-
 ## OnGUI
-
-# Examen VR
-### Agarre y posicionamiento de objectos con las manos
-- Añadir el objeto 
-- Añadirle el componente XR Grab Interactable
-- Añadirle un Rigidbody
-    - Marcar Use Gravity (Se cae si no hay nada debajo)
-    - Desmarca Is Kinematic
-- Configurar el attach:
-    - Crear un objeto hijo con el nombre Attach y colocarlo en el campo Attach Transform del componente XR Grab Interactable del padre
-
-### Agarre y posicionamiento de objeto en sockets
-- Creamos un objeto empty y le llamamos Socket y le añadimos un collider como trigger y el XR Socket Interactor
-- Dentro de el hacemos 2 hijos. Uno para el apartado visual y otro con el nombre Attach
-- Posicionamos el attach donde queramos y lo ponemos como referencia dentro del XR Socket Interactor del Padre
-
-
-### Limitacion de interaccion con objectos basado en las capas del XRInteractionToolkit (interaccion con manos, sockets y cambio de interaccion dinamica durante el juego)
-- Seguir los pasos de la seccion anterior. 
-- En el XR Grab Interactable del objeto usamos el sistema de capas
-- En el XR Socket asociamos la capa correspondiente
-
-### Activacion de objetos al apretar el gatillo y respuesta a eventos XR Interactable (SelectEnter, SelectExit, Activate, etc)
-- En XR ORIGIN buscar los objetos Left Hand y Right Hand y añadirle a los 2 un XR Controller (Action based)
-- En la propiedad "Select Action" comprobar que tengan asignados sus XRI/Select correspondientes
-- Cogemos el objeto y le añadimos un Script
-~~~ C#
-using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-
-public class ActivateOnTrigger : MonoBehaviour
-{
-    public GameObject objetoActivar;
-    private XRGRabInteractable grabInteractable;
-    
-    void Start(){
-        grabInteractable = GetComponent<XRGrabInteractable>();
-    }
-
-    public void ActivarObjeto (bool enciende)
-    {
-        if (objetoActivar.activeSelf == false)
-        {
-            objetoActivar.SetActive(true);
-        }else
-        {
-            objetoActivar.SetActive(false);
-        }
-    }
-//Para que al soltarlo se desactive
-    public void SoltarObjeto(){
-        objetoActivar.SetActive(false)
-    }
-}
-~~~
-
-- En el XRGrabInteractable, buscamos el apartado de Interactable Events el boton pertinente (Select = gatillo, Active = prensa)
-- Añadimos un evento en (Active Entered), asociamos el script y seleccionamos el metodo (ActivarObjeto) para cuando se pulse
-- Si queremos que se apague cuando soltamos, en Select Exited le ponemos el SoltarObjeto(); 
-
-### Desplazamiento
-#### Movimiento Continuo
-- Añadirle al XR ORIGIN un componente CharacterController
-- Objeto vacio llamado Locomotion System
-- Añadirle el componente Locomotion System
-- Arrastrar XR ORIGIN al campo XR origin del Locomotion System
-- Añadir a XR ORIGIN al componente Continuous Move Provider (Action Based)
-- En la opcion Move Input Action, asignar al joystick
-    - Use reference
-    - El preset XRI LeftHand/Move para mover con el stick izquierdo
-
-
-#### Snap Turn
-- Añadirle al XR ORIGIN un componente CharacterController
-- Objeto vacio llamado Locomotion System
-- Añadirle el componente Locomotion System
-- Arrastrar XR ORIGIN al campo XR origin del Locomotion System
-- Añadir a XR ORIGIN wl componente Snap Turn Provider (Action Based)
-- En la opcion Move Input Action, asignar al joystick
-    - Use reference
-    - El preset XRI LeftHand/Move para mover con el stick izquierdo
-- Si quieres cambiar el angulo de giro, modifica el valor de giro (por defecto esta a 45)
-
-#### Teleport
-- Añadirle al XR ORIGIN un componente CharacterController
-- Objeto vacio llamado Locomotion System
-- Añadir Locomotion System
-- Arrastrat XR ORIGIN al campo XR origin del Locomotion System
-- Añadir en Locomotion System el componente Teleportation Provider
-
-- Hay 2 tipos de teletransporte, por plano o por puntos
-- Por puntos:
-- Crear Teleportation area
-- Modificar el Line Bend Ratio para evitar curvatura del rayo
-
-### Colocar un GameObjeto(A) sobre otro GameObjeto(B) en el que ya existe un Socket. Agarrar A y soltarlo en B. Solo poder retirar A MIENTRAS agarras B
-- Hacer un Empty Object(B) y añadirle Rigidbody y XRGrabInteractable
-- Añadirle los hijos correspondientes:
-    1. Apartado visual (Opcional) - MeshRender
-    2. Zona y orientacion de agarre (Attach) - Empty Object
-    3. Lugar de colocación del objeto flotante - Empty Object con componente XR SocketInteractor y un Collider
-- Crear el objeto flotante que va a ser colocado (A) - GameObject (cubo o el objeto que sea) con un Collider, Rigidbody y XRInteractable  
-- Ojito a las curvas que se vienen:
-    - Al EmptyObject(B) que hicimos al pricipio, añadimos un script para tener un registro de los distintos sockets que tenemos:
-    ~~~C#
-    // Script para la tabla
-        using System.Collections;
-        using System.Collections.Generic;
-        using UnityEngine;
-
-        public class PuzzleBoard : MonoBehaviour
-        {
-            //Array en el que van a ir los sockets
-            PuzzleSocket[] onBoardPuzzleSockets;
-
-            void Start()
-            {
-                //Buscamos as referencias ós PuzzleSocket situados dentro do PuzzleBoard
-                onBoardPuzzleSockets = GetComponentsInChildren<PuzzleSocket>();
-            }
-
-            //
-            public void EnableHandInteraction(bool enabled)
-            {
-                //Recoge el Socket de cada hijo y llama al EnableHandsInteraction de PuzzleSocket y le pasa el bool
-                foreach (PuzzleSocket ps in onBoardPuzzleSockets)
-                {
-                    ps.EnableHandInteraction(enabled);
-                }
-            }
-        }
-
-    ~~~
-    ~~~C#
-    //PuzzleSocket.cs
-        using System.Collections;
-        using System.Collections.Generic;
-        using UnityEngine;
-        using UnityEngine.XR;
-        using UnityEngine.XR.Interaction.Toolkit;
-
-        public class PuzzleSocket : MonoBehaviour {
-            private XRSocketInteractor xrSocketInteractor;
-
-            //Variable que controla si esta siendo agarrado
-            private bool handInteraction;
-
-            public bool HandInteraction => handInteraction;
-            
-            // Start is called before the first frame updat
-            void Start() {
-                xrSocketInteractor = GetComponent<XRSocketInteractor>();
-                handInteraction = false;
-            }
-
-            //Metodo llamado por PuzzleSocket que coge el bool, activa o desactiva el que la tabla este agarrada y si tiene algo coge el Script Puzzle Piece que este dentro, es decir, el del Objeto que tiene que colocarse
-            public void EnableHandInteraction(bool enabled)  {
-                handInteraction = enabled;
-                PuzzlePiece pp;
-                if(xrSocketInteractor.selectTarget != null) {
-                    pp = xrSocketInteractor.selectTarget.GetComponent<PuzzlePiece>();
-                    pp.EnableHandInteraction(enabled);
-                    
-                }
-            }
-        }
-
-    ~~~
-        ~~~C#
-        //PuzzlePiece.cs
-        using System.Collections;
-        using System.Collections.Generic;
-        using UnityEngine;
-        using UnityEngine.XR.Interaction.Toolkit;
-
-        public class PuzzlePiece : MonoBehaviour {
-            private XRGrabInteractable xrGrabInteractable;
-
-            public InteractionLayerMask handsEnabledLayerMask;
-            public InteractionLayerMask handsDisabledLayerMask;
-
-            // Start is called before the first frame update
-            void Start() {
-                xrGrabInteractable = GetComponent<XRGrabInteractable>();
-            }
-
-            public void SetMaterial(Material material) {
-                GetComponent<MeshRenderer>().material = material;
-            }
-
-            public void EnableHandInteraction(bool enabled) {
-                if(enabled) {
-                    xrGrabInteractable.interactionLayers = handsEnabledLayerMask;
-                } else {
-                    xrGrabInteractable.interactionLayers = handsDisabledLayerMask;
-                }
-            }
-
-            public void EnableHandInteraction() {
-                xrGrabInteractable.interactionLayers = handsEnabledLayerMask;
-            }
-
-            public void DisableHandInteraction(SelectEnterEventArgs args) {
-                if(args.interactorObject is XRSocketInteractor) {
-                    XRSocketInteractor socket = (XRSocketInteractor)args.interactorObject;
-                    PuzzleSocket ps = socket.GetComponent<PuzzleSocket>();
-                    if( ! ps.HandInteraction) {
-                        xrGrabInteractable.interactionLayers = handsDisabledLayerMask;
-                    }
-                }
-            }
-        }
-    ~~~
- 
- ## Unity Quest 2 setup
- "*" For no tested
-- *Build Setting to Android
-- Package Manager - Install XR Plugin Management and Oculus XR plugin
-- Project Settings - XR Plugin Management -> Check Oculus option 
-// Hay que añadir unos objetos de los samples que no tengo muy claro
-- Finalmente añadir a la escena un XR Origin
-
-- Baseinteractable - Clase de la que derivan los interactables. Tienen los eventos del Grab sin que esten asociados directamente
-
-
-
-
-## Agarrar
-
-- XR Grab Interactable:
-    - Attach Transform -> Gizmo por el que queremos agarrar el objeto. Hacemos un objeto hijo del main y lo usamos como Attach Object.
-    - Interactable Events -> Lista de acciones asociadas a todos los botones de los mandos:
-        
-        - Select : Gatillo trasero 
-
-private void SelectEnteredListener(SelectEnterEventArgs args)
-XrBaseInteractor interactor = (XRBaseInteractor)args.interactorObject;
-InteractorIdentifier ii= interactor.GetComponent<InteractorIdentifier>();
-
-public void HoverEntered (HoverEnterEventArgs args)
-{
-    if(interactor is XRSocketInteractor){
-        ToogleHoverMaterial(true);
-    }
-}
-
-public void HoverExit (HoverExitEventArgs args)
-{
-    if(interactor is XRSocketInteractor){
-        ToogleHoverMaterial(false);
-    }
-}
-
-cosas a mirar. El obradoiro esta para mirar que interactables estan interaccionando con que y colocamiento de sockets.
-
-Examen Tema 2 : XR Grabable. Sockets por capas
-Componentes basicos de XR toolkit + un poco de codigo
 # Mecanicas
 
 ## Movimiento:
@@ -351,7 +98,28 @@ La 2ª entrada solo comprueba 1 vez
     - Vector3.Lerp(posicionInicial, posicionFinal, factorMovimiento); 
 ~~~
     - Objeto se mueve de punto A a punto B de forma progresiva 
+9. Limitaciones de movimiento
+- Podemos usar Mathf.Clamp() para limitar una variable entre un valor maximo y otro minimo:
+~~~C#
 
+
+public void OnMove(InputValue value)
+{
+    movement = value.Get<Vector2>():
+}
+private void ClampedMovement()
+{
+    float xOffset = movement.x * speed * Time.deltaTime;
+    float rawXPost = transform.localPosition.x + xOffset;
+    float clampedXPos = Mathf.Clamp(rawXpos, -xClampRange, xClampRange);
+
+    float yOffSet = movement.y * speed * Time.deltaTime;
+    float rawYPost = transform.localPosition.y + yOffset;
+    float clampedYPos = Matf.Clamp(rawYPost, -yClampRange, yClampRange);
+
+    transform.localPosition = new Vector3(clampedXPos, transform.localPosition.y + yOffset, 0f);
+}
+~~~
 ## Salto:
 ### Salto con comprobacion de suelo
 ~~~C#
@@ -405,7 +173,7 @@ public class MarioMovement : MonoBehaviour
 - OnCollisionEnter, OnTriggerEnter
 - Filtros con máscaras
 - IsTrigger para reacciones
-
+![alt text](image.png)
 ~~~ 
 private void OnCollisionEnter (Collision other)
 ~~~
@@ -477,7 +245,7 @@ GetComponent<>().material.color = Color.black;
 - Cambios sobre un prefab pueder overridear el resto de instancias que se encuentren en el estado puro de ese prefab
 
 ~~~C#
-GameObject bylletPrefab;
+GameObject bulletPrefab;
 
 if (Input.GetKeyDown(KeyCode.Space))
 {
@@ -491,8 +259,9 @@ if (Input.GetKeyDown(KeyCode.Space))
 ## Graphic Settings
 - Project Settings --> Player --> Default Icon & Default Cursor
 
-## Particules
+## Particles
 - Añadir componente Particle System
+- Uno de los submenus permite gestionar Collisions
 
 ## Scenes
  - File - BuildProfiles -> There we have a list(index) of the diff scenes 
@@ -500,6 +269,16 @@ if (Input.GetKeyDown(KeyCode.Space))
 
 ## Build & Share
 - File - Build Profiles - "Seleccionar la plataforma en la que exportar" - Build
+
+
+## Interacciones
+Edit>Project Settings> Input Manager 
+~~~C
+if (Input.GetButtonDown("Interaction"))
+{
+    Interaccion();
+}
+~~~
 
 # Design Tips
  - Design "moments" and then expand them into a level. 
@@ -511,6 +290,7 @@ if (Input.GetKeyDown(KeyCode.Space))
 
 ## MasterLine
 - Basicamente un timeline gigante para la escena.
+- Funciona igual que animacion en 2D u otras timelines
 
 
  
