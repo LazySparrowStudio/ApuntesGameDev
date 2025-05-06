@@ -3,7 +3,19 @@
 ## Atajos
 - Ctrl + F12 -- Rename all Ocurrences
 - Ctrl + . -- Quick Fix (Encapsule method)
-- Crear un singleton para acceder al Gamemanager directamente
+- Crear un singleton para acceder al Gamemanager directamente. Por ejemplo:
+  Tengo un script UI colocado en un objeto UI, en el que se encuentra la jerarquia de toda mi interfaz.  Pues en ese script hago un singleton tal que:
+  ~~~C#
+  public class UI : Monobehaviour{
+    public static UI instance;
+
+    void Awake(){
+        instance = this;
+    }
+  }
+  ~~~
+
+  De esta forma puedo llamar en otro script a esto directamente gracias al uso del singleton static. Solo deberia de haber un static por clase. Por ejemplo, el jugador puede tener un singleton porque solo deberia de haber uno. Si aparecen varios enemigos, se va a liar parda. Deberia de investigar mas sobre esto.
 
 ## Classes and Namespaces
 - Encapsulated code. What the code can see, change or be changed by
@@ -47,6 +59,16 @@ Invoke("MethodName", delayInSeconds);
     }
 ~~~
 ## OnGUI
+### 1. Partimos de un elemento base "UI"
+- Tiene un componente Rect Transform que nos va a valer para posicionar sus elementos hijos
+  
+### 2. Paneles
+  - Objeto panel con una image como componente
+  - Esa imagen es de forma predeterminada un background al que le podemos cambiar el rgba
+  - Rect transfrom tiene puntos de anclaje que es el lugar del UI donde establecemos nuestro 0,0 para este componente
+### 3. Textos
+- Pues eso, textos. Qué te esperabas poner aquí, listo.
+- Posicionamiento, tamaño y diferentes opciones de formateado
 # Mecanicas
 
 ## Movimiento:
@@ -120,9 +142,27 @@ private void ClampedMovement()
     transform.localPosition = new Vector3(clampedXPos, transform.localPosition.y + yOffset, 0f);
 }
 ~~~
+10. Moverse hacia un punto
+~~~C#
+private void MoveToTarget(){
+    Vector3 moveDirection = (target.position - transform.position);
+    moveDirection.y = 0; //Evitar desplazamientos en vertical
+    moveDirection = moveDirection.normalized;
+    controller.Move(moveDirection * speed * Time.deltaTime);
+}
+~~~
+
+11. Movimiento en una plataforma horizontal
+    - Método de emparejamiento padre-hijo: En la plataforma colocamos un triggercollider que 
+ ~~~ C#
+void OnTriggerEnter (Collider other)
+if (other.gameObject.tag == "Plataforma"){
+transform.parent = other.transform;
+}
+~~~
 ## Salto:
 ### Salto con comprobacion de suelo
-~~~C#
+~~~ C#
 // ESTO ES UN EJEMPLO EXTRAIDO SOLO CON LO RELACIONADO CON SALTAR.
 public class MarioMovement : MonoBehaviour
 {
@@ -169,18 +209,27 @@ public class MarioMovement : MonoBehaviour
 ~~~
 
 ## Colisiones:
--  Tipos: Box, Sphere, Capsule
+- Tipos: Box, Sphere, Capsule
 - OnCollisionEnter, OnTriggerEnter
 - Filtros con máscaras
 - IsTrigger para reacciones
 ![alt text](image.png)
-~~~ 
+~~~ C#
+// Collision y comprobacion de componente
 private void OnCollisionEnter (Collision other)
+Object object = other.collider.GetComponent<Object>();
+if(object!=null){
+    GameManager.instance.AddPoints(object.points)
+}
 ~~~
 
 ## Cámara:
 - Cinemachine: Tipo de camara inteligente preconfigurada 
-
+  1. Ver al personaje a traves de objetos:
+    - Hacer un raycast entre la camara y el pj
+    - En caso de contacto guardar el objeto y reducir la transparencia. 
+    - Para cambiarla podemos guardar una copia del material con el alpha reducida y cuando choque el raycast cambia el material. 
+    - Controllando el espacio de la referencia (cuando este null o no) volvemos a dejar la
 ## Tags
 Tras registrar una colision, buscamos un componente de ese objeto (other):
 ~~~C#
@@ -266,7 +315,9 @@ if (Input.GetKeyDown(KeyCode.Space))
 ## Scenes
  - File - BuildProfiles -> There we have a list(index) of the diff scenes 
  - Scene max value --> SceneManager.sceneCountInBuildSettings
+o
 
+SceneManager.LoadScene("SceneName");
 ## Build & Share
 - File - Build Profiles - "Seleccionar la plataforma en la que exportar" - Build
 
