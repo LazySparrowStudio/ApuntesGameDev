@@ -17,6 +17,28 @@
 
   De esta forma puedo llamar en otro script a esto directamente gracias al uso del singleton static. Solo deberia de haber un static por clase. Por ejemplo, el jugador puede tener un singleton porque solo deberia de haber uno. Si aparecen varios enemigos, se va a liar parda. Deberia de investigar mas sobre esto.
 
+  - ? closes:
+~~~C#
+var mode = m_Network.IsHost ?
+"host" : m_NetworkManager.IsServer ? "Server" : "Cliente"
+~~~
+es lo mismo que:
+~~~C#
+var mode;
+if (m_Network.IsHost)
+{
+    mode = "host";
+}
+else if (m_NetworkManager.IsServer)
+{
+    mode = "Server";
+}
+else
+{
+    mode = "Cliente";
+}
+~~~
+
 ## Classes and Namespaces
 - Encapsulated code. What the code can see, change or be changed by
 
@@ -68,6 +90,15 @@ Invoke("MethodName", delayInSeconds);
   - Rect transfrom tiene puntos de anclaje que es el lugar del UI donde establecemos nuestro 0,0 para este componente
 ### 3. Textos
 - Pues eso, textos. Qué te esperabas poner aquí, listo.
+- Los scripts que usen textos como variables necesitan su propia libreria:
+~~~C#
+using TMPro;
+public class EjemploTexto : Monobehaviour
+{
+    TMP_Text ejemploTexto;
+    int score = 0;
+}
+~~~
 - Posicionamiento, tamaño y diferentes opciones de formateado
 # Mecanicas
 
@@ -209,11 +240,10 @@ public class MarioMovement : MonoBehaviour
 ~~~
 
 ## Colisiones:
+### 1. Classic Collider:
 - Tipos: Box, Sphere, Capsule
 - OnCollisionEnter, OnTriggerEnter
 - Filtros con máscaras
-- IsTrigger para reacciones
-![alt text](image.png)
 ~~~ C#
 // Collision y comprobacion de componente
 private void OnCollisionEnter (Collision other)
@@ -221,6 +251,30 @@ Object object = other.collider.GetComponent<Object>();
 if(object!=null){
     GameManager.instance.AddPoints(object.points)
 }
+~~~
+
+### 2. Triggers
+- Interaccionan sin bloquear movimiento
+~~~ C#
+
+private void OnTriggerEnter (Collider other)
+Object object = other.collider.GetComponent<Object>();
+if(object!=null){
+    GameManager.instance.AddPoints(object.points)
+}
+~~~
+
+### 3. Interacciones entre rigidbody y trigger
+![alt text](image.png)
+
+### 4. Particulas
+- Sistemas de particulas
+  ~~~ C#
+
+    void OnParticleCollision(GameObject other) {
+        Rigidbody body = other.GetComponent<Rigidbody>();
+    
+    }
 ~~~
 
 ## Cámara:
@@ -237,6 +291,7 @@ other.gameObject.tag == "Player";
 ~~~
 
 ## Audio
+### 1. Reproduccion de clip por script
 - Necesitamos una fuente (Audio Source) y un receptor (Audio Listener)
 - Reproducir audio por codigo. AudioSource es el componente de Unity y AudioClip el propio archivo a reproducir 
 ~~~C#
@@ -244,7 +299,26 @@ other.gameObject.tag == "Player";
 AudioSource audiosource;
 audioSource.PlayOneShot(audioFile);
 ~~~
+### 2. Lineas de dialogo
+- Ejemplo de lineas de dialogo
+~~~C#
+using TMPro;
+using UnityEngine;
+public class LineasDialogo : MonoBehaviour
+{
+    [SerializeField] string[] lineasTexto; //Aqui escribimos las lineas que queramos como elementos diferentes.
+    //Lo podemos hacer desde el inspector
+    [SerializeField] TMP_Text texto;
 
+    int lineaActual = 0;
+
+    void SiguienteLinea()
+    {
+        lineaActual++;
+        texto.text = lineasTexto[lineaActual];
+    } 
+}
+~~~
 ## Animator
 - Ventana Animation - Con FileAnimation (.anim) ya creado, seleccionamos los sprites que necesitemos y los vamos colocando en la timeline para hacer la animacion que necesitemos.
 1. Creamos un Animator Controller y se lo asignamos al COMP Animator del objeto
@@ -334,7 +408,7 @@ if (Input.GetButtonDown("Interaction"))
 # Design Tips
  - Design "moments" and then expand them into a level. 
 
-# Unity Moduls
+# Unity Modules
 ## Terrain
 - Añadir elemento > Terrain
 - Tiene una elementa de terreo con herramientas de esculpido, modificacion etc. Por ahora parece mas versatil el de blender a falta de tener en cuenta como realizar la importacion
@@ -342,7 +416,12 @@ if (Input.GetButtonDown("Interaction"))
 ## MasterLine
 - Basicamente un timeline gigante para la escena.
 - Funciona igual que animacion en 2D u otras timelines
+- Podemos añadir objetos en la timeline directamente, hacer agrupaciones y gestionarlas de forma independiente.
+- Hay un gestor de señales que permite la implementacion de métodos en la propia masterline
 
+## LOD Group
+- Son diferentes tipos de modelos para un mismo objeto que se renderizan dependiendo de la distancia de la cámara respecto de estos
+- Ayudan a reducir drasticamente la carga grafica manteniendo la fidelidad de los objetos al acercarse
 
  
 

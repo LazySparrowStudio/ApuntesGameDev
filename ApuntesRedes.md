@@ -31,10 +31,83 @@
 - **Serializar** – 🔄 Convertir datos en un formato estándar para almacenarlos o transmitirlos fácilmente.
 - **Parsear** – 📖 Verificar que una estructura de datos esté bien escrita y luego deserializarla para su procesamiento.
 
+### 🔑 Autoridad
+#### 🧠 Diferencias entre Server, Client, Owner y Host en Unity (Netcode for GameObjects)
+
+Cuando trabajas con Netcode for GameObjects en Unity, es fundamental entender los distintos roles de red que puede tener una instancia del juego o un objeto. Aquí se explican claramente:
+
+---
+
+#### ✅ **Server**
+- Controla el estado del juego y lo sincroniza hacia los clientes.
+- Tiene autoridad sobre todos los objetos de red.
+- Ejecuta todos los `ServerRpc`.
+- Puede o no tener un jugador asociado.
+- Solo hay uno por partida.
+
+```csharp
+if (IsServer) { /* código exclusivo del servidor */ }
+```
+
+---
+
+#### ✅ **Client**
+- Se conecta al servidor para recibir el estado del juego y enviar acciones.
+- Ejecuta los `ClientRpc` recibidos desde el servidor.
+- Puede ser dueño de objetos, pero no tiene autoridad total.
+- Puede haber múltiples clientes.
+
+```csharp
+if (IsClient) { /* código que corre en clientes */ }
+```
+
+---
+
+#### ✅ **Owner**
+- Es el cliente **dueño de un objeto específico**.
+- Solo el owner puede modificar variables con permisos restringidos y enviar ciertos RPCs.
+- Cada `NetworkObject` tiene un único owner.
+- Muy usado para jugadores, cámaras, inventarios, etc.
+
+```csharp
+if (IsOwner) { /* este cliente es el dueño de este objeto */ }
+```
+
+---
+
+#### ✅ **Host**
+- Es un caso especial: **actúa como servidor y cliente al mismo tiempo**.
+- Ideal para pruebas o partidas locales.
+- Ejecuta tanto `IsServer` como `IsClient`.
+- Normalmente también es `IsOwner` de su propio objeto.
+
+```csharp
+if (IsHost) { /* código para cuando se es host */ }
+```
+
+---
+
+#### 🎯 Ejemplo práctico
+
+En una partida con 3 jugadores:
+- Uno es el **Host** (servidor + jugador).
+- Los otros dos son **Clients** conectados.
+- Cada jugador es el **Owner** de su personaje.
+
+---
+#### 📊 Tabla comparativa de roles
+
+| Rol   | ¿Ejecuta código? | ¿Tiene autoridad global? | ¿Puede ser dueño (`IsOwner`)? | ¿Usa `ServerRpc`? | ¿Usa `ClientRpc`? |
+|-------|------------------|---------------------------|-------------------------------|--------------------|--------------------|
+| Server | Sí               | ✅ Sí                     | ❌ No necesariamente           | ✅ Sí              | ✅ Sí              |
+| Client | Sí               | ❌ No                     | ✅ Sí                          | ❌ No              | ✅ Sí              |
+| Owner  | Solo sobre su objeto | ❌ No               | ✅ Sí                          | ✅ (limitado)      | ✅ (limitado)      |
+| Host   | Sí (Server + Client) | ✅ Sí                 | ✅ Sí                          | ✅ Sí              | ✅ Sí              |
 
   
 ##  📘 Tema 2 Multiplayer Development -  [Unity Manual](https://docs-multiplayer.unity3d.com/netcode/current/about/)
 
+### 1. Resumen general
 #### 🔧 1. Modelo de Red (Networking Model)
 
 Unity permite dos modelos principales:
@@ -103,6 +176,63 @@ Define quién controla los datos del juego:
 - Seguridad contra trampas o exploits.
 
 
+#### 8. Conceptos en clase
+- NetworkBehaviour es una clase que hereda de Monobehaviour
+  
+### 2. NetworkBehaviour
+#### Principales cualidades de `NetworkBehaviour` en Unity
+
+`NetworkBehaviour` es una clase base fundamental en Unity cuando estás trabajando con **Netcode for GameObjects (NGO)**, la solución oficial de Unity para juegos multijugador. Heredar de `NetworkBehaviour` permite que un objeto sincronice su estado en la red.
+
+---
+
+#### ✅ Principales cualidades de `NetworkBehaviour`:
+
+1. **Sincronización de variables (`NetworkVariable`)**  
+   Permite declarar variables que se sincronizan automáticamente entre el servidor y los clientes.  
+   ```csharp
+   public NetworkVariable<int> health = new NetworkVariable<int>(100);
+   ```
+
+2. **Detección del contexto de ejecución**  
+   Puedes saber si el script se está ejecutando en el servidor, cliente o dueño del objeto:
+   - `IsServer`
+   - `IsClient`
+   - `IsOwner`
+   - `IsHost`
+
+3. **RPCs (Remote Procedure Calls)**  
+   Permite definir funciones que se ejecutan a través de la red.
+   - `ServerRpc`: Llamada del cliente al servidor.
+   - `ClientRpc`: Llamada del servidor a los clientes.
+   ```csharp
+   [ServerRpc]
+   void DoSomethingServerRpc() { }
+
+   [ClientRpc]
+   void NotifyClientsClientRpc() { }
+   ```
+
+4. **Identidad de red (`NetworkObject`)**  
+   Todo `NetworkBehaviour` está vinculado a un `NetworkObject`, que lo identifica en la red.
+
+5. **Propiedad de objetos (Ownership)**  
+   Puedes transferir o comprobar la propiedad de un objeto de red, útil para cosas como vehículos o personajes controlables.
+   ```csharp
+   NetworkObject.ChangeOwnership(ulong newOwnerClientId);
+   ```
+
+6. **Eventos de ciclo de vida de red**  
+   Métodos que se ejecutan en momentos clave:
+   - `OnNetworkSpawn()`: Cuando el objeto aparece en la red.
+   - `OnNetworkDespawn()`: Cuando se destruye o desconecta.
+   - `OnGainedOwnership()`: Cuando un cliente gana la propiedad del objeto.
+
+7. **Seguridad y control**  
+   Puedes controlar el acceso a RPCs y variables según el rol del usuario (cliente/servidor).
+
+8. **Escalabilidad**  
+   Puedes sincronizar estados simples o estructuras más complejas como listas, structs y más (con algunas limitaciones y personalizaciones).
 
 ## Tipos de archivos extraidos de API
 ### CSV 
