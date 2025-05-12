@@ -106,6 +106,8 @@ public class EjemploTexto : Monobehaviour
 - Rellenamos el Empty con el numero de imagenes que querramos
   ![alt text](image-2.png)
 - Asegurarnos que en el componente los hijos se expandan y se realice un control del alto y ancho
+
+- Gestionamos el color"a"miento de las barritas by script
 # Mecanicas
 
 ## Movimiento:
