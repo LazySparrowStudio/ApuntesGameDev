@@ -100,6 +100,12 @@ public class EjemploTexto : Monobehaviour
 }
 ~~~
 - Posicionamiento, tamaño y diferentes opciones de formateado
+
+### 4. Barrita improvisada
+- Hacemos un empty y le añadimos un **Horizontal Layout Group**
+- Rellenamos el Empty con el numero de imagenes que querramos
+  ![alt text](image-2.png)
+- Asegurarnos que en el componente los hijos se expandan y se realice un control del alto y ancho
 # Mecanicas
 
 ## Movimiento:
