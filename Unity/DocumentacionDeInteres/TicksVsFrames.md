@@ -84,3 +84,14 @@ Using `Time.deltaTime` **does not convert frames to ticks**, but:
 void Update() {
     transform.position += Vector3.forward * speed * Time.deltaTime;
 }
+```
+
+## ✅ Summary (Unity vs Unreal Engine)
+
+| Concept       | Description                             | Unity Equivalent                 | Unreal Engine Equivalent                                         |
+|---------------|-----------------------------------------|----------------------------------|------------------------------------------------------------------|
+| **Ticks**     | Fixed-rate game logic updates           | `FixedUpdate()`                  | `Tick()` with fixed timestep (via `UWorld::SetFixedDeltaTime`)  |
+| **Frames**    | Variable-rate visual updates            | `Update()` / `LateUpdate()`      | `Tick()` (default behavior, runs every frame)                   |
+| **VSync**     | Syncs frames with monitor refresh rate  | Affects rendering in `Update()`  | Affects rendering pipeline (configurable in Project Settings)   |
+| **deltaTime** | Time delta for smoothing updates        | `Time.deltaTime`                 | `DeltaSeconds` parameter in `Tick()`                            |
+
