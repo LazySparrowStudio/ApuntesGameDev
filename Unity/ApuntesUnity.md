@@ -106,8 +106,11 @@ public class EjemploTexto : Monobehaviour
 - Rellenamos el Empty con el numero de imagenes que querramos
 ![alt text](Imagenes/2_UIClase.png)
 - Asegurarnos que en el componente los hijos se expandan y se realice un control del alto y ancho
-
 - Gestionamos el color"a"miento de las barritas by script
+### 5. Scroll bar
+  1. UI > ScrollView
+  2. Añadimos en Content los objetos que queramos que esten dentro. Lo que coloquemos tiene que tener un Layour Group
+  3. Para limitar el contenido que se vea. En el objeto Viewport le añadimos un componente Rect Mask 2D
 # Mecanicas
 
 ## Movimiento:
