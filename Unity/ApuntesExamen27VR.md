@@ -10,7 +10,7 @@ void Update(){
 
 if(groundedPlayer) {
             //"Vertical" hace referencia a las Input Actions predefinidas por Unity.
-            Input.GetAxis("Vertical");
+            Input.GetAxis("Vertical"));
             //Obtiene la DIRECCION NORMALIZADA del movimiento. Esta determinado para que sea en referencia con la camara que tiene puesta. Si sustituimos el cameraTransform.forward por transform.position.forward se mueve hacia delante, pero el movimiento de la camara no define el del personaje.
             Vector3 move = cameraTransform.forward *  Input.GetAxis("Vertical") + cameraTransform.right * Input.GetAxis("Horizontal");
             move.y = 0;
@@ -40,7 +40,6 @@ if(groundedPlayer) {
                 //Lo explicado de antes pero ahora con Saltar.
                 SetState(State.Jump);
             }
-}
 ~~~
 
 
@@ -82,14 +81,15 @@ De esta forma definimos los states en un método:
     }
 ~~~
 
-Y luego simplemente si nos movemos, actualizamos el State:
+Y luego simplemente si nos movemos, en la parte del código donde se determina el movimiento, actualizamos el State:
 ~~~C#
 if(meMuevo){
-animator.SetTrigger("run")
+SetState(State.Run);
 }
 ~~~
 
-# MO Fuerza💿 (movimiento del menhir)
+Hay que acordarse de que los SetTrigger("") lo que hacen es activar una variable del Animator, por lo que hay que configurar previamente en el Animator del objeto esas variables con las condiciones de entrada y salida
+# MO Fuerza💿 (movimiento del menhir) ✔️
 ~~~C#
 
     void FixedUpdate()  {
@@ -105,7 +105,7 @@ animator.SetTrigger("run")
     //mira si tiene un menhir delante
     private Pushable SearchForPushable() {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position + Vector3.up, transform.forward, out             hit, 0.5f, ~0, QueryTriggerInteraction.Ignore)) {
+        if(Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 0.5f, ~0, QueryTriggerInteraction.Ignore)) {
         //si lo es recoge su script
             if(hit.collider.gameObject.CompareTag("Pushable")) {
                 return hit.collider.GetComponent<Pushable>();
@@ -114,6 +114,9 @@ animator.SetTrigger("run")
 
         return null;
     }
+    //esto en el Script del menhir
+    public List<Vector3>[] checkpointsDirections;
+    public Transform[] checkpoints;
     
         public void Push(Vector3 displacement) {
         //Por si acaso ponemos la componente vertical a 0
@@ -134,20 +137,63 @@ Fasilito. Exactamente igual que en 2D pero más facil porque no hay que añadirl
             SetState(State.Run);
             return;
         }
-    }
 ~~~
 
-# Movimiento de barco
+
 # Cámara de entorno ✔️
 1. Añadimos una cámara Cinemachine. Si no tenemos la opción disponible hay que installar el paquete correspondiente en el Package Manager
 2. Click Derecho sobre la Jerarquía, añadimos la Cinemachine que nos toque.
 3. En líneas generales, lo único que queremos añadir siempre en el componente de la cámara es el Follow, y el Look At. Son los Transform que dirigen el posicionamiento y movimiento de la cámara. Dependiendo del tipo que sea no tiene por qué tener los 2
-# Torreta de cañones
-# Disparo de cañones (Seguimiento de cámara con Delegate)
-# Flotacion y balanceo del barco
-# Impacto de una bomba
-# NOTAS
-## GranjeroSalteador:
+# Interacción con objetos (recoger caja) ✔️
+En el script del personaje (o lo que vaya a interactuar) declaramos una variable en la que vamos a recoger el recogible:
+~~~C#
+private GameObject pickableObject;
+~~~
+
+Luego configuramos que cuando se pulse el botón correspondiente, pase algo (en el update):
+~~~C#
+private void Update()
+{             if(Input.GetButtonDown("Interaction")) {
+                if(pickableObject == null)                 {
+                    PickObject();
+                } else {
+                    ReleaseObject();
+                }
+            }
+}
+~~~
+Como aclaración, "Interaction" es una acción del mapa de InputActions default de Unity.
+
+Y aqui tenemos el PickObject();
+~~~C#
+    private void PickObject(){
+        
+        pickableObject = SearchForPickable(new Vector3(0f, 0.7f, 0.2f));
+        if(pickableObject == null) {
+            pickableObject = SearchForPickable(new Vector3(0f, 0.35f, 0.2f));
+        }
+
+        if(pickableObject != null) {
+            Debug.Log("Interaction pulsado, hai un objeto pickable");
+            pickableObject.transform.parent = transform;
+            pickableObject.transform.localPosition = new Vector3(0f, 0.8f, 0.4f);
+            pickableObject.transform.localRotation = Quaternion.identity;
+            pickableObject.GetComponent<Rigidbody>().isKinematic = true;
+        }
+
+    }
+~~~
+Y el ReleaseObject():
+~~~C#
+    private void ReleaseObject() {
+        pickableObject.transform.parent = null;
+        pickableObject.GetComponent<Rigidbody>().isKinematic = false;
+        pickableObject = null;
+    }
+~~~
+
+# NOTAS (Y apartados de ejercicios) ✔️
+## Spawneo de Obstaculos(GranjeroSalteado):
 - Se generan las Barreras y dentro de las mismas tienen el siguiente Script:
 ~~~C#
 

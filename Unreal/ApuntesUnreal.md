@@ -48,3 +48,6 @@
 # 7 Blueprints
 1. Comprobar funcionamiento de nodos: **Select Debug mode** Arriba a la derecha de la top bar. Seleccionamos el objeto cuyos nodos queremos debugear.
 2. 
+
+# 8 Classes
+1. 
